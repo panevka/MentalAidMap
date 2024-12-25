@@ -1,13 +1,9 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Map from "./components/Map.tsx";
+import { MainPage } from "./components/MainPage.tsx";
 
 export default function App() {
   return (
-    <div className="App">
-      <Map />
+    <div className="App w-full h-full">
+      <MainPage />
     </div>
   );
 }
