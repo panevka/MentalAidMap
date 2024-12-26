@@ -14,7 +14,7 @@ export const TopBar = ({ }: Props) => {
       <div className="flex flex-row justify-between h-full w-full">
         <div className="flex flex-row items-center p-2">
           <img className="h-full m-3" src={logo} alt="logo" />
-          <h1 className="scroll-m-20 text-xl tracking-tight lg:text-3xl">
+          <h1 className="scroll-m-20 text-2xl tracking-tight lg:text-3xl">
             przedsiebie.pl
           </h1>
         </div>
