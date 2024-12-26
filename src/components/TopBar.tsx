@@ -16,24 +16,9 @@ export const TopBar = ({ }: Props) => {
           </h1>
         </div>
 
-
-        <nav className="flex-1 justify-center items-center hidden">
-          <ul className="flex flex-row w-full justify-around">
-            <li> Infolinie wsparcia </li>
-            <li> Mapa placówek NFZ</li>
-            <li> Mapa aptek </li>
-          </ul>
-        </nav>
-
-        <div className={`h-svh w-screen bg-blue-100 opacity-50 inset-0 z-40 fixed flex duration-700 ${isSideBarOpen ? "translate-x-0" : "translate-x-full"}`}>
-          <div className="flex flex-col p-8 items-center justify-start">
-            <nav className="h-1/4 w-full">
-              <ul className="flex flex-col w-full h-full justify-between">
-                <li> Infolinie wsparcia </li>
-                <li> Mapa placówek NFZ</li>
-                <li> Mapa aptek </li>
-              </ul>
-            </nav>
+        <div className={`h-svh w-screen bg-white inset-0 z-40 p-8 fixed flex duration-700 ${isSideBarOpen ? "translate-x-0" : "translate-x-full"}`}>
+          <div className="flex flex-col p-8 items-center justify-start w-full">
+            <Navigation ulClassName="flex flex-col w-full h-full justify-between items-center" navClassName="h-1/4 w-full" />
           </div>
         </div>
 
