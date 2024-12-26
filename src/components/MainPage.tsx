@@ -21,7 +21,7 @@ export const MainPage = ({ }: Props) => {
         <div className="rounded-3xl h-3/4 w-4/5 bg-[rgb(255,255,255,0.70)] backdrop-blur-sm shadow-lg p-8">
           <article className="opacity-100">
 
-            <h1 className="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-5xl">
+            <h1 className="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-3xl">
               Przed Siebie! - platforma pomocowa dla osób w kryzysie
             </h1>
 
