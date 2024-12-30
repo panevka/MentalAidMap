@@ -12,6 +12,7 @@ export default {
       colors: {},
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif']
       }
     },
   },
