@@ -14,7 +14,7 @@ const ImageStyles: CSSProperties = {
 type Props = {};
 export const MainPage = ({ }: Props) => {
   return (
-    <div className="flex flex-col min-h-svh h-svh w-screen" style={ImageStyles}>
+    <div className="flex flex-col min-h-svh h-svh w-screen bg-[#F7F4FB]">
 
       <TopBar />
       <main className="flex flex-col flex-1 items-center justify-center">
