@@ -14,9 +14,10 @@ type NavProps = {
 
 const defaultItems: NavItem[] = [
 
-  { label: "Infolinie wsparcia", href: "/infolinie" },
-  { label: "Mapa placówek NFZ", href: "/mapa_placowek" },
-  { label: "Mapa aptek", href: "/mapa_aptek" }
+  { label: "Strona główna", href: "" },
+  { label: "Mapa placówek", href: "" },
+  { label: "Baza wsparcia", href: "" },
+  { label: "Kontakt", href: "" }
 ]
 
 export const Navigation: React.FC<NavProps> = ({
