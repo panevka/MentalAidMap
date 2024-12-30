@@ -14,7 +14,7 @@ export const TopBar = ({ }: Props) => {
     <header className="flex bg-[#2B3A67] h-16 p-2 shadow-slate-400 shadow-lg rounded-b-lg">
       <div className="flex flex-row justify-between h-full w-full">
         <div className="flex flex-row items-center p-2">
-          <h1 className="scroll-m-20 text-[#F16A70] font-montserrat tracking-tight lg:text-4xl">
+          <h1 className="scroll-m-20 text-[#F16A70] text-2xl font-montserrat tracking-tight lg:text-4xl">
             przedsiebie.pl
           </h1>
           <img className="h-full" src={logo} alt="logo" />
@@ -32,7 +32,7 @@ export const TopBar = ({ }: Props) => {
         </div>
 
         <button onClick={() => setIsSiderBarOpen(true)} className={`h-full flex items-center justify-center duration-150 lg:hidden`}>
-          <HamburgerMenuIcon strokeWidth={2.2} IconClassName="size-14" />
+          <HamburgerMenuIcon strokeWidth={2.2} strokeColor="#ffffff" IconClassName="size-14" />
         </button>
 
       </div>
