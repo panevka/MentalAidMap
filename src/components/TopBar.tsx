@@ -1,4 +1,5 @@
-import { useState } from "react"; import logo from "../assets/logo.svg";
+import { useState } from "react";
+import logo from "../assets/logo-favicon.svg";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu";
 import { Navigation } from "./Navigation";
 import { HamburgerMenuIcon } from "./HamburgerMenuIcon";
@@ -10,16 +11,16 @@ export const TopBar = ({ }: Props) => {
 
 
   return (
-    <header className="flex bg-[rgb(255,255,255)] h-16 p-2 shadow-slate-400 shadow-lg rounded-b-lg">
+    <header className="flex bg-[#2B3A67] h-16 p-2 shadow-slate-400 shadow-lg rounded-b-lg">
       <div className="flex flex-row justify-between h-full w-full">
         <div className="flex flex-row items-center p-2">
-          <img className="h-full m-3" src={logo} alt="logo" />
-          <h1 className="scroll-m-20 text-2xl tracking-tight lg:text-3xl">
+          <h1 className="scroll-m-20 text-[#F16A70] font-montserrat tracking-tight lg:text-4xl">
             przedsiebie.pl
           </h1>
+          <img className="h-full" src={logo} alt="logo" />
         </div>
 
-        <Navigation navClassName="hidden lg:flex w-full" ulClassName="flex w-full flex-row justify-around items-center" />
+        <Navigation navClassName="hidden lg:flex w-full text-[#FAF9F6]" ulClassName="text-base font-medium uppercase font-inter font-16 flex w-full flex-row justify-around items-center" />
 
         <div className={`h-svh w-screen bg-white inset-0 z-40 p-8 fixed flex duration-700 md:hidden ${isSideBarOpen ? "translate-x-0" : "translate-x-full"}`}>
           <div className="flex flex-col p-8 items-center justify-between h-3/5 w-full">
