@@ -10,6 +10,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {},
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
