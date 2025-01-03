@@ -4,6 +4,7 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Navigation } from "./Navigation";
 import { HamburgerMenuIcon } from "./HamburgerMenuIcon";
 import { CrossIcon } from "./CrossIcon";
+import { Logo } from "./Logo";
 
 type Props = {};
 export const TopBar = ({ }: Props) => {
@@ -14,10 +15,7 @@ export const TopBar = ({ }: Props) => {
     <header className="flex bg-[#2B3A67] h-16 md:h-20 p-2 justify-center">
       <div className="flex flex-row justify-between h-full w-full">
         <div className="flex flex-row items-center md:mx-4">
-          <h1 className="scroll-m-20 text-[#F16A70] text-2xl font-montserrat tracking-tight lg:text-4xl">
-            przedsiebie.pl
-          </h1>
-          <img className="lg:h-full h-1/2 w-auto" src={logo} alt="logo" />
+          <Logo />
         </div>
 
         <Navigation navClassName="hidden md:flex lg:w-3/5 md:mx-5" ulClassName="text-[#FAF9F6] md:text-sm md:text-center lg:text-base md:font-medium uppercase font-inter flex w-full flex-row justify-around items-center" liClassName="md:mx-4" />
