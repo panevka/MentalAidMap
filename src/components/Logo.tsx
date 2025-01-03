@@ -2,14 +2,14 @@ import React from 'react'
 import logo from "../assets/logo-favicon.svg"
 
 interface LogoProps {
-	size?: 'xl' | 'xs' | '4xl' | 'lg';
+	className?: string
 	text?: boolean;
 	icon?: boolean;
 	tag: keyof JSX.IntrinsicElements
 }
 
 export const Logo = ({
-	size = "xl",
+	className,
 	text = true,
 	icon = true,
 	tag
@@ -18,7 +18,7 @@ export const Logo = ({
 
 	return (
 		<>
-			{text && (<Tag className={`scroll-m-20 text-[#F16A70] font-montserrat tracking-tight text-${size}`} >
+			{text && (<Tag className={`scroll-m-20 text-[#F16A70] font-montserrat tracking-tight text-3xl ${className}`} >
 				przedsiebie.pl
 				{icon && (<img className={"h-[1em] w-auto inline-block"} src={logo} alt="logo" />)}
 			</Tag>)
