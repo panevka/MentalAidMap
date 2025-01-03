@@ -12,7 +12,7 @@ export const TopBar = ({ }: Props) => {
 
 
   return (
-    <header className="flex bg-[#2B3A67] h-16 md:h-20 p-2 justify-center">
+    <header className="flex bg-[#2B3A67] h-16 md:h-20 p-2 justify-center md:py-10">
       <div className="flex flex-row justify-between h-full w-full">
         <div className="flex flex-row items-center md:mx-4">
           <Logo tag="h1" />

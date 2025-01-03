@@ -11,15 +11,17 @@ export const MainPage = ({ }: Props) => {
     <div className="flex flex-col min-h-svh h-svh w-screen">
 
       <TopBar />
-      <main className="flex flex-col lg:flex-row flex-1 justify-center bg-[#F7F4FB]">
+      <main className="flex flex-col flex-1 justify-center bg-[#F7F4FB] xl:flex-row">
         <div className="flex flex-1 py-5 px-5">
           {/* <div className="rounded-3xl h-3/4 w-4/5 bg-[rgb(255,255,255,0.70)] backdrop-blur-sm shadow-lg p-8"> */}
-          <article className="flex flex-col">
+          <article className="flex flex-col lg:py-5 lg:px-10 lg:justify-around">
 
-            <h1 className="scroll-m-20 font-poppins text-4xl text-[#2B3A67] my-2 font-black tracking-tight lg:text-3xl text-center">
-              Przed Siebie! - Twój przewodnik do szybszej pomocy
+            <h1 className="scroll-m-20 font-poppins text-4xl text-[#2B3A67] my-2 font-black tracking-tight text-center sm:text-6xl sm:my-10 lg:text-6xl lg:leading-snug">
+              Przed Siebie!
+              <br />
+              Twój przewodnik do szybszej pomocy
             </h1>
-            <span className="leading-7 text-[#495057] font-normal tracking-wider text-xs my-5">
+            <span className="leading-7 text-[#495057] font-normal tracking-wider text-xs my-5 sm:text-base sm:leading-10 md:leading-10 md:text-xl">
               Problemy ze zdrowiem psychicznym nie powinny czekać!
               <div>
                 Nasza strona pomoże Ci szybko znaleźć wsparcie:
@@ -52,16 +54,17 @@ export const MainPage = ({ }: Props) => {
           </article>
           {/* </div> */}
         </div>
-        <div className="flex flex-1 flex-col p-5">
+        <div className="flex flex-1 flex-col p-5 items-center lg:justify-center">
 
 
-          <div className="h-auto w-full">
+          <div className="h-auto w-full max-w-full lg:w-3/4">
+
             <SvgMap />
           </div>
 
-          <div className="flex w-full max-w-sm items-center space-x-2">
-            <Input type="search" placeholder="Miejscowość" />
-            <Button type="submit" className="bg-[#2B3A67]">Szukaj</Button>
+          <div className="flex flex-row w-full max-w-full items-center space-x-2 sm:h-12 md:w-4/5 lg:text-3xl lg:w-3/4 xl:h-16">
+            <Input type="search" className="w-4/5 h-full md:text-lg lg:text-xl" placeholder="Miejscowość" />
+            <Button type="submit" className="bg-[#2B3A67] h-full w-1/5 md:text-lg lg:text-xl">Szukaj</Button>
           </div>
         </div>
       </main>
