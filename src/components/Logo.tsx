@@ -18,7 +18,7 @@ export const Logo = ({
 
 	return (
 		<>
-			{text && (<Tag className={`scroll-m-20 text-[#F16A70] font-montserrat tracking-tight text-3xl ${className}`} >
+			{text && (<Tag className={`scroll-m-20 text-[#F16A70] font-montserrat tracking-tight text-3xl text-nowrap ${className}`} >
 				przedsiebie.pl
 				{icon && (<img className={"h-[1em] w-auto inline-block"} src={logo} alt="logo" />)}
 			</Tag>)
