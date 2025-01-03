@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button"
 import GithubIcon from "../assets/github-icon.svg"
 import SvgMap from "./SvgMap/SvgMap";
+import { Logo } from "./Logo";
 type Props = {};
 export const MainPage = ({ }: Props) => {
   return (
@@ -65,14 +66,16 @@ export const MainPage = ({ }: Props) => {
         </div>
       </main>
 
-      <footer className="bg-[#F16A70] text-white p-2">
+      {/*<footer className="bg-[#ffbdc2] text-[#14191e] p-5 flex flex-col justify-center items-center">
+        <Logo size="xs" />
         <ul>
           <li className="inline-block">
-            <img src={GithubIcon} className="h-[1em] w-auto inline-block align-middle"></img> <a className="align-middle" href="https://github.com/panevka/MentalAidMap">Project Github Page</a>
+            <img src={GithubIcon} className="h-[1em] w-auto inline-block align-middle"></img>
+            <a className="align-middle" href="https://github.com/panevka/MentalAidMap">Project Github Page</a>
           </li>
         </ul>
 
-      </footer>
+      </footer>*/}
     </div >
   );
 };
