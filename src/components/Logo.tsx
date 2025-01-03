@@ -5,19 +5,23 @@ interface LogoProps {
 	size?: 'xl' | 'xs' | '4xl' | 'lg';
 	text?: boolean;
 	icon?: boolean;
+	tag: keyof JSX.IntrinsicElements
 }
 
 export const Logo = ({
 	size = "xl",
 	text = true,
-	icon = true
+	icon = true,
+	tag
 }: LogoProps) => {
+	const Tag = tag
+
 	return (
 		<>
-			{text && (<p className={`scroll-m-20 text-[#F16A70] font-montserrat tracking-tight text-${size}`} >
+			{text && (<Tag className={`scroll-m-20 text-[#F16A70] font-montserrat tracking-tight text-${size}`} >
 				przedsiebie.pl
 				{icon && (<img className={"h-[1em] w-auto inline-block"} src={logo} alt="logo" />)}
-			</p >)
+			</Tag>)
 			}
 
 		</>
