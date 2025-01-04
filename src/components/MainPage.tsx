@@ -16,12 +16,12 @@ export const MainPage = ({ }: Props) => {
           {/* <div className="rounded-3xl h-3/4 w-4/5 bg-[rgb(255,255,255,0.70)] backdrop-blur-sm shadow-lg p-8"> */}
           <article className="flex flex-col lg:py-5 lg:px-10 lg:justify-around">
 
-            <h1 className="scroll-m-20 font-poppins text-4xl text-[#2B3A67] my-2 font-black tracking-tight text-center sm:text-6xl sm:my-10 lg:text-6xl lg:leading-snug">
+            <h1 className="scroll-m-20 font-poppins text-4xl text-[#2B3A67] my-2 font-black tracking-tight text-center sm:text-6xl sm:my-10 lg:text-6xl lg:leading-snug xl:text-left xl:text-7xl 2xl:text-8xl 2xl:leading-normal">
               Przed Siebie!
               <br />
               Twój przewodnik do szybszej pomocy
             </h1>
-            <span className="leading-7 text-[#495057] font-normal tracking-wider text-xs my-5 sm:text-base sm:leading-10 md:leading-10 md:text-xl">
+            <span className="leading-7 text-[#495057] font-normal tracking-wider text-xs my-5 sm:text-base sm:leading-10 md:leading-10 md:text-xl xl:text-2xl xl:leading-loose">
               Problemy ze zdrowiem psychicznym nie powinny czekać!
               <div>
                 Nasza strona pomoże Ci szybko znaleźć wsparcie:
@@ -29,20 +29,20 @@ export const MainPage = ({ }: Props) => {
                   <li className="inline-block my-1">
 
                     <MapIcon className="text-[#2B3A67] h-[1.3em] w-auto mr-1 inline-block align-middle" aria-hidden="true" />
-                    <span>
+                    <span className="align-middle">
 
                       Mapa placówek - wszystkie placówki w Polsce,
                     </span>
                   </li>
                   <li className="inline-block my-1">
                     <ClockIcon className="text-[#2B3A67] h-[1.3em] w-auto mr-1 inline-block align-middle" aria-hidden="true" />
-                    <span>
+                    <span className="align-middle">
 
                       Aktualne terminy - dostępne wizyty w Twojej okolicy,</span>
                   </li>
                   <li className="inline-block my-1">
                     <GlobeAsiaAustraliaIcon className="text-[#2B3A67] h-[1.3em] w-auto mr-1 inline-block align-middle" aria-hidden="true" />
-                    <span>
+                    <span className="align-middle">
                       Baza wsparcia - pełna lista dostępnych opcji.</span>
                   </li>
                 </ul>
@@ -57,8 +57,7 @@ export const MainPage = ({ }: Props) => {
         <div className="flex flex-1 flex-col p-5 items-center lg:justify-center">
 
 
-          <div className="h-auto w-full max-w-full lg:w-3/4">
-
+          <div className="h-auto w-full max-w-full lg:w-3/4 xl:w-full 2xl:w-10/12">
             <SvgMap />
           </div>
 
