@@ -2,9 +2,7 @@ import { TopBar } from "./TopBar";
 import { MapIcon, GlobeAsiaAustraliaIcon, ClockIcon } from '@heroicons/react/24/solid'
 import { Input } from "./ui/input";
 import { Button } from "./ui/button"
-import GithubIcon from "../assets/github-icon.svg"
 import SvgMap from "./SvgMap/SvgMap";
-import { Logo } from "./Logo";
 type Props = {};
 export const MainPage = ({ }: Props) => {
   return (

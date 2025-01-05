@@ -1,6 +1,4 @@
 import { useState } from "react";
-import logo from "../assets/logo-favicon.svg";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu";
 import { Navigation } from "./Navigation";
 import { HamburgerMenuIcon } from "./HamburgerMenuIcon";
 import { CrossIcon } from "./CrossIcon";
