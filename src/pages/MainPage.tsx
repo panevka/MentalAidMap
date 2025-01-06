@@ -1,8 +1,8 @@
-import { TopBar } from "./TopBar";
+import { TopBar } from "../components/TopBar.tsx"
 import { MapIcon, GlobeAsiaAustraliaIcon, ClockIcon } from '@heroicons/react/24/solid'
-import { Input } from "./ui/input";
-import { Button } from "./ui/button"
-import SvgMap from "./SvgMap/SvgMap";
+import { Input } from "../components/ui/input.tsx"
+import { Button } from "../components/ui/button"
+import SvgMap from "../components/SvgMap/SvgMap.tsx";
 type Props = {};
 export const MainPage = ({ }: Props) => {
   return (
