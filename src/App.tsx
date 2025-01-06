@@ -1,4 +1,4 @@
-import { MainPage } from "./components/MainPage.tsx";
+import { MainPage } from "./pages/MainPage.tsx";
 
 export default function App() {
   return (
