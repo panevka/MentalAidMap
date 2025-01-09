@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import Provider from '../models/Provider';
 import axios from 'axios';
 
-export const getAllProviders = async (req: Request, res: Response) => {
+export const getProviders = async (req: Request, res: Response) => {
 
 	try {
 		interface Query {
