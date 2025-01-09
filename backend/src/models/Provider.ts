@@ -8,12 +8,12 @@ export interface IProvider extends Document {
 	"house-number": { type: String, required: true },
 	commune: { type: String, required: true },
 	"post-code": { type: String, required: true },
-	coordinates: {
-		type: {
-			lat: { type: Number, required: true },
-			lon: { type: Number, required: true },
+	location: {
+		type: { type: String, required: true, enum: ['Point'] },
+		coordinates: {
+			type: [Number],
+			required: true
 		},
-		required: true,
 	},
 }
 
@@ -25,13 +25,14 @@ const ProviderSchema: Schema<IProvider> = new Schema({
 	"house-number": { type: String, required: true },
 	commune: { type: String, required: true },
 	"post-code": { type: String, required: true },
-	coordinates: {
-		type: {
-			lat: { type: Number, required: true },
-			lon: { type: Number, required: true },
+	location: {
+		type: { type: String, required: true, enum: ['Point'] },
+		coordinates: {
+			type: [Number],
+			required: true
 		},
-		required: true,
 	},
 });
 
+ProviderSchema.index({ location: '2dsphere' });
 export default mongoose.model<IProvider>('Provider', ProviderSchema);
