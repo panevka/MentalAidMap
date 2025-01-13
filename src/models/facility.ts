@@ -1,6 +1,6 @@
-export interface Coordinates {
-	lon: number;
-	lat: number;
+interface Location {
+	type: "Point";
+	coordinates: [number, number];
 }
 
 export interface Facility {
@@ -11,5 +11,5 @@ export interface Facility {
 	"post-code": string;
 	"house-number": string;
 	"commune": string;
-	coordinates: Coordinates;
+	location: Location;
 }
