@@ -4,7 +4,7 @@ import { Facility } from "@/models/facility";
 
 export const useSearchFacilities = (params: SearchFacilitiesParams) => {
 	return useQuery({
-		queryKey: ['facilities'],
+		queryKey: ['facilities', params.city],
 		queryFn: async (): Promise<Array<Facility>> => searchFacilities(params),
 		enabled: !!params.city
 	})
