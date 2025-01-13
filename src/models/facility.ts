@@ -4,12 +4,12 @@ interface Location {
 }
 
 export interface Facility {
-	providerId: string;
-	name: string;
+	"provider-code": string;
 	branch: string;
 	city: string;
-	"post-code": string;
+	street: string;
 	"house-number": string;
 	"commune": string;
+	"post-code": string;
 	location: Location;
 }
