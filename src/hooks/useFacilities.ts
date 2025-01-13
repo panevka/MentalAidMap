@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
-import { searchFacilities, SearchFacilitiesParams, Facility } from "@/api/facilitiesApi"
+import { searchFacilities, SearchFacilitiesParams } from "@/api/facilitiesApi"
+import { Facility } from "@/models/facility";
 
 export const useSearchFacilities = (params: SearchFacilitiesParams) => {
 	return useQuery({
