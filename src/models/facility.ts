@@ -17,5 +17,5 @@ export interface Facility {
 export interface SearchFacilitiesParams {
 	city: string;
 	postCode: string;
-	area: number;
+	radius: number;
 }
