@@ -4,19 +4,19 @@ import axios from 'axios';
 
 export const getProviders = async (req: Request, res: Response) => {
 
-	const validateArea = (areaString?: string | null): number => {
-		const area = Number(areaString);
-		return area > 0 ? area : 15;
+	const validateRadius = (radiusString?: string | null): number => {
+		const radius = Number(radiusString);
+		return radius > 0 ? radius : 15;
 	};
 
 	try {
 		interface Query {
 			city?: string;
 			postCode?: string;
-			area?: string;
+			radius?: string;
 		}
 
-		const { city, postCode, area: areaString = "15" } = req.query as Query;
+		const { city, postCode, radius: radiusString = "15" } = req.query as Query;
 
 		if (!city) {
 			const providers = await Provider.find();
@@ -40,7 +40,7 @@ export const getProviders = async (req: Request, res: Response) => {
 		const response = await axios.get(apiUrl, { params })
 		const { lon, lat } = response.data.results[0]
 
-		const area = validateArea(areaString)
+		const radius = validateRadius(radiusString)
 
 		const providers = await Provider.find({
 			location: {
@@ -49,13 +49,13 @@ export const getProviders = async (req: Request, res: Response) => {
 						type: "Point",
 						coordinates: [lon, lat]
 					},
-					$maxDistance: area * 1000
+					$maxDistance: radius * 1000
 				}
 			}
 		})
 
 		if (providers.length === 0) {
-			res.status(404).json({ message: 'No providers found with that username' });
+			res.status(404).json({ message: 'No providers found' });
 			return;
 		}
 
