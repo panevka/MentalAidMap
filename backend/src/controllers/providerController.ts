@@ -4,6 +4,11 @@ import axios from 'axios';
 
 export const getProviders = async (req: Request, res: Response) => {
 
+	const validateArea = (areaString?: string | null): number => {
+		const area = Number(areaString);
+		return area > 0 ? area : 15;
+	};
+
 	try {
 		interface Query {
 			city?: string;
@@ -35,7 +40,8 @@ export const getProviders = async (req: Request, res: Response) => {
 		const response = await axios.get(apiUrl, { params })
 		const { lon, lat } = response.data.results[0]
 
-		const area = Number(areaString) || 15;
+		const area = validateArea(areaString)
+
 		const providers = await Provider.find({
 			location: {
 				$nearSphere: {
