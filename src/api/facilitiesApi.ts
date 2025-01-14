@@ -1,10 +1,6 @@
 import axios from 'axios';
+import { SearchFacilitiesParams } from '@/models/facility';
 const API_URL = 'http://localhost:5000/api/provider';
-
-export interface SearchFacilitiesParams {
-	city: string;
-	area?: number;
-}
 
 export const searchFacilities = async (params: SearchFacilitiesParams) => {
 	try {

@@ -13,3 +13,9 @@ export interface Facility {
 	"post-code": string;
 	location: Location;
 }
+
+export interface SearchFacilitiesParams {
+	city: string;
+	postCode: string;
+	area: number;
+}

@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query"
-import { searchFacilities, SearchFacilitiesParams } from "@/api/facilitiesApi"
+import { searchFacilities } from "@/api/facilitiesApi"
+import { SearchFacilitiesParams } from "@/models/facility";
 import { Facility } from "@/models/facility";
 
 export const useSearchFacilities = (params: SearchFacilitiesParams) => {
 	return useQuery({
-		queryKey: ['facilities', params.city],
+		queryKey: ['facilities', params.city, params.postCode],
 		queryFn: async (): Promise<Array<Facility>> => searchFacilities(params),
-		enabled: !!params.city
+		enabled: !!params.city && !!params.postCode
 	})
 };
