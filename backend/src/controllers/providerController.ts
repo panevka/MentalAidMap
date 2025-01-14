@@ -7,10 +7,11 @@ export const getProviders = async (req: Request, res: Response) => {
 	try {
 		interface Query {
 			city?: string;
+			postCode?: string;
 			area?: string;
 		}
 
-		const { city, area: areaString = "15" } = req.query as Query;
+		const { city, postCode, area: areaString = "15" } = req.query as Query;
 
 		if (!city) {
 			const providers = await Provider.find();
@@ -22,6 +23,7 @@ export const getProviders = async (req: Request, res: Response) => {
 		const apiUrl = 'https://api.geoapify.com/v1/geocode/search'
 		const params = {
 			city: city,
+			postcode: postCode,
 			limit: 1,
 			lang: 'pl',
 			type: 'city',
