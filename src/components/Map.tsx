@@ -1,19 +1,19 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { Facility } from "@/models/facility";
+import { FacilityAddress } from "@/models/facility";
 
 interface Props {
-  facilities?: Array<Facility>;
+  facilities?: Array<FacilityAddress>;
 }
 
-function facilityToMarker(facility: Facility, index: number) {
+function facilityToMarker(facility: FacilityAddress, index: number) {
   const coords = facility.location.coordinates
   if (!coords) return null;
 
   return (
-    <Marker key={`i${index}_f${facility["provider-code"]}`} position={[coords[1], coords[0]]}>
+    <Marker key={`i${index}_f${facility.code}`} position={[coords[1], coords[0]]}>
       <Popup>
         <p>{facility.city},</p>
-        <p>{facility.street} {facility["house-number"]}</p>
+        <p>{facility.street} {facility.building_number}</p>
       </Popup>
     </Marker>
   )

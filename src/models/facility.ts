@@ -4,13 +4,23 @@ interface Location {
 }
 
 export interface Facility {
-	"provider-code": string;
-	branch: string;
+	code: string;
+	nip: string;
+	regon: string;
+	registry_number: string;
+	name: string;
+	phone?: string;
+	agreements: string[];
+}
+
+export interface FacilityAddress {
+	code: string;
 	city: string;
 	street: string;
-	"house-number": string;
-	"commune": string;
-	"post-code": string;
+	building_number: string;
+	district: string;
+	post_code: string;
+	voivodeship: string[];
 	location: Location;
 }
 
