@@ -19,7 +19,7 @@ const ProviderSchema: Schema<IProvider> = new Schema({
 	name: { type: String, required: true },
 	phone: { type: String, required: true, default: null },
 	agreements: { type: [String], required: true, default: [] },
-});
+}, { collection: "Providers" });
 export const Provider = mongoose.model<IProvider>('Provider', ProviderSchema);
 
 // ProviderAddresses collection entry
@@ -53,7 +53,7 @@ const ProviderAddressSchema: Schema<IProviderAddress> = new Schema({
 	post_code: { type: String, required: true },
 	voivodeship: { type: String, required: true },
 	location: { type: LocationSchema, required: true }
-});
+}, { collection: "ProviderAddresses" });
 export const ProviderAddress = mongoose.model<IProviderAddress>('ProviderAddress', ProviderAddressSchema);
 
 // Agreements collection entry
@@ -77,5 +77,5 @@ const AgreementSchema: Schema<IAgreement> = new Schema({
 	amount: { type: Number, required: true },
 	provider_code: { type: String, required: true },
 	year: { type: Number, required: true },
-});
+}, { collection: "Agreements" });
 export const Agreement = mongoose.model<IAgreement>('Agreement', AgreementSchema);
