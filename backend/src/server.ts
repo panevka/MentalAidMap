@@ -12,7 +12,7 @@ setupCommonMiddleware(app)
 
 // Database connection
 mongoose
-	.connect('mongodb://localhost:27017/GeographicalProviderData', { useNewUrlParser: true, useUnifiedTopology: true } as ConnectOptions)
+	.connect('mongodb://localhost:27017/NHSPolandDB', { useNewUrlParser: true, useUnifiedTopology: true } as ConnectOptions)
 	.then(() => console.log('MongoDB connected'))
 	.catch(err => console.log(err));
 
