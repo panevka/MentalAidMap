@@ -1,6 +1,4 @@
 import express from 'express';
-import cors from 'cors'
-import bodyParser from 'body-parser';
 import mongoose, { ConnectOptions } from 'mongoose';
 import dotenv from 'dotenv'
 import { setupCommonMiddleware } from './middleware/commonMiddleware';
