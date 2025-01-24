@@ -27,6 +27,12 @@ interface Location {
 	type: "Point";
 	coordinates: [number, number];
 }
+
+const LocationSchema = new Schema({
+	type: { type: String, enum: ["Point"], required: true },
+	coordinates: { type: [Number], required: true }
+});
+
 export interface IProviderAddress extends Document {
 	code: { type: string, required: true },
 	city: { type: string, required: true },
@@ -46,7 +52,7 @@ const ProviderAddressSchema: Schema<IProviderAddress> = new Schema({
 	district: { type: String, required: true },
 	post_code: { type: String, required: true },
 	voivodeship: { type: String, required: true },
-	location: Location
+	location: { type: LocationSchema, required: true }
 });
 export const ProviderAddress = mongoose.model<IProviderAddress>('ProviderAddress', ProviderAddressSchema);
 
