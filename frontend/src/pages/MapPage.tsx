@@ -1,14 +1,34 @@
 import Map from "../components/Map"
 import { useSearchFacilities } from "@/hooks/useFacilities"
-import { SearchFacilitiesParams } from "@/models/facility"
+import { Facility, FacilityAddress, SearchFacilitiesParams } from "@/models/facility"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
+
+const List: React.FC<{ facilities: FacilityAddress[] }> = ({ facilities }) => {
+	return (
+		<div className="w-full h-full bg-white" >
+			{
+				facilities?.map((facility, index) => {
+					return (
+						<div key={index}>
+							<p>{facility.city}</p>
+							<p>{facility.street}, {facility.building_number}</p>
+						</div>
+					)
+				})
+			}
+		</div >
+	)
+
+}
+
 
 const MapPage = () => {
 	const [city, setCity] = useState('');
 	const [postCode, setPostCode] = useState('');
 	const [radius, setRadius] = useState(15);
+	const [showFacilityList, setShowFacilityList] = useState<boolean>(false)
 	const [searchQuery, setSearchQuery] = useState<SearchFacilitiesParams>({ city: '', postCode: '', radius: 0 });
 
 	const { data: facilities, isLoading, error } = useSearchFacilities(searchQuery || { city: '', postCode: '' });
@@ -27,9 +47,7 @@ const MapPage = () => {
 						onChange={(e) => setCity(e.target.value)}
 					/>
 					<div className="flex flex-row">
-						<Input type="text"
-							placeholder="Kod pocztowy"
-							onChange={(e) => setPostCode(e.target.value)}
+						<Input type="text" placeholder="Kod pocztowy" onChange={(e) => setPostCode(e.target.value)}
 						/>
 						<Input type="number"
 							placeholder="Odległość"
@@ -40,8 +58,15 @@ const MapPage = () => {
 				<Button type="submit" onClick={handleSearch}>Szukaj</Button>
 			</div>
 
-			<div className="w-full h-full relative">
-				<Map facilities={facilities} />
+			{facilities && showFacilityList ?
+				<List facilities={facilities} />
+				:
+				<div className="w-full h-full relative">
+					<Map facilities={facilities} />
+				</div>
+			}
+			<div className="w-full bg-white">
+				<Button type="button" onClick={() => setShowFacilityList((prevState) => !prevState)}>Przełącz widok</Button>
 			</div>
 		</div>
 	)
