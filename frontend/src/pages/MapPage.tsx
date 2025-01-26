@@ -20,19 +20,23 @@ const MapPage = () => {
 	return (
 		<div className="w-full h-full flex flex-col overflow-visible">
 
-			<div className="bg-white w-full flex flex-row p-3">
-				<Input type="search"
-					placeholder="Znajdź placówki"
-					onChange={(e) => setCity(e.target.value)}
-				/>
-				<Input type="text"
-					placeholder="Kod pocztowy"
-					onChange={(e) => setPostCode(e.target.value)}
-				/>
-				<Input type="number"
-					placeholder="Odległość"
-					onChange={(e) => setRadius(parseInt(e.target.value))}
-				/>
+			<div className="bg-white w-full flex flex-row items-center p-3">
+				<div>
+					<Input type="search"
+						placeholder="Miejscowość"
+						onChange={(e) => setCity(e.target.value)}
+					/>
+					<div className="flex flex-row">
+						<Input type="text"
+							placeholder="Kod pocztowy"
+							onChange={(e) => setPostCode(e.target.value)}
+						/>
+						<Input type="number"
+							placeholder="Odległość"
+							onChange={(e) => setRadius(parseInt(e.target.value))}
+						/>
+					</div>
+				</div>
 				<Button type="submit" onClick={handleSearch}>Szukaj</Button>
 			</div>
 
