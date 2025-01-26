@@ -18,3 +18,11 @@ export const providersQueryValidator = z.object({
 
 	})
 })
+
+export const providersDataQueryValidator = z.object({
+	query: z.object({
+		providerCode: z.string({
+			required_error: "City is required"
+		})
+	})
+})

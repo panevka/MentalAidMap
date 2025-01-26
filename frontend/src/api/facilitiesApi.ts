@@ -11,3 +11,13 @@ export const searchFacilities = async (params: SearchFacilitiesParams) => {
 		throw new Error('Unable to fetch facilities');
 	}
 };
+
+export const searchFacilities = async (params: SearchFacilitiesParams) => {
+	try {
+		const response = await axios.get(`${API_URL}`, { params });
+		return response.data;
+	} catch (error) {
+		console.error('Error fetching facilities:', error);
+		throw new Error('Unable to fetch facilities');
+	}
+};

@@ -54,3 +54,26 @@ export const getProviders = async (req: Request, res: Response) => {
 		return
 	}
 };
+
+
+interface ProviderDataQuery {
+	providerCode?: string;
+}
+export const getProviderData = async (req: Request, res: Response) => {
+
+	try {
+		const { providerCode } = req.query as ProviderDataQuery;
+		const provider = await Provider.find({ code: providerCode })
+		if (provider.length === 0) {
+			res.status(404).json({ message: 'Provider not found' });
+			return;
+		}
+
+		res.status(200).json(provider);
+		return
+	} catch (err) {
+		res.status(500).json({ message: 'Error fetching provider' });
+		console.log(err)
+		return
+	}
+};
