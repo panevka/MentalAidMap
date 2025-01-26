@@ -69,7 +69,7 @@ export const getProviderData = async (req: Request, res: Response) => {
 			return;
 		}
 
-		res.status(200).json(provider);
+		res.status(200).json(provider[0]);
 		return
 	} catch (err) {
 		res.status(500).json({ message: 'Error fetching provider' });
