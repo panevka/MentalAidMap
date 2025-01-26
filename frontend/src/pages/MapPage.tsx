@@ -1,27 +1,33 @@
 import Map from "../components/Map"
-import { useSearchFacilities } from "@/hooks/useFacilities"
-import { Facility, FacilityAddress, SearchFacilitiesParams } from "@/models/facility"
+import { useGetFacility, useSearchFacilities } from "@/hooks/useFacilities"
+import { Facility, FacilityAddress, GetFacilityDataParams, SearchFacilitiesParams } from "@/models/facility"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 
 const List: React.FC<{ facilities: FacilityAddress[] }> = ({ facilities }) => {
-	return (
-		<div className="w-full h-full bg-white" >
-			{
-				facilities?.map((facility, index) => {
-					return (
-						<div key={index}>
-							<p>{facility.city}</p>
-							<p>{facility.street}, {facility.building_number}</p>
-						</div>
-					)
-				})
-			}
-		</div >
-	)
+	const facilityQueries: (Facility | null)[] = facilities.map((facility) => {
+		const query = useGetFacility({ providerCode: facility.code })
+		return query.data ? query.data : null
+	});
 
-}
+	return (
+		<div className="w-full h-full bg-white">
+			{facilities.map((facility, index) => {
+				const facilityQuery = facilityQueries[index];
+				return (
+					<div key={index} className="border border-black">
+						<p>{facilityQuery?.name || "Brak nazwy"}</p>
+						<p>{facilityQuery?.phone || "Brak telefonu"}</p>
+						<p>
+							{facility.city}, {facility.street} {facility.building_number}
+						</p>
+					</div>
+				);
+			})}
+		</div >
+	);
+};
 
 
 const MapPage = () => {
