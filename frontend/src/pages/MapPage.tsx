@@ -12,7 +12,7 @@ const List: React.FC<{ facilities: FacilityAddress[] }> = ({ facilities }) => {
 	});
 
 	return (
-		<div className="w-full h-full bg-white">
+		<div className="w-full h-full bg-white overflow-scroll">
 			{facilities.map((facility, index) => {
 				const facilityQuery = facilityQueries[index];
 				return (
@@ -46,7 +46,7 @@ const MapPage = () => {
 	return (
 		<div className="w-full h-full flex flex-col overflow-visible">
 
-			<div className="bg-white w-full flex flex-row items-center p-3">
+			<div className="bg-white w-full flex flex-row items-center p-3 sticky top-0">
 				<div>
 					<Input type="search"
 						placeholder="Miejscowość"
@@ -71,7 +71,7 @@ const MapPage = () => {
 					<Map facilities={facilities} />
 				</div>
 			}
-			<div className="w-full bg-white">
+			<div className="w-full bg-white sticky bottom-0">
 				<Button type="button" onClick={() => setShowFacilityList((prevState) => !prevState)}>Przełącz widok</Button>
 			</div>
 		</div>
