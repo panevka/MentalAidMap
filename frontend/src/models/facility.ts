@@ -29,3 +29,7 @@ export interface SearchFacilitiesParams {
 	postCode: string;
 	radius: number;
 }
+
+export interface GetFacilityDataParams {
+	providerCode: string;
+}
