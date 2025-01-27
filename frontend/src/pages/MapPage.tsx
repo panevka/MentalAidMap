@@ -1,9 +1,9 @@
 import Map from "../components/Map"
 import { useGetFacility, useSearchFacilities } from "@/hooks/useFacilities"
-import { Facility, FacilityAddress, GetFacilityDataParams, SearchFacilitiesParams } from "@/models/facility"
+import { Facility, FacilityAddress, SearchFacilitiesParams } from "@/models/facility"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 const List: React.FC<{ facilities: FacilityAddress[] }> = ({ facilities }) => {
 	const facilityQueries: (Facility | null)[] = facilities.map((facility) => {
@@ -37,7 +37,7 @@ const MapPage = () => {
 	const [showFacilityList, setShowFacilityList] = useState<boolean>(false)
 	const [searchQuery, setSearchQuery] = useState<SearchFacilitiesParams>({ city: '', postCode: '', radius: 0 });
 
-	const { data: facilities, isLoading, error } = useSearchFacilities(searchQuery || { city: '', postCode: '' });
+	const { data: facilities } = useSearchFacilities(searchQuery || { city: '', postCode: '' });
 
 	const handleSearch = () => {
 		setSearchQuery({ city: city, postCode: postCode, radius: radius })
