@@ -44,7 +44,7 @@ const MapPage = () => {
 	};
 
 	return (
-		<div className="w-full h-full flex flex-col overflow-visible">
+		<div className="w-full h-full flex flex-col overflow-hidden">
 
 			<div className="bg-white w-full flex flex-row items-center p-3 sticky top-0">
 				<div>
