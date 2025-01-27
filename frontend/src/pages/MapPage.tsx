@@ -64,17 +64,20 @@ const MapPage = () => {
 				<Button type="submit" onClick={handleSearch}>Szukaj</Button>
 			</div>
 
-			{facilities && showFacilityList ?
-				<List facilities={facilities} />
-				:
-				<div className="w-full h-full relative">
+
+			<div className="w-full h-full relative">
+				<div className="w-full h-full absolute">
 					<Map facilities={facilities} />
 				</div>
-			}
+				<div className={`h-full w-full absolute bg-white p-8 flex duration-700 ${showFacilityList && facilities ? "translate-y-0" : "translate-y-full"}`}>
+					<List facilities={facilities || []} />
+				</div>
+			</div>
 			<div className="w-full bg-white sticky bottom-0">
 				<Button type="button" onClick={() => setShowFacilityList((prevState) => !prevState)}>Przełącz widok</Button>
 			</div>
 		</div>
+
 	)
 }
 
