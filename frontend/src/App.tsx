@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="App w-full h-full">
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter basename="/MentalAidMap">
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/mapa" element={<MapPage />} />
