@@ -7,12 +7,12 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+const MONGO = process.env.MONGO_URI || "mongodb://localhost:27017/NHSPolandDB"
 setupCommonMiddleware(app)
 
 // Database connection
 mongoose
-	.connect('mongodb://localhost:27017/NHSPolandDB', { useNewUrlParser: true, useUnifiedTopology: true } as ConnectOptions)
+	.connect(MONGO, { useNewUrlParser: true, useUnifiedTopology: true } as ConnectOptions)
 	.then(() => console.log('MongoDB connected'))
 	.catch(err => console.log(err));
 
