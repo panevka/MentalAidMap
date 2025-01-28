@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGO = process.env.MONGO_URI || "mongodb://localhost:27017/NHSPolandDB"
+const MONGO = process.env.MONGODB_URI || "mongodb://localhost:27017/NHSPolandDB"
 setupCommonMiddleware(app)
 
 // Database connection
