@@ -3,7 +3,7 @@ import { GetFacilityDataParams, SearchFacilitiesParams } from '@/models/facility
 import dotenv from 'dotenv'
 
 dotenv.config();
-const API_URI = process.env.API_URI || 'http://localhost:5000/api';
+const API_URI = process.env.NEXT_PUBLIC_API_URI || 'http://localhost:5000/api';
 
 export const searchFacilities = async (params: SearchFacilitiesParams) => {
 	const endpoint = "provider"
