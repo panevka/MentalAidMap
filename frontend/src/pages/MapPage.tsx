@@ -4,6 +4,7 @@ import { Facility, FacilityAddress, SearchFacilitiesParams } from "@/models/faci
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
 const List: React.FC<{ facilities: FacilityAddress[] }> = ({ facilities }) => {
 	const facilityQueries: (Facility | null)[] = facilities.map((facility) => {
@@ -31,6 +32,9 @@ const List: React.FC<{ facilities: FacilityAddress[] }> = ({ facilities }) => {
 
 
 const MapPage = () => {
+	const location = useLocation();
+	const inputValue = location.state?.inputValue || '';
+
 	const [city, setCity] = useState('');
 	const [postCode, setPostCode] = useState('');
 	const [radius, setRadius] = useState(15);
@@ -43,6 +47,8 @@ const MapPage = () => {
 		setSearchQuery({ city: city, postCode: postCode, radius: radius })
 	};
 
+
+
 	return (
 		<div className="w-full h-full flex flex-col overflow-hidden">
 
@@ -50,6 +56,7 @@ const MapPage = () => {
 				<div>
 					<Input type="search"
 						placeholder="Miejscowość"
+						value={inputValue}
 						onChange={(e) => setCity(e.target.value)}
 					/>
 					<div className="flex flex-row">

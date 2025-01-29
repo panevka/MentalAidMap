@@ -2,8 +2,24 @@ import { MapIcon, GlobeAsiaAustraliaIcon, ClockIcon } from '@heroicons/react/24/
 import { Input } from "../components/ui/input.tsx"
 import { Button } from "../components/ui/button"
 import SvgMap from "../components/SvgMap/SvgMap.tsx";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 type Props = {};
 export const MainPage = ({ }: Props) => {
+
+
+  const [inputValue, setInputValue] = useState('');
+  const navigate = useNavigate();
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    navigate('/mapa', { state: { inputValue } });
+  };
+
   return (
     <div className="flex flex-col min-h-svh h-svh w-screen">
 
@@ -55,10 +71,19 @@ export const MainPage = ({ }: Props) => {
             <SvgMap />
           </div>
 
-          <div className="flex flex-row w-full max-w-full items-center space-x-2 sm:h-12 md:w-4/5 lg:text-3xl lg:w-3/4 xl:h-16">
-            <Input type="search" className="w-4/5 h-full md:text-lg lg:text-xl" placeholder="Miejscowość" />
-            <Button type="submit" className="bg-[#2B3A67] h-full w-1/5 md:text-lg lg:text-xl">Szukaj</Button>
-          </div>
+          <form className="flex flex-row w-full max-w-full items-center space-x-2 sm:h-12 md:w-4/5 lg:text-3xl lg:w-3/4 xl:h-16"
+            onSubmit={handleSubmit}>
+            <Input type="search"
+              className="w-4/5 h-full md:text-lg lg:text-xl"
+              value={inputValue}
+              onChange={handleInputChange}
+              placeholder="Miejscowość" />
+
+            <Button type="submit"
+              className="bg-[#2B3A67] h-full w-1/5 md:text-lg lg:text-xl">
+              Szukaj
+            </Button>
+          </form>
         </div>
       </main>
 
