@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { GetFacilityDataParams, SearchFacilitiesParams } from '@/models/facility';
-const API_URL = 'http://localhost:5000/api';
+const API_URI = "https://maid-api.vercel.app/api"
 
 export const searchFacilities = async (params: SearchFacilitiesParams) => {
 	const endpoint = "provider"
 	try {
-		const response = await axios.get(`${API_URL}/${endpoint}`, { params });
+		const response = await axios.get(`${API_URI}/${endpoint}`, { params });
 		return response.data;
 	} catch (error) {
 		console.error('Error fetching facilities:', error);
@@ -16,7 +16,7 @@ export const searchFacilities = async (params: SearchFacilitiesParams) => {
 export const getFacilityData = async (params: GetFacilityDataParams) => {
 	const endpoint = "provider-data"
 	try {
-		const response = await axios.get(`${API_URL}/${endpoint}`, { params });
+		const response = await axios.get(`${API_URI}/${endpoint}`, { params });
 		return response.data;
 	} catch (error) {
 		console.error('Error fetching facility data:', error);
