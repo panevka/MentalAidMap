@@ -14,8 +14,8 @@ type NavProps = {
 
 const defaultItems: NavItem[] = [
 
-  { label: "Strona główna", href: "" },
-  { label: "Mapa placówek", href: "" },
+  { label: "Strona główna", href: "./" },
+  { label: "Mapa placówek", href: "./mapa" },
   { label: "Baza wsparcia", href: "" },
   { label: "Kontakt", href: "" }
 ]

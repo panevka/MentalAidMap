@@ -1,4 +1,3 @@
-import { TopBar } from "../components/TopBar.tsx"
 import { MapIcon, GlobeAsiaAustraliaIcon, ClockIcon } from '@heroicons/react/24/solid'
 import { Input } from "../components/ui/input.tsx"
 import { Button } from "../components/ui/button"
@@ -8,7 +7,6 @@ export const MainPage = ({ }: Props) => {
   return (
     <div className="flex flex-col min-h-svh h-svh w-screen">
 
-      <TopBar />
       <main className="flex flex-col flex-1 justify-center bg-[#F7F4FB] xl:flex-row">
         <div className="flex flex-1 py-5 px-5">
           {/* <div className="rounded-3xl h-3/4 w-4/5 bg-[rgb(255,255,255,0.70)] backdrop-blur-sm shadow-lg p-8"> */}
