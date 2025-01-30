@@ -56,7 +56,7 @@ const MapPage = () => {
 				<div>
 					<Input type="search"
 						placeholder="Miejscowość"
-						value={inputValue}
+						defaultValue={inputValue}
 						onChange={(e) => setCity(e.target.value)}
 					/>
 					<div className="flex flex-row">
