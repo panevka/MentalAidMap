@@ -2,6 +2,7 @@
 type NavItem = {
   label: string;
   href: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
 type NavProps = {
@@ -14,10 +15,10 @@ type NavProps = {
 
 const defaultItems: NavItem[] = [
 
-  { label: "Strona główna", href: "" },
-  { label: "Mapa placówek", href: "" },
-  { label: "Baza wsparcia", href: "" },
-  { label: "Kontakt", href: "" }
+  { label: "Strona główna", href: "./" },
+  { label: "Mapa placówek", href: "./mapa" },
+  { label: "Baza wsparcia", href: "", onClick: () => { alert("Prace nad tą podstroną nadal trwają") } },
+  { label: "Kontakt", href: "", onClick: () => { alert("Prace nad tą podstroną nadal trwają") } }
 ]
 
 export const Navigation: React.FC<NavProps> = ({
@@ -33,7 +34,7 @@ export const Navigation: React.FC<NavProps> = ({
       <ul className={ulClassName}>
         {items.map((item, index) => (
           <li key={index} className={liClassName}>
-            <a href={item.href || '#'} className={linkClassName}>
+            <a href={item.href || '#'} onClick={item.onClick} className={linkClassName}>
               {item.label}
             </a>
           </li>
