@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GetFacilityDataParams, SearchFacilitiesParams } from '@/models/facility';
-const API_URI = import.meta.env.VITE_API_URL;
+const API_URI = import.meta.env.VITE_API_URI;
 
 export const searchFacilities = async (params: SearchFacilitiesParams) => {
 	const endpoint = "provider"
