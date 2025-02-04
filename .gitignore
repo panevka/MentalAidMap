@@ -27,3 +27,5 @@ DB_Prep
 DB_Prep/
 MongoDB
 *.env
+.env.local
+.env.production
