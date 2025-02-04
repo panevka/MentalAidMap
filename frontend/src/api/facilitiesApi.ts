@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { GetFacilityDataParams, SearchFacilitiesParams } from '@/models/facility';
-const API_URI = "https://maid-api.vercel.app/api"
+const API_URI = import.meta.env.VITE_API_URL;
 
 export const searchFacilities = async (params: SearchFacilitiesParams) => {
 	const endpoint = "provider"
