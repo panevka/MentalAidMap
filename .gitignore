@@ -22,7 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-README.md
 DB_Prep
 DB_Prep/
 MongoDB
