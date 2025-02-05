@@ -22,10 +22,8 @@ export const MainPage = ({ }: Props) => {
 
   return (
     <div className="flex flex-col min-h-svh h-svh w-screen">
-
       <main className="flex flex-col flex-1 justify-center bg-[#F7F4FB] xl:flex-row">
         <div className="flex flex-1 py-5 px-5">
-          {/* <div className="rounded-3xl h-3/4 w-4/5 bg-[rgb(255,255,255,0.70)] backdrop-blur-sm shadow-lg p-8"> */}
           <article className="flex flex-col lg:py-5 lg:px-10 lg:justify-around">
 
             <h1 className="scroll-m-20 font-poppins text-4xl text-[#2B3A67] my-2 font-black tracking-tight text-center sm:text-6xl sm:my-10 lg:text-6xl lg:leading-snug xl:text-left xl:text-7xl 2xl:text-8xl 2xl:leading-normal">
@@ -62,7 +60,7 @@ export const MainPage = ({ }: Props) => {
               </div>
             </span>
           </article>
-          {/* </div> */}
+
         </div>
         <div className="flex flex-1 flex-col p-5 items-center lg:justify-center">
 
@@ -87,16 +85,6 @@ export const MainPage = ({ }: Props) => {
         </div>
       </main>
 
-      {/*<footer className="bg-[#ffbdc2] text-[#14191e] p-5 flex flex-col justify-center items-center">
-        <Logo size="xs" />
-        <ul>
-          <li className="inline-block">
-            <img src={GithubIcon} className="h-[1em] w-auto inline-block align-middle"></img>
-            <a className="align-middle" href="https://github.com/panevka/MentalAidMap">Project Github Page</a>
-          </li>
-        </ul>
-
-      </footer>*/}
     </div >
   );
 };
