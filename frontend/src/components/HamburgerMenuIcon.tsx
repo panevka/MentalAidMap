@@ -1,10 +1,10 @@
-type Props = {
+interface Props {
   strokeWidth: number;
   strokeColor?: string;
   iconClassName?: string;
-};
+}
 
-export const HamburgerMenuIcon: React.FC<Props> = ({
+const HamburgerMenuIcon: React.FC<Props> = ({
   strokeWidth,
   strokeColor = "#000000",
   iconClassName = "size-14",
@@ -26,3 +26,5 @@ export const HamburgerMenuIcon: React.FC<Props> = ({
     </svg>
   );
 };
+
+export { HamburgerMenuIcon };

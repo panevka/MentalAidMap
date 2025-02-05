@@ -4,8 +4,7 @@ import { HamburgerMenuIcon } from "./HamburgerMenuIcon";
 import { CrossIcon } from "./CrossIcon";
 import { Logo } from "./Logo";
 
-type Props = {};
-export const TopBar = ({}: Props) => {
+const TopBar: React.FC = () => {
   const [isSideBarOpen, setIsSiderBarOpen] = useState<boolean>(false);
 
   return (
@@ -57,3 +56,5 @@ export const TopBar = ({}: Props) => {
     </header>
   );
 };
+
+export { TopBar };

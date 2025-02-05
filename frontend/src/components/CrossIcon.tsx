@@ -1,12 +1,10 @@
-import React from "react";
-
-type Props = {
+interface Props {
   strokeWidth: number;
   strokeColor?: string;
   className?: string;
-};
+}
 
-export const CrossIcon: React.FC<Props> = ({
+const CrossIcon: React.FC<Props> = ({
   strokeWidth,
   strokeColor = "#000000",
   className = "size-14",
@@ -28,3 +26,5 @@ export const CrossIcon: React.FC<Props> = ({
     </svg>
   );
 };
+
+export { CrossIcon };

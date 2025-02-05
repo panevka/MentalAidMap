@@ -1,11 +1,10 @@
-
-type NavItem = {
+interface NavItem {
   label: string;
   href: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-type NavProps = {
+interface Props {
   items?: NavItem[];
   navClassName?: string;
   ulClassName?: string;
@@ -14,33 +13,48 @@ type NavProps = {
 }
 
 const defaultItems: NavItem[] = [
-
   { label: "Strona główna", href: "./" },
   { label: "Mapa placówek", href: "./mapa" },
-  { label: "Baza wsparcia", href: "", onClick: () => { alert("Prace nad tą podstroną nadal trwają") } },
-  { label: "Kontakt", href: "", onClick: () => { alert("Prace nad tą podstroną nadal trwają") } }
-]
+  {
+    label: "Baza wsparcia",
+    href: "",
+    onClick: () => {
+      alert("Prace nad tą podstroną nadal trwają");
+    },
+  },
+  {
+    label: "Kontakt",
+    href: "",
+    onClick: () => {
+      alert("Prace nad tą podstroną nadal trwają");
+    },
+  },
+];
 
-export const Navigation: React.FC<NavProps> = ({
+const Navigation: React.FC<Props> = ({
   items = defaultItems,
-  navClassName = '',
-  ulClassName = '',
-  liClassName = '',
-  linkClassName = ''
+  navClassName = "",
+  ulClassName = "",
+  liClassName = "",
+  linkClassName = "",
 }) => {
-
   return (
     <nav className={navClassName}>
       <ul className={ulClassName}>
         {items.map((item, index) => (
           <li key={index} className={liClassName}>
-            <a href={item.href || '#'} onClick={item.onClick} className={linkClassName}>
+            <a
+              href={item.href || "#"}
+              onClick={item.onClick}
+              className={linkClassName}
+            >
               {item.label}
             </a>
           </li>
         ))}
       </ul>
     </nav>
-  )
+  );
+};
 
-}
+export { Navigation };
