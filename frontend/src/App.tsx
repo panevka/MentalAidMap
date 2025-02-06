@@ -8,16 +8,18 @@ export default function App() {
   const queryClient = new QueryClient();
 
   return (
-    <div className="App w-full h-full">
+    <div className="App w-full h-full flex flex-col">
       <TopBar />
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/mapa" element={<MapPage />} />
-          </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
+      <div className="grow">
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/mapa" element={<MapPage />} />
+            </Routes>
+          </BrowserRouter>
+        </QueryClientProvider>
+      </div>
     </div>
   );
 }

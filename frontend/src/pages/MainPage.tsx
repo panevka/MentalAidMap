@@ -23,7 +23,7 @@ const MainPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-svh h-svh w-screen">
+    <div className="flex flex-col h-full w-screen">
       <main className="flex flex-col flex-1 justify-center bg-[#F7F4FB] xl:flex-row">
         <div className="flex flex-1 py-5 px-5">
           <article className="flex flex-col lg:py-5 lg:px-10 lg:justify-around">
