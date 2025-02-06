@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Input } from "../components/ui/input.tsx";
 import { Button } from "../components/ui/button";
-import SvgMap from "../components/SvgMap/SvgMap.tsx";
+import PolandMap from "../../public/poland.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -70,7 +70,11 @@ const MainPage: React.FC = () => {
         </div>
         <div className="flex flex-1 flex-col p-5 items-center lg:justify-center">
           <div className="h-auto w-full max-w-full lg:w-3/4 xl:w-full 2xl:w-10/12">
-            <SvgMap />
+            <img
+              src={PolandMap}
+              alt="Map of Poland"
+              className="w-full h-full"
+            />
           </div>
 
           <form
