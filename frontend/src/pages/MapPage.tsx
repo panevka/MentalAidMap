@@ -38,7 +38,7 @@ const MapPage: React.FC = () => {
   const location = useLocation();
   const inputValue = location.state?.inputValue || "";
 
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(inputValue);
   const [postCode, setPostCode] = useState("");
   const [radius, setRadius] = useState(15);
   const [showFacilityList, setShowFacilityList] = useState<boolean>(false);
