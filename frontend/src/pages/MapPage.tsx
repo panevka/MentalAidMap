@@ -79,9 +79,17 @@ const MapPage: React.FC = () => {
             />
           </div>
         </div>
-        <Button type="submit" onClick={handleSearch}>
-          Szukaj
-        </Button>
+        <div className="flex flex-col">
+          <Button type="submit" onClick={handleSearch}>
+            Szukaj
+          </Button>
+          <Button
+            type="button"
+            onClick={() => setShowFacilityList((prevState) => !prevState)}
+          >
+            Przełącz listę
+          </Button>
+        </div>
       </div>
 
       <div className="w-full h-full relative">
@@ -97,14 +105,6 @@ const MapPage: React.FC = () => {
         >
           <List facilities={facilities || []} />
         </div>
-      </div>
-      <div className="w-full bg-white sticky bottom-0">
-        <Button
-          type="button"
-          onClick={() => setShowFacilityList((prevState) => !prevState)}
-        >
-          Przełącz widok
-        </Button>
       </div>
     </div>
   );
