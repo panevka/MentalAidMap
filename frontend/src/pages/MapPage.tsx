@@ -48,9 +48,12 @@ const MapPage: React.FC = () => {
     radius: 0,
   });
 
-  const { data: facilities } = useSearchFacilities(
-    searchQuery || { city: "", postCode: "" }
-  );
+  const {
+    data: facilities,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useSearchFacilities(searchQuery || { city: "", postCode: "" });
 
   const handleSearch = () => {
     setSearchQuery({ city: city, postCode: postCode, radius: radius });
@@ -90,6 +93,15 @@ const MapPage: React.FC = () => {
             Przełącz listę
           </Button>
         </div>
+        <p>
+          {isLoading
+            ? "Ładowanie..."
+            : isError
+            ? "Nastąpił błąd!"
+            : isSuccess
+            ? "Wyszukiwanie przebiegło pomyślnie! "
+            : ""}
+        </p>
       </div>
 
       <div className="w-full h-full relative">
