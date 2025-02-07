@@ -4,14 +4,11 @@
 - [About the Project](#star2-about-the-project)
   * [Screenshots](#camera-screenshots)
   * [Tech Stack](#space_invader-tech-stack)
-  * [Features](#dart-features
-  * [Environment Variables](#key-environment-variables)
+  * [Features](#dart-features)
 - [Getting Started](#toolbox-getting-started)
   * [Prerequisites](#bangbang-prerequisites)
   * [Run Locally](#running-run-locally)
-  * [Deployment](#triangular_flag_on_post-deployment)
 - [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
 
 <!-- About the Project -->
 ## :star2: About the Project
@@ -85,7 +82,7 @@ I hope this will help distribute demand more evenly by making people aware of al
 
 <!-- Prerequisites -->
 ### :bangbang: Prerequisites
-
+- Generated API_KEY from [Geoapify](https://www.geoapify.com/) for fetching geographical data
 <!-- Run Locally -->
 ### :running: Run Locally
 
@@ -101,35 +98,30 @@ Go to the project directory
   cd MentalAidMap
 ```
 
-Go to frontend folder
+Install dependencies for backend & frontend
 
 ```bash
-  npm install
+  npm install --prefix ./frontend
+  npm install --prefix ./backend
 ```
 
-Start the server
+Create respective environment files for subdirectories following their formats: 
 
+ - [Backend Env Example](https://github.com/panevka/MentalAidMap/blob/main/backend/.env.example) - replace GEOAPIFY_KEY with your api key.
+
+ - [Frontend Env Example](https://github.com/panevka/MentalAidMap/blob/main/frontend/.env.example)
+
+Run the app
 ```bash
-  yarn start
+  npm run dev --prefix ./frontend & \
+  npm tsc --prefix ./backend & \
+  node dist/index.js --prefix ./backend; wait
 ```
 
-
-<!-- Deployment -->
-### :triangular_flag_on_post: Deployment
-
-To deploy this project run
-
-```bash
-  yarn deploy
-```
 <!-- Roadmap -->
 ## :compass: Roadmap
 
-* [x] T
+* [ ] Make a page containing support resources: hotlines, chats, emails.
+   - * [ ] Find a way to collect such data, combine it into Mongo Collection
+* [ ] Upgrade website's UI/UX
       
-<!-- Contributing -->
-## :wave: Contributing
-
-<a href="https://github.com/panevka/MentalAidMap/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=panevka/MentalAidMap" />
-</a>
