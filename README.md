@@ -121,7 +121,4 @@ Run the app
 <!-- Roadmap -->
 ## :compass: Roadmap
 
-* [ ] Make a page containing support resources: hotlines, chats, emails.
-   - * [ ] Find a way to collect such data, combine it into Mongo Collection
-* [ ] Upgrade website's UI/UX
-      
+Check [Projects](https://github.com/users/panevka/projects/1/views/1) tab for currently developed features.
