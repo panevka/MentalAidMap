@@ -46,8 +46,8 @@ const SupportResourceSchema: Schema<ISupportResource> = new Schema(
     name: { type: String, required: true },
     provider_name: { type: String, required: true },
     age_range: {
-      min: { type: Number, required: true },
-      max: { type: Number, required: true }
+      minInclusive: { type: Number, required: true, min: 0 },
+      maxExclusive: { type: Number, required: true, min: 0 }
     },
     tags: { type: [String], required: true },
     working_hours: { type: [WorkingHourSchema], required: true, default: [] },
