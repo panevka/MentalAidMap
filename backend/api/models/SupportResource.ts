@@ -70,7 +70,7 @@ const SupportResourceSchema: Schema<ISupportResource> = new Schema(
       maxExclusive: { type: Number, required: true, min: 0 }
     },
     tags: { type: [String], required: true },
-    working_hours: { type: [WorkingWeekSchema], required: true, default: [] },
+    working_hours: { type: WorkingWeekSchema, required: true, default: [] },
     type: { type: Type, required: true }
   },
   { collection: 'SupportResources' }
