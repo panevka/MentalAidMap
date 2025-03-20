@@ -51,6 +51,10 @@ const WorkingHourSchema: Schema<IWorkingHour> = new Schema({
   }
 })
 
+const TypeSchema: Schema<Type> = new Schema({
+  enum: ['email', 'phone', 'webchat']
+})
+
 const WorkingWeekSchema: Schema<IWorkingWeek> = new Schema({
   monday: { type: WorkingHourSchema, required: true },
   tuesday: { type: WorkingHourSchema, required: true },
@@ -71,7 +75,7 @@ const SupportResourceSchema: Schema<ISupportResource> = new Schema(
     },
     tags: { type: [String], required: true },
     working_hours: { type: WorkingWeekSchema, required: true, default: [] },
-    type: { type: Type, required: true }
+    type: { type: TypeSchema, required: true }
   },
   { collection: 'SupportResources' }
 )
