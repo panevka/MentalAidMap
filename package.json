@@ -1,5 +1,33 @@
 {
+  "name": "mentalaidmap",
+  "version": "1.0.0",
+  "description": "<!-- Table of Contents --> # :notebook_with_decorative_cover: Table of Contents",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panevka/MentalAidMap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/panevka/MentalAidMap/issues"
+  },
+  "homepage": "https://github.com/panevka/MentalAidMap#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+  },
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2",
   }
 }
