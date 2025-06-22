@@ -1,14 +1,7 @@
-
 type SvgMapProps = {
-	className?: string
+  className?: string;
+};
+
+export default function SvgMap({ className = "h-full w-full" }: SvgMapProps) {
+  return <div id="map" className={className}></div>;
 }
-
-export default function SvgMap({
-	className = "h-full w-full"
-}: SvgMapProps) {
-	return (
-		<div id="map" className={className}></div>
-	)
-}
-
-
