@@ -373,7 +373,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
           d.win.SVGAngle ||
           d.doc.implementation.hasFeature(
             "http://www.w3.org/TR/SVG11/feature#BasicStructure",
-            "1.1"
+            "1.1",
           )
             ? "SVG"
             : "VML"),
@@ -405,12 +405,12 @@ Use pursuant to license agreement at https://simplemaps.com/license */
           return "finite" == (e = y.call(e))
             ? !p[L](+t)
             : "array" == e
-            ? t instanceof Array
-            : ("null" == e && null === t) ||
-              (e == typeof t && null !== t) ||
-              ("object" == e && t === Object(t)) ||
-              ("array" == e && Array.isArray && Array.isArray(t)) ||
-              c.call(t).slice(8, -1).toLowerCase() == e;
+              ? t instanceof Array
+              : ("null" == e && null === t) ||
+                (e == typeof t && null !== t) ||
+                ("object" == e && t === Object(t)) ||
+                ("array" == e && Array.isArray && Array.isArray(t)) ||
+                c.call(t).slice(8, -1).toLowerCase() == e;
         }),
         (j.angle = function (t, e, r, i, n, s) {
           if (null != n) return j.angle(t, e, n, s) - j.angle(r, i, n, s);
@@ -562,27 +562,27 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               (t.b = e.b),
               (t.hex = e.hex))
             : j.is(t, "object") && "h" in t && "s" in t && "l" in t
-            ? ((e = j.hsl2rgb(t)),
-              (t.r = e.r),
-              (t.g = e.g),
-              (t.b = e.b),
-              (t.hex = e.hex))
-            : (j.is(t, "string") && (t = j.getRGB(t)),
-              j.is(t, "object") && "r" in t && "g" in t && "b" in t
-                ? ((e = j.rgb2hsl(t)),
-                  (t.h = e.h),
-                  (t.s = e.s),
-                  (t.l = e.l),
-                  (e = j.rgb2hsb(t)),
-                  (t.v = e.b))
-                : ((t = { hex: "none" }).r =
-                    t.g =
-                    t.b =
-                    t.h =
-                    t.s =
-                    t.v =
-                    t.l =
-                      -1)),
+              ? ((e = j.hsl2rgb(t)),
+                (t.r = e.r),
+                (t.g = e.g),
+                (t.b = e.b),
+                (t.hex = e.hex))
+              : (j.is(t, "string") && (t = j.getRGB(t)),
+                j.is(t, "object") && "r" in t && "g" in t && "b" in t
+                  ? ((e = j.rgb2hsl(t)),
+                    (t.h = e.h),
+                    (t.s = e.s),
+                    (t.l = e.l),
+                    (e = j.rgb2hsb(t)),
+                    (t.v = e.b))
+                  : ((t = { hex: "none" }).r =
+                      t.g =
+                      t.b =
+                      t.h =
+                      t.s =
+                      t.v =
+                      t.l =
+                        -1)),
           (t.toString = it),
           t
         );
@@ -602,7 +602,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               (r += [a, s, 0, 0, s, a][(t = ~~t)]),
               (e += [s, a, a, s, 0, 0][t]),
               (n += [0, 0, s, a, a, s][t]),
-              i
+              i,
             )
           );
         }),
@@ -623,7 +623,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               (r += [a, s, 0, 0, s, a][(t = ~~t)]),
               (e += [s, a, a, s, 0, 0][t]),
               (n += [0, 0, s, a, a, s][t]),
-              i
+              i,
             )
           );
         }),
@@ -638,10 +638,10 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 ((((0 == (n = (i = _(t, e, r)) - k(t, e, r))
                   ? null
                   : i == t
-                  ? (e - r) / n
-                  : i == e
-                  ? (r - t) / n + 2
-                  : (t - e) / n + 4) +
+                    ? (e - r) / n
+                    : i == e
+                      ? (r - t) / n + 2
+                      : (t - e) / n + 4) +
                   360) %
                   6) *
                   60) /
@@ -664,10 +664,10 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 ((((0 == (s = n - s)
                   ? null
                   : n == t
-                  ? (e - r) / s
-                  : n == e
-                  ? (r - t) / s + 2
-                  : (t - e) / s + 4) +
+                    ? (e - r) / s
+                    : n == e
+                      ? (r - t) / s + 2
+                      : (t - e) / s + 4) +
                   360) %
                   6) *
                   60) /
@@ -713,8 +713,8 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                   (s[3] = { x: +t[2], y: +t[3] }))
               : (s[0] = { x: +t[n - 2], y: +t[n - 1] })
             : n - 4 == i
-            ? (s[3] = s[2])
-            : i || (s[0] = { x: +t[i], y: +t[i + 1] }),
+              ? (s[3] = s[2])
+              : i || (s[0] = { x: +t[i], y: +t[i + 1] }),
             r.push([
               "C",
               (-s[0].x + 6 * s[1].x + s[2].x) / 6,
@@ -774,23 +774,25 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 s[3] && "%" == s[3].slice(-1) && (n /= 100),
                 j.hsb2rgb(e, r, i, n))
               : a[6]
-              ? ((s = a[6][z](V)),
-                (e = I(s[0])),
-                "%" == s[0].slice(-1) && (e *= 2.55),
-                (r = I(s[1])),
-                "%" == s[1].slice(-1) && (r *= 2.55),
-                (i = I(s[2])),
-                "%" == s[2].slice(-1) && (i *= 2.55),
-                ("deg" != s[0].slice(-3) && "°" != s[0].slice(-1)) ||
-                  (e /= 360),
-                "hsla" == a[1].toLowerCase().slice(0, 4) && (n = I(s[3])),
-                s[3] && "%" == s[3].slice(-1) && (n /= 100),
-                j.hsl2rgb(e, r, i, n))
-              : (((a = { r: e, g: r, b: i, toString: lt }).hex =
-                  "#" +
-                  (16777216 | i | (r << 8) | (e << 16)).toString(16).slice(1)),
-                j.is(n, "finite") && (a.opacity = n),
-                a))
+                ? ((s = a[6][z](V)),
+                  (e = I(s[0])),
+                  "%" == s[0].slice(-1) && (e *= 2.55),
+                  (r = I(s[1])),
+                  "%" == s[1].slice(-1) && (r *= 2.55),
+                  (i = I(s[2])),
+                  "%" == s[2].slice(-1) && (i *= 2.55),
+                  ("deg" != s[0].slice(-3) && "°" != s[0].slice(-1)) ||
+                    (e /= 360),
+                  "hsla" == a[1].toLowerCase().slice(0, 4) && (n = I(s[3])),
+                  s[3] && "%" == s[3].slice(-1) && (n /= 100),
+                  j.hsl2rgb(e, r, i, n))
+                : (((a = { r: e, g: r, b: i, toString: lt }).hex =
+                    "#" +
+                    (16777216 | i | (r << 8) | (e << 16))
+                      .toString(16)
+                      .slice(1)),
+                  j.is(n, "finite") && (a.opacity = n),
+                  a))
           : { r: -1, g: -1, b: -1, hex: "none", error: 1, toString: lt };
       }, j)),
         (j.hsb = ot(function (t, e, r) {
@@ -1126,7 +1128,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 ["M", e, r],
                 ["H", i.x2 + 10],
               ],
-              1
+              1,
             ) %
               2 ==
               1
@@ -1140,7 +1142,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               "Raphaël: you are calling to method “" +
                 t +
                 "” of removed object",
-              t
+              t,
             );
           };
         });
@@ -1179,8 +1181,8 @@ Use pursuant to license agreement at https://simplemaps.com/license */
             return 5 == t.length
               ? [e, 1, 1, t[3], t[4]]
               : 3 == t.length
-              ? [e, 1, 1]
-              : [e, 1];
+                ? [e, 1, 1]
+                : [e, 1];
         }
       }
       var vt = (j.pathBBox = function (t) {
@@ -1398,7 +1400,9 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 ((g =
                   (s == a ? -1 : 1) *
                   B.sqrt(
-                    S((g * y - g * d * d - y * x * x) / (g * d * d + y * x * x))
+                    S(
+                      (g * y - g * d * d - y * x * x) / (g * d * d + y * x * x),
+                    ),
                   )) *
                   r *
                   d) /
@@ -1600,7 +1604,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
             return o || (r.curve = bt(a)), o ? [a, o] : a;
           },
           null,
-          bt
+          bt,
         )),
         Bt =
           ((j._parseDots = ot(function (t) {
@@ -1712,39 +1716,39 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       l.translate(p - c, d - f))
                     : l.translate(x[1], x[2])
                   : "r" == m
-                  ? 2 == y
-                    ? ((g = g || t.getBBox(1)),
-                      l.rotate(x[1], g.x + g.width / 2, g.y + g.height / 2),
-                      (n += x[1]))
-                    : 4 == y &&
-                      (v
-                        ? ((p = b.x(x[2], x[3])),
-                          (d = b.y(x[2], x[3])),
-                          l.rotate(x[1], p, d))
-                        : l.rotate(x[1], x[2], x[3]),
-                      (n += x[1]))
-                  : "s" == m
-                  ? 2 == y || 3 == y
-                    ? ((g = g || t.getBBox(1)),
-                      l.scale(
-                        x[1],
-                        x[y - 1],
-                        g.x + g.width / 2,
-                        g.y + g.height / 2
-                      ),
-                      (s *= x[1]),
-                      (a *= x[y - 1]))
-                    : 5 == y &&
-                      (v
-                        ? ((p = b.x(x[3], x[4])),
-                          (d = b.y(x[3], x[4])),
-                          l.scale(x[1], x[2], p, d))
-                        : l.scale(x[1], x[2], x[3], x[4]),
-                      (s *= x[1]),
-                      (a *= x[2]))
-                  : "m" == m &&
-                    7 == y &&
-                    l.add(x[1], x[2], x[3], x[4], x[5], x[6]),
+                    ? 2 == y
+                      ? ((g = g || t.getBBox(1)),
+                        l.rotate(x[1], g.x + g.width / 2, g.y + g.height / 2),
+                        (n += x[1]))
+                      : 4 == y &&
+                        (v
+                          ? ((p = b.x(x[2], x[3])),
+                            (d = b.y(x[2], x[3])),
+                            l.rotate(x[1], p, d))
+                          : l.rotate(x[1], x[2], x[3]),
+                        (n += x[1]))
+                    : "s" == m
+                      ? 2 == y || 3 == y
+                        ? ((g = g || t.getBBox(1)),
+                          l.scale(
+                            x[1],
+                            x[y - 1],
+                            g.x + g.width / 2,
+                            g.y + g.height / 2,
+                          ),
+                          (s *= x[1]),
+                          (a *= x[y - 1]))
+                        : 5 == y &&
+                          (v
+                            ? ((p = b.x(x[3], x[4])),
+                              (d = b.y(x[3], x[4])),
+                              l.scale(x[1], x[2], p, d))
+                            : l.scale(x[1], x[2], x[3], x[4]),
+                          (s *= x[1]),
+                          (a *= x[2]))
+                      : "m" == m &&
+                        7 == y &&
+                        l.add(x[1], x[2], x[3], x[4], x[5], x[6]),
                   (o.dirtyT = 1),
                   (t.matrix = l);
               }
@@ -1874,7 +1878,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 -t.c / e,
                 t.a / e,
                 (t.c * t.f - t.d * t.e) / e,
-                (t.b * t.e - t.a * t.f) / e
+                (t.b * t.e - t.a * t.f) / e,
               );
             }),
             (t.clone = function () {
@@ -2011,7 +2015,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
       ("Google Inc." == navigator.vendor && o && o[1] < 8)
         ? (K.safari = function () {
             var t = this.rect(-99, -99, this.width + 99, this.height + 99).attr(
-              { stroke: "none" }
+              { stroke: "none" },
             );
             setTimeout(function () {
               t.remove();
@@ -2075,7 +2079,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               i - e.el._drag.y,
               r,
               i,
-              t
+              t,
             );
         }
       }
@@ -2109,7 +2113,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                           }
                         return a.call(o, t, e.x, e.y);
                       },
-                      !1
+                      !1,
                     ),
                   function () {
                     return (
@@ -2121,27 +2125,28 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 );
               }
             : d.doc.attachEvent
-            ? function (t, e, i, n) {
-                function r(t) {
-                  t = t || d.win.event;
-                  var e =
-                      d.doc.documentElement.scrollTop || d.doc.body.scrollTop,
-                    r =
-                      d.doc.documentElement.scrollLeft || d.doc.body.scrollLeft,
-                    r = t.clientX + r,
-                    e = t.clientY + e;
-                  return (
-                    (t.preventDefault = t.preventDefault || Et),
-                    (t.stopPropagation = t.stopPropagation || Mt),
-                    i.call(n, t, r, e)
-                  );
+              ? function (t, e, i, n) {
+                  function r(t) {
+                    t = t || d.win.event;
+                    var e =
+                        d.doc.documentElement.scrollTop || d.doc.body.scrollTop,
+                      r =
+                        d.doc.documentElement.scrollLeft ||
+                        d.doc.body.scrollLeft,
+                      r = t.clientX + r,
+                      e = t.clientY + e;
+                    return (
+                      (t.preventDefault = t.preventDefault || Et),
+                      (t.stopPropagation = t.stopPropagation || Mt),
+                      i.call(n, t, r, e)
+                    );
+                  }
+                  t.attachEvent("on" + e, r);
+                  return function () {
+                    return t.detachEvent("on" + e, r), !0;
+                  };
                 }
-                t.attachEvent("on" + e, r);
-                return function () {
-                  return t.detachEvent("on" + e, r), !0;
-                };
-              }
-            : void 0,
+              : void 0,
           It = [],
           jt = function (t) {
             j.unmousemove(Ft).unmouseup(jt);
@@ -2150,7 +2155,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 N(
                   "raphael.drag.end." + e.el.id,
                   e.end_scope || e.start_scope || e.move_scope || e.el,
-                  t
+                  t,
                 );
             It = [];
           },
@@ -2172,7 +2177,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       this.shape || this.node || d.doc,
                       i,
                       t,
-                      e || this
+                      e || this,
                     ),
                   })),
                 this
@@ -2245,7 +2250,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               c || u || this,
               t.clientX + n,
               t.clientY + i,
-              t
+              t,
             );
         }
         return (
@@ -2292,7 +2297,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
             e || 0,
             r || 0,
             i || 0,
-            n || 0
+            n || 0,
           );
           return this.__set__ && this.__set__.push(n), n;
         }),
@@ -2462,7 +2467,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 "stroke-linecap": "round",
                 "stroke-width": +((e.width / r) * a).toFixed(3),
                 opacity: +(e.opacity / r).toFixed(3),
-              })
+              }),
             );
           return n.insertBefore(this).translate(e.offsetx, e.offsety);
         });
@@ -2494,11 +2499,11 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       s,
                       a,
                       o,
-                      (u += (c < l ? 1 : -1) * (h /= 2))
+                      (u += (c < l ? 1 : -1) * (h /= 2)),
                     );
                   return u;
                 }
-              })(t, e, r, i, n, s, a, o, l)
+              })(t, e, r, i, n, s, a, o, l),
             );
       }
       var o = function (p, d) {
@@ -2536,7 +2541,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                             s[4],
                             s[5],
                             s[6],
-                            e - u
+                            e - u,
                           )).start.x,
                         o.start.y,
                         o.m.x,
@@ -2573,7 +2578,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                         s[4],
                         s[5],
                         s[6],
-                        e - u
+                        e - u,
                       )).x,
                       y: o.y,
                       alpha: o.alpha,
@@ -2588,18 +2593,18 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               (o = p
                 ? u
                 : d
-                ? h
-                : j.findDotsAtSegment(
-                    i,
-                    n,
-                    s[0],
-                    s[1],
-                    s[2],
-                    s[3],
-                    s[4],
-                    s[5],
-                    1
-                  )).alpha && (o = { x: o.x, y: o.y, alpha: o.alpha }),
+                  ? h
+                  : j.findDotsAtSegment(
+                      i,
+                      n,
+                      s[0],
+                      s[1],
+                      s[2],
+                      s[3],
+                      s[4],
+                      s[5],
+                      1,
+                    )).alpha && (o = { x: o.x, y: o.y, alpha: o.alpha }),
               o
             );
           };
@@ -2674,10 +2679,10 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               t < 1 / r
                 ? e * t * t
                 : t < 2 / r
-                ? e * (t -= 1.5 / r) * t + 0.75
-                : t < 2.5 / r
-                ? e * (t -= 2.25 / r) * t + 0.9375
-                : e * (t -= 2.625 / r) * t + 0.984375;
+                  ? e * (t -= 1.5 / r) * t + 0.75
+                  : t < 2.5 / r
+                    ? e * (t -= 2.25 / r) * t + 0.9375
+                    : e * (t -= 2.625 / r) * t + 0.984375;
           return t;
         },
       };
@@ -2811,7 +2816,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                         r.anim.percents[0],
                         null,
                         r.totalOrigin,
-                        r.repeat - 1
+                        r.repeat - 1,
                       );
                   }
                   r.next &&
@@ -3299,7 +3304,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
           )
             for (var n in ((r.face["units-per-em"] = b(
               t.face["units-per-em"],
-              10
+              10,
             )),
             t.glyphs))
               if (t.glyphs[L](n)) {
@@ -3342,7 +3347,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               var a,
                 o = new RegExp(
                   "(^|\\s)" + t.replace(/[^\w\d\s+!~.:_-]/g, "") + "(\\s|$)",
-                  "i"
+                  "i",
                 );
               for (a in j.fonts)
                 if (j.fonts[L](a) && o.test(a)) {
@@ -3462,7 +3467,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
               (r = function () {
                 e.removeEventListener(t, r, !1), (e.readyState = "complete");
               }),
-              !1
+              !1,
             ),
             (e.readyState = "loading")),
             (function t() {
@@ -3527,7 +3532,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                             (s = s.toFixed(5) - 1e-5 * r)),
                         ""
                       );
-                    }
+                    },
                   )).split(/\s*\-\s*/)),
                   "linear" == i)
                 ) {
@@ -3562,7 +3567,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                             x2: c[2],
                             y2: c[3],
                             gradientTransform: t.matrix.invert(),
-                          }
+                          },
                     ),
                     o.defs.appendChild(h);
                   for (var p = 0, d = f.length; p < d; p++)
@@ -3570,7 +3575,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       L("stop", {
                         offset: f[p].offset || (p ? "100%" : "0%"),
                         "stop-color": f[p].color || "#fff",
-                      })
+                      }),
                     );
                 }
               }
@@ -3665,7 +3670,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                             "stroke-linecap": "round",
                             d: B[v],
                             id: s,
-                          })
+                          }),
                         ),
                         (S[s] = 1)),
                     (o = j._g.doc.getElementById(a))
@@ -3690,7 +3695,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                             _ / w +
                             ")",
                           "stroke-width": (1 / ((b / w + _ / w) / 2)).toFixed(
-                            4
+                            4,
                           ),
                         })),
                         o.appendChild(h),
@@ -3778,7 +3783,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                           ? h.setAttributeNS(
                               w,
                               "show",
-                              "blank" == a ? "new" : a
+                              "blank" == a ? "new" : a,
                             )
                           : h.setAttributeNS(w, r, a);
                       break;
@@ -3800,7 +3805,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       4 == l.length &&
                         (t.clip &&
                           t.clip.parentNode.parentNode.removeChild(
-                            t.clip.parentNode
+                            t.clip.parentNode,
                           ),
                         (h = L("clipPath")),
                         (u = L("rect")),
@@ -3813,7 +3818,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                         a ||
                           ((u = i.getAttribute("clip-path")) &&
                             ((d = j._g.doc.getElementById(
-                              u.replace(/(^url\(#|\)$)/g, "")
+                              u.replace(/(^url\(#|\)$)/g, ""),
                             )) && d.parentNode.removeChild(d),
                             L(i, { "clip-path": "" }),
                             delete t.clip));
@@ -3891,7 +3896,9 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                         ) {
                           !("opacity" in n || "fill-opacity" in n) ||
                             ((c = j._g.doc.getElementById(
-                              i.getAttribute("fill").replace(/^url\(#|\)$/g, "")
+                              i
+                                .getAttribute("fill")
+                                .replace(/^url\(#|\)$/g, ""),
                             )) &&
                               ((f = c.getElementsByTagName("stop")),
                               L(f[f.length - 1], {
@@ -3946,7 +3953,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     case "fill-opacity":
                       if (n.gradient) {
                         (c = j._g.doc.getElementById(
-                          i.getAttribute("fill").replace(/^url\(#|\)$/g, "")
+                          i.getAttribute("fill").replace(/^url\(#|\)$/g, ""),
                         )) &&
                           ((f = c.getElementsByTagName("stop")),
                           L(f[f.length - 1], { "stop-opacity": a }));
@@ -3994,7 +4001,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 else
                   (t = j._g.doc.createElementNS(
                     "http://www.w3.org/2000/svg",
-                    t
+                    t,
                   )).style &&
                     (t.style.webkitTapHighlightColor = "rgba(0,0,0,0)");
                 return t;
@@ -4029,7 +4036,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                           j._g.doc.defaultView
                             .getComputedStyle(i.firstChild, "")
                             .getPropertyValue("font-size"),
-                          10
+                          10,
                         )
                       : 10;
                   if (e[k]("text")) {
@@ -4100,7 +4107,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     (r = null == r ? n.x + n.width / 2 : r),
                     (i = null == i ? n.y + n.height / 2 : i),
                     this.transform(
-                      this._.transform.concat([["s", t, e, r, i]])
+                      this._.transform.concat([["s", t, e, r, i]]),
                     )),
                   this
                 );
@@ -4156,7 +4163,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                   j._tear(this, e),
                   "a" == this.node.parentNode.tagName.toLowerCase()
                     ? this.node.parentNode.parentNode.removeChild(
-                        this.node.parentNode
+                        this.node.parentNode,
                       )
                     : this.node.parentNode.removeChild(this.node),
                   this))
@@ -4211,8 +4218,8 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     (t = n[a]) in this.attrs
                       ? (s[t] = this.attrs[t])
                       : j.is(this.paper.customAttributes[t], "function")
-                      ? (s[t] = this.paper.customAttributes[t].def)
-                      : (s[t] = j._availableAttrs[t]);
+                        ? (s[t] = this.paper.customAttributes[t].def)
+                        : (s[t] = j._availableAttrs[t]);
                   return o - 1 ? s : s[n[0]];
                 }
                 if (null == e && j.is(t, "array")) {
@@ -4235,7 +4242,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     var u,
                       c = this.paper.customAttributes[h].apply(
                         this,
-                        [].concat(l[h])
+                        [].concat(l[h]),
                       );
                     for (u in ((this.attrs[h] = l[h]), c))
                       c[k](u) && (l[u] = c[u]);
@@ -4246,7 +4253,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 if (this.removed) return this;
                 "a" == this.node.parentNode.tagName.toLowerCase()
                   ? this.node.parentNode.parentNode.appendChild(
-                      this.node.parentNode
+                      this.node.parentNode,
                     )
                   : this.node.parentNode.appendChild(this.node);
                 var t = this.paper;
@@ -4258,7 +4265,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 "a" == t.tagName.toLowerCase()
                   ? t.parentNode.insertBefore(
                       this.node.parentNode,
-                      this.node.parentNode.parentNode.firstChild
+                      this.node.parentNode.parentNode.firstChild,
                     )
                   : t.firstChild != this.node &&
                     t.insertBefore(this.node, this.node.parentNode.firstChild),
@@ -4505,7 +4512,9 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                   t.removeChild(t.firstChild);
                 (this.bottom = this.top = null),
                   (this.desc = L("desc")).appendChild(
-                    j._g.doc.createTextNode("Created with Raphaël " + j.version)
+                    j._g.doc.createTextNode(
+                      "Created with Raphaël " + j.version,
+                    ),
                   ),
                   t.appendChild(this.desc),
                   t.appendChild((this.defs = L("defs")));
@@ -4719,7 +4728,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                   })(
                     ~_(u.path).toLowerCase().indexOf("r")
                       ? j._pathToAbsolute(u.path)
-                      : u.path
+                      : u.path,
                   )),
                   "image" == t.type &&
                     ((t._.fillpos = [u.x, u.y]),
@@ -4737,7 +4746,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     k((i - n) * M),
                     k((s + p) * M),
                     k((i + n) * M),
-                    k(s * M)
+                    k(s * M),
                   )),
                   (t._.dirty = 1)),
                 "clip-rect" in e &&
@@ -4747,7 +4756,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     ((s = (n = h.clipRect || j._g.doc.createElement("div"))
                       .style).clip = j.format(
                       "rect({1}px {2}px {3}px {0}px)",
-                      i
+                      i,
                     )),
                     h.clipRect ||
                       ((s.position = "absolute"),
@@ -4863,8 +4872,8 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       "butt" == e["stroke-linecap"]
                         ? "flat"
                         : "square" == e["stroke-linecap"]
-                        ? "square"
-                        : "round"),
+                          ? "square"
+                          : "round"),
                   e["stroke-dasharray"] &&
                     ((l = {
                       "-": "shortdash",
@@ -4909,7 +4918,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       "m{0},{1}l{2},{1}",
                       k(u.x * M),
                       k(u.y * M),
-                      k(u.x * M) + 1
+                      k(u.x * M) + 1,
                     ));
                 for (
                   var x = [
@@ -4996,7 +5005,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                           (s = e + A + r)),
                         ""
                       );
-                    }
+                    },
                   )).split(/\s*\-\s*/)),
                   "linear" == n)
                 ) {
@@ -5071,17 +5080,17 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 return this.removed
                   ? this
                   : null != t
-                  ? ((t = _(t).split(T)).length - 1 &&
-                      ((e = w(t[1])), (r = w(t[2]))),
-                    (t = w(t[0])),
-                    null == r && (e = r),
-                    (null != e && null != r) ||
-                      ((e = (i = this.getBBox(1)).x + i.width / 2),
-                      (r = i.y + i.height / 2)),
-                    (this._.dirtyT = 1),
-                    this.transform(this._.transform.concat([["r", t, e, r]])),
-                    this)
-                  : void 0;
+                    ? ((t = _(t).split(T)).length - 1 &&
+                        ((e = w(t[1])), (r = w(t[2]))),
+                      (t = w(t[0])),
+                      null == r && (e = r),
+                      (null != e && null != r) ||
+                        ((e = (i = this.getBBox(1)).x + i.width / 2),
+                        (r = i.y + i.height / 2)),
+                      (this._.dirtyT = 1),
+                      this.transform(this._.transform.concat([["r", t, e, r]])),
+                      this)
+                    : void 0;
                 var i;
               }),
               (t.translate = function (t, e) {
@@ -5111,7 +5120,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     (r = null == r ? n.x + n.width / 2 : r),
                     (i = null == i ? n.y + n.height / 2 : i),
                     this.transform(
-                      this._.transform.concat([["s", t, e, r, i]])
+                      this._.transform.concat([["s", t, e, r, i]]),
                     ),
                     (this._.dirtyT = 1)),
                   this
@@ -5181,8 +5190,8 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     (t = n[a]) in this.attrs
                       ? (s[t] = this.attrs[t])
                       : j.is(this.paper.customAttributes[t], "function")
-                      ? (s[t] = this.paper.customAttributes[t].def)
-                      : (s[t] = j._availableAttrs[t]);
+                        ? (s[t] = this.paper.customAttributes[t].def)
+                        : (s[t] = j._availableAttrs[t]);
                   return o - 1 ? s : s[n[0]];
                 }
                 if (this.attrs && null == e && j.is(t, "array")) {
@@ -5205,7 +5214,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       var u,
                         c = this.paper.customAttributes[h].apply(
                           this,
-                          [].concat(l[h])
+                          [].concat(l[h]),
                         );
                       for (u in ((this.attrs[h] = l[h]), c))
                         c[b](u) && (l[u] = c[u]);
@@ -5232,7 +5241,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     (this.node.parentNode.firstChild != this.node &&
                       (this.node.parentNode.insertBefore(
                         this.node,
-                        this.node.parentNode.firstChild
+                        this.node.parentNode.firstChild,
                       ),
                       j._toback(this, this.paper))),
                   this
@@ -5245,7 +5254,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     t.node.nextSibling
                       ? t.node.parentNode.insertBefore(
                           this.node,
-                          t.node.nextSibling
+                          t.node.nextSibling,
                         )
                       : t.node.parentNode.appendChild(this.node),
                     j._insertafter(this, t, this.paper)),
@@ -5374,7 +5383,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     "m{0},{1}l{2},{1}",
                     k(e * M),
                     k(r * M),
-                    k(e * M) + 1
+                    k(e * M) + 1,
                   )),
                   (s.textpathok = !0),
                   (a.string = _(i)),
@@ -5452,7 +5461,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                 var e = t.document;
                 e.createStyleSheet().addRule(
                   ".rvml",
-                  "behavior:url(#default#VML)"
+                  "behavior:url(#default#VML)",
                 );
                 try {
                   e.namespaces.rvml ||
@@ -5465,7 +5474,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                     return e.createElement(
                       "<" +
                         t +
-                        ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">'
+                        ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">',
                     );
                   };
                 }
@@ -5498,7 +5507,7 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                   (t.cssText = j.format(
                     "top:0;left:0;width:{0};height:{1};display:inline-block;position:relative;clip:rect(0 {0} {1} 0);overflow:hidden",
                     i,
-                    r
+                    r,
                   )),
                   1 == e
                     ? (j._g.doc.body.appendChild(o),
@@ -5506,8 +5515,8 @@ Use pursuant to license agreement at https://simplemaps.com/license */
                       (t.top = s + "px"),
                       (t.position = "absolute"))
                     : e.firstChild
-                    ? e.insertBefore(o, e.firstChild)
-                    : e.appendChild(o),
+                      ? e.insertBefore(o, e.firstChild)
+                      : e.appendChild(o),
                   (a.renderfix = function () {}),
                   a
                 );
@@ -5724,7 +5733,7 @@ var simplemaps_countrymap_mapinfo = {
                   }
                 : function (e) {
                     o[e] || (o[e] = t[e] || s);
-                  }
+                  },
             ),
             o
           );
@@ -5779,7 +5788,7 @@ var simplemaps_countrymap_mapinfo = {
                 t._targetState,
                 t._easing,
                 t._step,
-                t._scheduleFunction
+                t._scheduleFunction,
               );
             };
             var o = this._currentState,
@@ -5830,7 +5839,7 @@ var simplemaps_countrymap_mapinfo = {
                     this._easing,
                     this._step,
                     this._scheduleFunction,
-                    t
+                    t,
                   ),
                   this.pause())),
               this
@@ -5858,7 +5867,7 @@ var simplemaps_countrymap_mapinfo = {
                   this._targetState,
                   1,
                   0,
-                  this._easing
+                  this._easing,
                 ),
                 y(this, "afterTween"),
                 y(this, "afterTweenEnd"),
@@ -5960,7 +5969,7 @@ var simplemaps_countrymap_mapinfo = {
                 (r[(o = t[s])] = e[o]), delete e[o];
               return r;
             })(e, o[t].chunkNames),
-            o[t].chunkNames
+            o[t].chunkNames,
           ),
           r = (function (e, t) {
             for (var o = e, r = t.length, n = 0; n < r; n++)
@@ -6037,10 +6046,10 @@ var simplemaps_countrymap_mapinfo = {
         return 0 === e
           ? 0
           : 1 === e
-          ? 1
-          : (e /= 0.5) < 1
-          ? 0.5 * Math.pow(2, 10 * (e - 1))
-          : 0.5 * (2 - Math.pow(2, -10 * --e));
+            ? 1
+            : (e /= 0.5) < 1
+              ? 0.5 * Math.pow(2, 10 * (e - 1))
+              : 0.5 * (2 - Math.pow(2, -10 * --e));
       },
       easeInCirc: function (e) {
         return -(Math.sqrt(1 - e * e) - 1);
@@ -6057,10 +6066,10 @@ var simplemaps_countrymap_mapinfo = {
         return e < 1 / 2.75
           ? 7.5625 * e * e
           : e < 2 / 2.75
-          ? 7.5625 * (e -= 1.5 / 2.75) * e + 0.75
-          : e < 2.5 / 2.75
-          ? 7.5625 * (e -= 2.25 / 2.75) * e + 0.9375
-          : 7.5625 * (e -= 2.625 / 2.75) * e + 0.984375;
+            ? 7.5625 * (e -= 1.5 / 2.75) * e + 0.75
+            : e < 2.5 / 2.75
+              ? 7.5625 * (e -= 2.25 / 2.75) * e + 0.9375
+              : 7.5625 * (e -= 2.625 / 2.75) * e + 0.984375;
       },
       easeInBack: function (e) {
         return e * e * (2.70158 * e - 1.70158);
@@ -6098,19 +6107,19 @@ var simplemaps_countrymap_mapinfo = {
         return e < 1 / 2.75
           ? 7.5625 * e * e
           : e < 2 / 2.75
-          ? 7.5625 * (e -= 1.5 / 2.75) * e + 0.75
-          : e < 2.5 / 2.75
-          ? 7.5625 * (e -= 2.25 / 2.75) * e + 0.9375
-          : 7.5625 * (e -= 2.625 / 2.75) * e + 0.984375;
+            ? 7.5625 * (e -= 1.5 / 2.75) * e + 0.75
+            : e < 2.5 / 2.75
+              ? 7.5625 * (e -= 2.25 / 2.75) * e + 0.9375
+              : 7.5625 * (e -= 2.625 / 2.75) * e + 0.984375;
       },
       bouncePast: function (e) {
         return e < 1 / 2.75
           ? 7.5625 * e * e
           : e < 2 / 2.75
-          ? 2 - (7.5625 * (e -= 1.5 / 2.75) * e + 0.75)
-          : e < 2.5 / 2.75
-          ? 2 - (7.5625 * (e -= 2.25 / 2.75) * e + 0.9375)
-          : 2 - (7.5625 * (e -= 2.625 / 2.75) * e + 0.984375);
+            ? 2 - (7.5625 * (e -= 1.5 / 2.75) * e + 0.75)
+            : e < 2.5 / 2.75
+              ? 2 - (7.5625 * (e -= 2.25 / 2.75) * e + 0.9375)
+              : 2 - (7.5625 * (e -= 2.625 / 2.75) * e + 0.984375);
       },
       easeFromTo: function (e) {
         return (e /= 0.5) < 1
@@ -6215,7 +6224,7 @@ var simplemaps_countrymap_mapinfo = {
           /,\s*/.source +
           n.source +
           "\\)",
-        "g"
+        "g",
       )),
       (a = /^.*\(/),
       (l = /#([0-9]|[a-f]){3,6}/gi),
@@ -6452,13 +6461,13 @@ var simplemaps_countrymap_mapinfo = {
                 c.scrollTop && document.documentElement.scrollTop
                   ? [c.scrollLeft, c.scrollTop]
                   : c.scrollTop || document.documentElement.scrollTop
-                  ? [
-                      c.scrollLeft + document.documentElement.scrollLeft,
-                      c.scrollTop + document.documentElement.scrollTop,
-                    ]
-                  : document.body.scrollTop
-                  ? [document.body.scrollLeft, document.body.scrollTop]
-                  : [0, 0]);
+                    ? [
+                        c.scrollLeft + document.documentElement.scrollLeft,
+                        c.scrollTop + document.documentElement.scrollTop,
+                      ]
+                    : document.body.scrollTop
+                      ? [document.body.scrollLeft, document.body.scrollTop]
+                      : [0, 0]);
             (s += p[0]), (r += p[1]);
           }
           do (s += t.offsetLeft), (r += t.offsetTop);
@@ -6529,8 +6538,8 @@ var simplemaps_countrymap_mapinfo = {
               Math.asin(
                 Math.sqrt(
                   c(Math.sin(f / 2)) +
-                    Math.cos(n) * Math.cos(a) * c(Math.sin(h / 2))
-                )
+                    Math.cos(n) * Math.cos(a) * c(Math.sin(h / 2)),
+                ),
               );
           return (
             console.log(y),
@@ -6862,7 +6871,7 @@ var simplemaps_countrymap_mapinfo = {
         console.log(
           "Can't find target for map #" +
             g +
-            ".  Check mapdata.main_settings.div"
+            ".  Check mapdata.main_settings.div",
         ),
         !1
       );
@@ -6933,8 +6942,8 @@ var simplemaps_countrymap_mapinfo = {
               void 0 !== a.width && a.width && "auto" != a.width
                 ? a.width
                 : a.height && "auto" != a.height
-                ? a.height * e5
-                : 800),
+                  ? a.height * e5
+                  : 800),
             eh.style.setProperty("width", eb + "px")),
         (eb *= 1),
         (ex = eb / e5),
@@ -6989,7 +6998,7 @@ var simplemaps_countrymap_mapinfo = {
           e_.style.setProperty("lineHeight", "1em"),
           e_.style.setProperty(
             "background-color",
-            el ? "#ffffff" : "rgba(186, 186, 186, 0.2)"
+            el ? "#ffffff" : "rgba(186, 186, 186, 0.2)",
           );
         var o = document.createElement("ul");
         o.style.setProperty("display", "inline-block"),
@@ -7021,13 +7030,13 @@ var simplemaps_countrymap_mapinfo = {
                   s.setAttribute("data-id", t);
                 var a = document.createElementNS(
                   "http://www.w3.org/2000/svg",
-                  "svg"
+                  "svg",
                 );
                 if (
                   (a.setAttributeNS(
                     "http://www.w3.org/2000/xmlns/",
                     "xmlns:xlink",
-                    "http://www.w3.org/1999/xlink"
+                    "http://www.w3.org/1999/xlink",
                   ),
                   a.style.setProperty("display", "inline-block"),
                   a.style.setProperty("margin-right", ".2em"),
@@ -7041,7 +7050,7 @@ var simplemaps_countrymap_mapinfo = {
                 ) {
                   var l = document.createElementNS(
                     "http://www.w3.org/2000/svg",
-                    "circle"
+                    "circle",
                   );
                   l.setAttribute("cx", "50"),
                     l.setAttribute("cy", "50"),
@@ -7049,7 +7058,7 @@ var simplemaps_countrymap_mapinfo = {
                 } else if ("square" == r.shape) {
                   var l = document.createElementNS(
                     "http://www.w3.org/2000/svg",
-                    "rect"
+                    "rect",
                   );
                   l.setAttribute("x", "10"),
                     l.setAttribute("y", "10"),
@@ -7059,7 +7068,7 @@ var simplemaps_countrymap_mapinfo = {
                   var c = o3[r.shape],
                     l = document.createElementNS(
                       "http://www.w3.org/2000/svg",
-                      "path"
+                      "path",
                     );
                   l.setAttribute("d", c),
                     a.setAttribute("width", "1.5"),
@@ -7072,19 +7081,19 @@ var simplemaps_countrymap_mapinfo = {
                     a.setAttribute("width", "100"),
                     a.setAttribute("height", "100"))
                   : ["diamond", "star"].indexOf(r.shape) > -1
-                  ? (a.setAttribute("viewBox", "-.5 -.6 1 1.2"),
-                    a.setAttribute("height", "1.8"))
-                  : ["triangle"].indexOf(r.shape) > -1
-                  ? (a.setAttribute("viewBox", "-.6 -.7 1.2 1.1"),
-                    a.setAttribute("width", "1.8"),
-                    a.setAttribute("height", "1.8"))
-                  : ["heart"].indexOf(r.shape) > -1
-                  ? (a.setAttribute("viewBox", "-.7 -.5 1.3 1"),
-                    a.setAttribute("width", "2"))
-                  : ["marker"].indexOf(r.shape) > -1 &&
-                    (a.setAttribute("viewBox", "-.6 -.9 1.1 .8"),
-                    a.setAttribute("width", "1.7"),
-                    a.setAttribute("height", "1.7")),
+                    ? (a.setAttribute("viewBox", "-.5 -.6 1 1.2"),
+                      a.setAttribute("height", "1.8"))
+                    : ["triangle"].indexOf(r.shape) > -1
+                      ? (a.setAttribute("viewBox", "-.6 -.7 1.2 1.1"),
+                        a.setAttribute("width", "1.8"),
+                        a.setAttribute("height", "1.8"))
+                      : ["heart"].indexOf(r.shape) > -1
+                        ? (a.setAttribute("viewBox", "-.7 -.5 1.3 1"),
+                          a.setAttribute("width", "2"))
+                        : ["marker"].indexOf(r.shape) > -1 &&
+                          (a.setAttribute("viewBox", "-.6 -.9 1.1 .8"),
+                          a.setAttribute("width", "1.7"),
+                          a.setAttribute("height", "1.7")),
                   l.setAttribute("fill", r.color),
                   l.setAttribute("stroke", "white"),
                   a.appendChild(l),
@@ -7664,7 +7673,7 @@ var simplemaps_countrymap_mapinfo = {
               Math.log(0.8386705593173225 * (1 / 0.7071067659112366)) /
               Math.log(
                 Math.tan(0.25 * o + 0.3926990925) *
-                  (1 / Math.tan(0.25 * o + 0.2879793345))
+                  (1 / Math.tan(0.25 * o + 0.2879793345)),
               ),
             a =
               (0.8386705593173225 *
@@ -7942,14 +7951,14 @@ var simplemaps_countrymap_mapinfo = {
         "region" == n
           ? tJ(e)
           : "state" == n
-          ? tJ(tm[e.sm.region])
-          : "manual" == n &&
-            eO.forEach(function (e) {
-              -1 != e.sm.id &&
-                (e.sm.zooming_dimensions.r > ez && e.sm.zoomable
-                  ? tJ(e)
-                  : t9(e));
-            }),
+            ? tJ(tm[e.sm.region])
+            : "manual" == n &&
+              eO.forEach(function (e) {
+                -1 != e.sm.id &&
+                  (e.sm.zooming_dimensions.r > ez && e.sm.zoomable
+                    ? tJ(e)
+                    : t9(e));
+              }),
         "out" != n && "manual" != n
           ? (eF.stop(),
             eI.stop(),
@@ -7964,7 +7973,7 @@ var simplemaps_countrymap_mapinfo = {
             }),
             e.animate(
               { "stroke-width": e.sm.border_hover_size * (eb / ew) * l * 1.25 },
-              1e3 * j
+              1e3 * j,
             ))
           : (eF.attr({ "fill-opacity": 1 }), eI.attr({ "fill-opacity": 1 })),
         eF.animate({ "stroke-width": K * (eb / ew) * l * 1.25 }, 1e3 * j),
@@ -7974,8 +7983,8 @@ var simplemaps_countrymap_mapinfo = {
       x && "-1" != b && "region" == e.sm.type
         ? !!N && tR()
         : "state" == e.sm.type || "region" == e.sm.type || N
-        ? tR()
-        : v && "out" != e.sm.type && tR();
+          ? tR()
+          : v && "out" != e.sm.type && tR();
     }
     function os(e) {
       return { x: e.x, y: e.y, w: e.w, h: e.h };
@@ -8090,12 +8099,12 @@ var simplemaps_countrymap_mapinfo = {
             a +
             '","_blank"); return false})()'
           : c
-          ? 'return (function(){window.location.href="' +
-            a +
-            '"; return false;})()'
-          : 'return (function(){window.top.location.href="' +
-            a +
-            '"; return false;})()';
+            ? 'return (function(){window.location.href="' +
+              a +
+              '"; return false;})()'
+            : 'return (function(){window.top.location.href="' +
+              a +
+              '"; return false;})()';
       c && (m = "(function(){" + p + "})()");
       var u = e.sm.description_mobile
         ? e.sm.description_mobile
@@ -8148,7 +8157,7 @@ var simplemaps_countrymap_mapinfo = {
         d.setAttributeNS(
           "http://www.w3.org/1999/xlink",
           "xlink:href",
-          t.image_url
+          t.image_url,
         ),
         m.appendChild(f),
         m.appendChild(d),
@@ -8188,9 +8197,9 @@ var simplemaps_countrymap_mapinfo = {
             (_
               ? ((e = c), (o = (c * P) / a))
               : b
-              ? ((e = 1), (o = 1), (y = t.image_x * k), (g = t.image_y * z))
-              : x &&
-                ((e = 1), (o = 1), (y = 0.5 * (k - p)), (g = 0.5 * (z - u))),
+                ? ((e = 1), (o = 1), (y = t.image_x * k), (g = t.image_y * z))
+                : x &&
+                  ((e = 1), (o = 1), (y = 0.5 * (k - p)), (g = 0.5 * (z - u))),
             f.setAttribute("x", 0),
             f.setAttribute("y", 0),
             f.setAttribute("width", k),
@@ -8211,7 +8220,7 @@ var simplemaps_countrymap_mapinfo = {
               E = g + 0.5 * u;
             d.setAttribute(
               "transform",
-              "rotate(-" + $ + "," + w + "," + E + ")"
+              "rotate(-" + $ + "," + w + "," + E + ")",
             );
           }
           d.setAttribute("height", u);
@@ -8414,7 +8423,7 @@ var simplemaps_countrymap_mapinfo = {
               (b in tp
                 ? ((ov = tp[b]), (x = !1))
                 : console.log(
-                    "The initial_zoom is not the id of a region or state"
+                    "The initial_zoom is not the id of a region or state",
                   ),
               (b = -1)),
           y)
@@ -8476,8 +8485,8 @@ var simplemaps_countrymap_mapinfo = {
             ("state" == t.parent_type
               ? (u = tp[t.parent_id])
               : "region" == t.parent_type
-              ? (u = tm[t.parent_id])
-              : "location" == t.parent_type && (u = t$[t.parent_id]),
+                ? (u = tm[t.parent_id])
+                : "location" == t.parent_type && (u = t$[t.parent_id]),
             !t.x && !t.y && u)
           ) {
             if ("location" == u.sm.type)
@@ -8550,10 +8559,12 @@ var simplemaps_countrymap_mapinfo = {
             t.display
               ? (v.sm.display = t.display)
               : "region" == t.parent_type
-              ? (v.sm.display = "out")
-              : "location" == t.parent_type
-              ? (v.sm.display = u.sm.display)
-              : (v.sm.display = a.labels_display ? a.labels_display : "all"),
+                ? (v.sm.display = "out")
+                : "location" == t.parent_type
+                  ? (v.sm.display = u.sm.display)
+                  : (v.sm.display = a.labels_display
+                      ? a.labels_display
+                      : "all"),
             (v.sm.display_ids = !!t.display_ids && t.display_ids),
             (t.line || t.pill || d) && (v.sm.bbox = og(v)),
             "auto" == t.display && "state" == t.parent_type)
@@ -8914,8 +8925,8 @@ var simplemaps_countrymap_mapinfo = {
               "over" == t
                 ? e.sm.over_attributes
                 : "adjacent" == t
-                ? e.sm.adjacent_attributes
-                : e.sm.attributes),
+                  ? e.sm.adjacent_attributes
+                  : e.sm.attributes),
           !o || e.sm.image ? e.attr(r) : e.animate(r, q);
       },
       o5 = function (e, t, o) {
@@ -8929,8 +8940,8 @@ var simplemaps_countrymap_mapinfo = {
             "over" == t
               ? s.clone(n.sm.over_attributes)
               : "adjacent" == t
-              ? s.clone(n.sm.adjacent_attributes)
-              : s.clone(n.sm.attributes)),
+                ? s.clone(n.sm.adjacent_attributes)
+                : s.clone(n.sm.attributes)),
           n.sm.image && "state" == n.sm.type)
         ) {
           var a = eZ[n.sm.id];
@@ -9388,7 +9399,7 @@ var simplemaps_countrymap_mapinfo = {
             eg.style.setProperty("position", "absolute"),
             e_.style.setProperty(
               "position",
-              "inside" == h ? "absolute" : "relative"
+              "inside" == h ? "absolute" : "relative",
             ),
             e$.style.setProperty("z-index", "1"),
             ed.style.setProperty("z-index", "1"),
@@ -9483,7 +9494,7 @@ var simplemaps_countrymap_mapinfo = {
             ((tM = document.createElement("div")).style.setProperty(
               "overflow",
               "visible",
-              "important"
+              "important",
             ),
             tM.style.setProperty("clip-path", "none", "important"),
             tM.style.setProperty("display", "inline", "important"),
@@ -9505,7 +9516,7 @@ var simplemaps_countrymap_mapinfo = {
               t.style.setProperty(
                 "font",
                 "12px Verdana, Arial, Helvetica, sans-serif",
-                "important"
+                "important",
               ),
               t.style.setProperty("cursor", "pointer", "important"),
               t.style.setProperty("float", "right", "important"),
@@ -9567,13 +9578,13 @@ var simplemaps_countrymap_mapinfo = {
                   var r = e[o];
                   return (r = (r = (r = (r = (r = r.replace(
                     "borderRadius",
-                    "border-radius"
+                    "border-radius",
                   )).replace("MozBorderRadius", "-moz-border-radius")).replace(
                     "WebkitBorderRadius",
-                    "-webkit-border-radius"
+                    "-webkit-border-radius",
                   )).replace("boxShadow", "box-shadow")).replace(
                     "MozBoxShadow",
-                    "-moz-box-shadow"
+                    "-moz-box-shadow",
                   )).replace("WebkitBoxShadow", "-webkit-box-shadow");
                 }
             }
@@ -9587,7 +9598,7 @@ var simplemaps_countrymap_mapinfo = {
             create: function () {
               (q = document.createElement("div")).setAttribute(
                 "id",
-                "tt_sm_" + g
+                "tt_sm_" + g,
               ),
                 q.style.setProperty("position", "absolute"),
                 q.style.setProperty("display", "none"),
@@ -9649,19 +9660,19 @@ var simplemaps_countrymap_mapinfo = {
                         q.style.setProperty("left", t + 5 + 5 + "px"),
                         q.style.setProperty("right", "auto"))
                       : 2 == r
-                      ? (q.style.setProperty("bottom", "auto"),
-                        q.style.setProperty("top", e + 5 + "px"),
-                        q.style.setProperty("right", eb - t + 5 + "px"),
-                        q.style.setProperty("left", "auto"))
-                      : 3 == r
-                      ? (q.style.setProperty("bottom", ex - e + 5 + "px"),
-                        q.style.setProperty("top", "auto"),
-                        q.style.setProperty("left", t + 5 + 3 + "px"),
-                        q.style.setProperty("right", "auto"))
-                      : (q.style.setProperty("bottom", ex - e + 5 + "px"),
-                        q.style.setProperty("top", "auto"),
-                        q.style.setProperty("right", eb - t + 5 + "px"),
-                        q.style.setProperty("left", "auto"));
+                        ? (q.style.setProperty("bottom", "auto"),
+                          q.style.setProperty("top", e + 5 + "px"),
+                          q.style.setProperty("right", eb - t + 5 + "px"),
+                          q.style.setProperty("left", "auto"))
+                        : 3 == r
+                          ? (q.style.setProperty("bottom", ex - e + 5 + "px"),
+                            q.style.setProperty("top", "auto"),
+                            q.style.setProperty("left", t + 5 + 3 + "px"),
+                            q.style.setProperty("right", "auto"))
+                          : (q.style.setProperty("bottom", ex - e + 5 + "px"),
+                            q.style.setProperty("top", "auto"),
+                            q.style.setProperty("right", eb - t + 5 + "px"),
+                            q.style.setProperty("left", "auto"));
                 } else {
                   q.style.setProperty("top", "-100px"),
                     q.style.setProperty("left", "-100px"),
@@ -9899,7 +9910,7 @@ var simplemaps_countrymap_mapinfo = {
                         c.x <= p.x && (m *= -1);
                         var u = Raphael.transformPath(
                             a,
-                            "R" + m + "," + c.x + "," + c.y + "S2"
+                            "R" + m + "," + c.x + "," + c.y + "S2",
                           ).toString(),
                           d = Raphael.transformPath(a, "R-90S2").toString(),
                           f = Raphael.pathIntersection(u, d)[0];
@@ -10319,7 +10330,7 @@ var simplemaps_countrymap_mapinfo = {
                       var r,
                         n = o.array[t.value];
                       tO(n.sm.type, n.sm.id);
-                    }
+                    },
                   )),
                     ev.appendChild(f);
                 }
@@ -10442,16 +10453,16 @@ var simplemaps_countrymap_mapinfo = {
             oZ(e, t, o);
           })
         : r.sm.region && "out" == t6.zoom_level
-        ? oW(r.sm.region, function () {
-            oZ(e, t, o);
-          })
-        : ((w = !0),
-          n ? tb.call(r) : tx.call(r),
-          tP.reset_pos(p, m, r),
-          (u = !0),
-          (w = !1),
-          o(),
-          !0);
+          ? oW(r.sm.region, function () {
+              oZ(e, t, o);
+            })
+          : ((w = !0),
+            n ? tb.call(r) : tx.call(r),
+            tP.reset_pos(p, m, r),
+            (u = !0),
+            (w = !1),
+            o(),
+            !0);
     }
     function oU(e) {
       var t = t$[e];

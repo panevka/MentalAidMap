@@ -101,10 +101,10 @@ const MapPage: React.FC = () => {
             {isLoading
               ? "Ładowanie..."
               : isError
-              ? "Nastąpił błąd!"
-              : isSuccess
-              ? "Wyszukiwanie przebiegło pomyślnie!"
-              : ""}
+                ? "Nastąpił błąd!"
+                : isSuccess
+                  ? "Wyszukiwanie przebiegło pomyślnie!"
+                  : ""}
           </p>
         </div>
         <div className="hidden w-full h-full relative md:flex">
@@ -157,10 +157,10 @@ const MapPage: React.FC = () => {
           {isLoading
             ? "Ładowanie..."
             : isError
-            ? "Nastąpił błąd!"
-            : isSuccess
-            ? "Wyszukiwanie przebiegło pomyślnie! "
-            : ""}
+              ? "Nastąpił błąd!"
+              : isSuccess
+                ? "Wyszukiwanie przebiegło pomyślnie! "
+                : ""}
         </p>
       </div>
     </div>
