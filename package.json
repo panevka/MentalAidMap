@@ -14,7 +14,8 @@
     "dev:frontend": "npm run dev --prefix apps/frontend",
     "dev:backend": "npm run dev --prefix apps/backend",
     "dev:all": "concurrently -r 'npm run dev:frontend' 'npm run dev:backend'",
-    "build:frontend": "npm run build --prefix apps/frontend"
+    "build:frontend": "npm run build --prefix apps/frontend",
+    "build:backend": "npm run build --prefix apps/backend"
   },
   "repository": {
     "type": "git",
