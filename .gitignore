@@ -28,3 +28,4 @@ MongoDB
 *.env
 .env.local
 .env.production
+.vercel
