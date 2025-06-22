@@ -60,8 +60,28 @@ export default defineConfig([
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
   tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  pluginReact.configs.flat["jsx-runtime"],
+  {
+    files: ["**/apps/frontend.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+    ...pluginReact.configs.flat.recommended,
+    languageOptions: {
+      ...pluginReact.configs.flat.recommended.languageOptions,
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
+    },
+  },
+  {
+    files: ["**/apps/frontend.{jsx,tsx}"],
+    ...pluginReact.configs.flat["jsx-runtime"],
+    languageOptions: {
+      ...pluginReact.configs.flat["jsx-runtime"].languageOptions,
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
+    },
+  },
   {
     files: ["**/*.json"],
     plugins: { json },
@@ -75,4 +95,9 @@ export default defineConfig([
     extends: ["json/recommended"],
   },
   eslintConfigPrettier,
+  {
+    rules: {
+      "no-console": 2,
+    },
+  },
 ]);
