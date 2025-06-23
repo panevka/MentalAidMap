@@ -6,7 +6,7 @@ import { setupCommonMiddleware } from "./middleware/commonMiddleware";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || "";
+const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "";
 setupCommonMiddleware(app);
 
