@@ -2,7 +2,8 @@ name: Deploy documentation
 on:
   push:
     branches: 
-      - '*'
+      - 'main'
+      - 'dev'
     paths:
       - docs/**
   workflow_dispatch: 
@@ -26,7 +27,7 @@ jobs:
       - name: Install plugin for UML renders
         run: pip install mkdocs_puml
       - name: Build site
-        run: mkdocs gh-deploy --config-file example-mkdocs/mkdocs.yml --force
+        run: mkdocs gh-deploy --config-file mkdocs.yml --force
 
   deploy_mkdocs:
     needs: build_mkdocs
