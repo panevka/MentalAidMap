@@ -1,4 +1,4 @@
-type RRuleFrequency =
+export type RRuleFrequency =
   | "yearly"
   | "weekly"
   | "monthly"
@@ -7,4 +7,4 @@ type RRuleFrequency =
   | "minutely"
   | "secondly";
 
-type RRuleByDay = "mo" | "tu" | "we" | "th" | "fr" | "sa" | "su";
+export type RRuleByDay = "mo" | "tu" | "we" | "th" | "fr" | "sa" | "su";
