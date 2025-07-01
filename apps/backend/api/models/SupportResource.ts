@@ -1,32 +1,14 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import {
   IAvailability,
   IAvailabilityPattern,
+  ISupportResource,
+  Type,
 } from "../types/SupportResource.types";
 
 import { RRuleByDay, RRuleFrequency } from "../types/RRule.types";
-// SupportResources collection entry
-export interface ISupportResource extends Document {
-  name: { type: string; required: true };
-  provider_name: { type: string; required: true };
-  age_range: {
-    min: { type: number; required: true };
-    max: { type: number; required: true };
-  };
-  tags: { type: string[]; required: true };
-  availability: { type: IAvailability; required: true };
-  type: { type: Type; required: true };
-}
 
-enum Type {
-  email = "email",
-  phone = "phone",
-  webchat = "webchat",
-}
-
-const TypeSchema: Schema<Type> = new Schema({
-  enum: ["email", "phone", "webchat"],
-});
+// Related schema declarations
 
 const RRuleFrequencySchema: Schema<RRuleFrequency> = new Schema({
   enum: [
@@ -71,6 +53,11 @@ const AvailabilitySchema: Schema<IAvailability> = new Schema({
   additonal_dates: { type: [Date] },
 });
 
+const TypeSchema: Schema<Type> = new Schema({
+  enum: ["email", "phone", "webchat"],
+});
+
+// Collection entry schema
 const SupportResourceSchema: Schema<ISupportResource> = new Schema(
   {
     name: { type: String, required: true },
@@ -85,6 +72,7 @@ const SupportResourceSchema: Schema<ISupportResource> = new Schema(
   },
   { collection: "SupportResources" },
 );
+
 export const SupportResource = mongoose.model<ISupportResource>(
   "SupportResource",
   SupportResourceSchema,

@@ -1,5 +1,19 @@
 import { RRuleByDay, RRuleFrequency } from "./RRule.types";
 
+// Colllection Entry
+export interface ISupportResource {
+  name: { type: string; required: true };
+  provider_name: { type: string; required: true };
+  age_range: {
+    min: { type: number; required: true };
+    max: { type: number; required: true };
+  };
+  tags: { type: string[]; required: true };
+  availability: { type: IAvailability; required: true };
+  type: { type: Type; required: true };
+}
+
+// Related type declarations
 export interface IAvailabilityPattern {
   start_time: { hour: number; minute: number };
   end_time: { hour: number; minute: number };
@@ -15,4 +29,10 @@ export interface IAvailabilityPattern {
 export interface IAvailability {
   patterns: IAvailabilityPattern[];
   additonal_dates?: Date[];
+}
+
+export enum Type {
+  email = "email",
+  phone = "phone",
+  webchat = "webchat",
 }
