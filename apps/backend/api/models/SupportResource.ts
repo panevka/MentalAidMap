@@ -3,10 +3,10 @@ import {
   IAvailability,
   IAvailabilityPattern,
   ISupportResource,
+  RRuleByDay,
+  RRuleFrequency,
   Type,
 } from "../types/SupportResource.types";
-
-import { RRuleByDay, RRuleFrequency } from "../types/RRule.types";
 
 // Related schema declarations
 

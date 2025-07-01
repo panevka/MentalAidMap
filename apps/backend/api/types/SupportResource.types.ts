@@ -1,5 +1,3 @@
-import { RRuleByDay, RRuleFrequency } from "./RRule.types";
-
 // Colllection Entry
 export interface ISupportResource {
   name: { type: string; required: true };
@@ -14,6 +12,17 @@ export interface ISupportResource {
 }
 
 // Related type declarations
+export type RRuleFrequency =
+  | "yearly"
+  | "weekly"
+  | "monthly"
+  | "daily"
+  | "hourly"
+  | "minutely"
+  | "secondly";
+
+export type RRuleByDay = "mo" | "tu" | "we" | "th" | "fr" | "sa" | "su";
+
 export interface IAvailabilityPattern {
   start_time: { hour: number; minute: number };
   end_time: { hour: number; minute: number };
