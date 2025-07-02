@@ -1,5 +1,5 @@
 import express from "express";
-import mongoose, { ConnectOptions } from "mongoose";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { setupCommonMiddleware } from "./middleware/commonMiddleware";
 
@@ -12,10 +12,7 @@ setupCommonMiddleware(app);
 
 // Database connection
 mongoose
-  .connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  } as ConnectOptions)
+  .connect(MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
