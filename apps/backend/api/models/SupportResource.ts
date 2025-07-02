@@ -10,37 +10,47 @@ import {
 
 // Related schema declarations
 
-const IAvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema({
-  start_time: {
-    type: {
-      hour: { type: Number, required: true },
-      minute: { type: Number, required: true },
+const IAvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
+  {
+    start_time: {
+      type: {
+        hour: { type: Number, required: true },
+        minute: { type: Number, required: true },
+      },
+      required: true,
     },
-    required: true,
-  },
-  end_time: {
-    type: {
-      hour: { type: Number, required: true },
-      minute: { type: Number, required: true },
+    end_time: {
+      type: {
+        hour: { type: Number, required: true },
+        minute: { type: Number, required: true },
+      },
+      required: true,
     },
-    required: true,
-  },
-  rrule: {
-    type: {
-      freq: { type: String, enum: RRuleFrequency, required: true },
-      count: { type: Number, required: true },
-      interval: { type: Number, required: true },
-      by_day: { type: [String], enum: RRuleByDay, required: true },
+    rrule: {
+      type: {
+        freq: { type: String, enum: RRuleFrequency, required: true },
+        count: { type: Number, required: true },
+        interval: { type: Number, required: true },
+        by_day: { type: [String], enum: RRuleByDay, required: true },
+      },
+      required: true,
     },
-    required: true,
+    excluded_dates: { type: [Date] },
   },
-  excluded_dates: { type: [Date] },
-});
+  { _id: false },
+);
 
-const AvailabilitySchema: Schema<IAvailability> = new Schema({
-  patterns: { type: [IAvailabilityPatternSchema], required: true, default: [] },
-  additonal_dates: { type: [Date] },
-});
+const AvailabilitySchema: Schema<IAvailability> = new Schema(
+  {
+    patterns: {
+      type: [IAvailabilityPatternSchema],
+      required: true,
+      default: [],
+    },
+    additonal_dates: { type: [Date] },
+  },
+  { _id: false },
+);
 
 // Collection entry schema
 const SupportResourceSchema: Schema<ISupportResource> = new Schema(
@@ -53,6 +63,7 @@ const SupportResourceSchema: Schema<ISupportResource> = new Schema(
         maxExclusive: { type: Number, required: true, min: 0 },
       },
       required: true,
+      _id: false,
     },
     tags: { type: [String], required: true },
     availability: { type: AvailabilitySchema, required: true },
