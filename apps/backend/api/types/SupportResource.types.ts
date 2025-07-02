@@ -2,7 +2,7 @@
 export interface ISupportResource {
   name: string;
   provider_name: string;
-  age_range: AgeRange;
+  age_range: IAgeRange;
   tags: string[];
   availability: IAvailability;
   support_type: SupportType;
@@ -10,7 +10,7 @@ export interface ISupportResource {
 
 // Related type declarations
 //
-export interface AgeRange {
+export interface IAgeRange {
   minInclusive: number;
   maxExclusive: number;
 }
