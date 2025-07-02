@@ -7,7 +7,7 @@ import { validateRequest } from "../middleware/validator";
 import {
   providersDataQueryValidator,
   providersQueryValidator,
-} from "../validators";
+} from "../validators/providerValidator";
 import { getSupportResources } from "../controllers/supportResourceController";
 
 const router = express.Router();
@@ -25,4 +25,5 @@ router.get(
 );
 
 router.get("/support-resources", getSupportResources);
+
 export default router;
