@@ -8,6 +8,7 @@ import {
   providersDataQueryValidator,
   providersQueryValidator,
 } from "../validators";
+import { getSupportResources } from "../controllers/supportResourceController";
 
 const router = express.Router();
 
@@ -16,10 +17,12 @@ router.get(
   [validateRequest(providersQueryValidator)],
   getProviders,
 );
+
 router.get(
   "/provider-data",
   [validateRequest(providersDataQueryValidator)],
   getProviderData,
 );
 
+router.get("/support-resources", getSupportResources);
 export default router;
