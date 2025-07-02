@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import {
+  IAgeRange,
   IAvailability,
   IAvailabilityPattern,
   ISupportResource,
@@ -40,6 +41,14 @@ const IAvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
   { _id: false },
 );
 
+const AgeRangeSchema: Schema<IAgeRange> = new Schema(
+  {
+    minInclusive: { type: Number, required: true, min: 0 },
+    maxExclusive: { type: Number, required: true, min: 0 },
+  },
+  { _id: false },
+);
+
 const AvailabilitySchema: Schema<IAvailability> = new Schema(
   {
     patterns: {
@@ -58,12 +67,8 @@ const SupportResourceSchema: Schema<ISupportResource> = new Schema(
     name: { type: String, required: true },
     provider_name: { type: String, required: true },
     age_range: {
-      type: {
-        minInclusive: { type: Number, required: true, min: 0 },
-        maxExclusive: { type: Number, required: true, min: 0 },
-      },
+      type: AgeRangeSchema,
       required: true,
-      _id: false,
     },
     tags: { type: [String], required: true },
     availability: { type: AvailabilitySchema, required: true },

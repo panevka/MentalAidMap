@@ -2,16 +2,25 @@
 export interface ISupportResource {
   name: string;
   provider_name: string;
-  age_range: {
-    minInclusive: number;
-    maxExclusive: number;
-  };
+  age_range: AgeRange;
   tags: string[];
   availability: IAvailability;
   support_type: SupportType;
 }
 
 // Related type declarations
+//
+export interface AgeRange {
+  minInclusive: number;
+  maxExclusive: number;
+}
+
+export enum SupportType {
+  email = "email",
+  phone = "phone",
+  webchat = "webchat",
+}
+
 export enum RRuleFrequency {
   Yearly = "yearly",
   Weekly = "weekly",
@@ -47,10 +56,4 @@ export interface IAvailabilityPattern {
 export interface IAvailability {
   patterns: IAvailabilityPattern[];
   additonal_dates?: Date[];
-}
-
-export enum SupportType {
-  email = "email",
-  phone = "phone",
-  webchat = "webchat",
 }
