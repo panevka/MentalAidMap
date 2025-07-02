@@ -5,26 +5,10 @@ import {
   ISupportResource,
   RRuleByDay,
   RRuleFrequency,
-  Type,
+  SupportType as SupportType,
 } from "../types/SupportResource.types";
 
 // Related schema declarations
-
-const RRuleFrequencySchema: Schema<RRuleFrequency> = new Schema({
-  enum: [
-    "yearly",
-    "weekly",
-    "monthly",
-    "daily",
-    "hourly",
-    "minutely",
-    "secondly",
-  ],
-});
-
-const RRuleByDaySchema: Schema<RRuleByDay> = new Schema({
-  enum: ["mo", "tu", "we", "th", "fr", "sa", "su"],
-});
 
 const IAvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema({
   start_time: {
@@ -32,18 +16,23 @@ const IAvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema({
       hour: { type: Number, required: true },
       minute: { type: Number, required: true },
     },
+    required: true,
   },
   end_time: {
     type: {
       hour: { type: Number, required: true },
       minute: { type: Number, required: true },
     },
+    required: true,
   },
   rrule: {
-    freq: { type: RRuleFrequencySchema },
-    count: { type: Number, required: true },
-    interval: { type: Number, required: true },
-    by_day: { type: [RRuleByDaySchema], required: true },
+    type: {
+      freq: { type: String, enum: RRuleFrequency, required: true },
+      count: { type: Number, required: true },
+      interval: { type: Number, required: true },
+      by_day: { type: [String], enum: RRuleByDay, required: true },
+    },
+    required: true,
   },
   excluded_dates: { type: [Date] },
 });
@@ -53,22 +42,21 @@ const AvailabilitySchema: Schema<IAvailability> = new Schema({
   additonal_dates: { type: [Date] },
 });
 
-const TypeSchema: Schema<Type> = new Schema({
-  enum: ["email", "phone", "webchat"],
-});
-
 // Collection entry schema
 const SupportResourceSchema: Schema<ISupportResource> = new Schema(
   {
     name: { type: String, required: true },
     provider_name: { type: String, required: true },
     age_range: {
-      minInclusive: { type: Number, required: true, min: 0 },
-      maxExclusive: { type: Number, required: true, min: 0 },
+      type: {
+        minInclusive: { type: Number, required: true, min: 0 },
+        maxExclusive: { type: Number, required: true, min: 0 },
+      },
+      required: true,
     },
     tags: { type: [String], required: true },
-    availability: { type: AvailabilitySchema, required: true, default: [] },
-    type: { type: TypeSchema, required: true },
+    availability: { type: AvailabilitySchema, required: true },
+    support_type: { type: String, enum: SupportType, required: true },
   },
   { collection: "SupportResources" },
 );
