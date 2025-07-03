@@ -1,7 +1,7 @@
 import express from "express";
 import {
-  getProviderData,
-  getProviders,
+  getProviderDataRouteDefinition,
+  getProvidersRouteDefinition,
 } from "../controllers/providerController";
 import { validateRequest } from "../middleware/validator";
 import {
@@ -14,14 +14,24 @@ const router = express.Router();
 
 router.get(
   "/provider",
-  [validateRequest(providersQueryValidator)],
-  getProviders,
+  [
+    validateRequest(
+      providersQueryValidator,
+      getProvidersRouteDefinition.consumes,
+    ),
+  ],
+  getProvidersRouteDefinition.handler,
 );
 
 router.get(
   "/provider-data",
-  [validateRequest(providersDataQueryValidator)],
-  getProviderData,
+  [
+    validateRequest(
+      providersDataQueryValidator,
+      getProvidersRouteDefinition.consumes,
+    ),
+  ],
+  getProviderDataRouteDefinition.handler,
 );
 
 router.get("/support-resources", getSupportResources);
