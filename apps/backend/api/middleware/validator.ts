@@ -4,7 +4,7 @@ import { RequestPayloadType } from "../types/typeUtils";
 
 export const validateRequest =
   (validator: AnyZodObject, dataSource: RequestPayloadType) =>
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       switch (dataSource) {
         case RequestPayloadType.Params:
@@ -17,14 +17,22 @@ export const validateRequest =
           await validator.parseAsync(req.body);
           break;
         default:
-          break;
+          res.status(500).json({ msg: "Invalid data source type." });
+          return;
       }
-      validator.parseAsync(req.query);
       next();
     } catch (error) {
       if (error instanceof ZodError) {
-        return res.status(500).send({ msg: error?.issues?.[0]?.message });
+        res.status(400).json({
+          status: "error",
+          errors: error.issues.map((issue) => ({
+            path: issue.path.join("."),
+            message: issue.message,
+          })),
+        });
+        return;
       }
     }
-    return res.status(500).send("Error");
+    res.status(500).json({ msg: "Internal server error." });
+    return;
   };
