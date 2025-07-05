@@ -62,5 +62,5 @@ export interface ITime {
 
 export interface IAvailability {
   patterns: IAvailabilityPattern[];
-  additonal_dates?: Date[];
+  additional_dates?: Date[];
 }

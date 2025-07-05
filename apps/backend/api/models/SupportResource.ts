@@ -65,7 +65,7 @@ const AvailabilitySchema: Schema<IAvailability> = new Schema(
       required: true,
       default: [],
     },
-    additonal_dates: { type: [Date] },
+    additional_dates: { type: [Date] },
   },
   { _id: false },
 );
