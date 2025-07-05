@@ -11,7 +11,7 @@ import {
 
 // Related schema declarations
 
-const IAvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
+const AvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
   {
     start_time: {
       type: {
@@ -52,7 +52,7 @@ const AgeRangeSchema: Schema<IAgeRange> = new Schema(
 const AvailabilitySchema: Schema<IAvailability> = new Schema(
   {
     patterns: {
-      type: [IAvailabilityPatternSchema],
+      type: [AvailabilityPatternSchema],
       required: true,
       default: [],
     },
