@@ -4,27 +4,27 @@ import {
   IAvailability,
   IAvailabilityPattern,
   ISupportResource,
+  ITime,
   RRuleByDay,
   RRuleFrequency,
   SupportType as SupportType,
 } from "../types/SupportResource.types";
 
 // Related schema declarations
+//
+const TimeSchema: Schema<ITime> = new Schema({
+  hour: { type: Number, required: true },
+  minute: { type: Number, required: true },
+});
 
 const AvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
   {
     start_time: {
-      type: {
-        hour: { type: Number, required: true },
-        minute: { type: Number, required: true },
-      },
+      type: TimeSchema,
       required: true,
     },
     end_time: {
-      type: {
-        hour: { type: Number, required: true },
-        minute: { type: Number, required: true },
-      },
+      type: TimeSchema,
       required: true,
     },
     rrule: {
