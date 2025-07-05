@@ -5,6 +5,7 @@ import {
   RRuleFrequency,
   SupportType,
 } from "../types/SupportResource.types";
+import mongoose from "mongoose";
 
 export const createSupportResourceValidator = z.object({
   name: z.string().min(3).max(100),
@@ -45,3 +46,7 @@ export const createSupportResourceValidator = z.object({
   }),
   support_type: z.nativeEnum(SupportType),
 }) satisfies ZodType<ISupportResource>;
+
+export const deleteSupportResourceValidator = z.object({
+  id: z.custom<mongoose.Types.ObjectId>(),
+});

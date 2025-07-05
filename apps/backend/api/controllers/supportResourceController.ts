@@ -27,3 +27,22 @@ export const createSupportResourceRouteDefinition: IRouteDefinition = {
   handler: createSupportResource,
   consumes: RequestPayloadType.Body,
 };
+
+export const deleteSupportResource = async (req: Request, res: Response) => {
+  try {
+    const id = req.query.id;
+    const deletedDocument = await SupportResource.findByIdAndDelete(id);
+    if (deletedDocument !== null) {
+      res.status(200).send({ msg: "Item deleted successfully." });
+    } else {
+      res.status(404).send({ msg: "Item not found. Cannot delete." });
+    }
+  } catch (error) {
+    res.status(500).send({ msg: error.message });
+  }
+};
+
+export const deleteSupportResourceRouteDefinition: IRouteDefinition = {
+  handler: deleteSupportResource,
+  consumes: RequestPayloadType.Query,
+};

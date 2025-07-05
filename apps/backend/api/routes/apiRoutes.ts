@@ -10,9 +10,13 @@ import {
 } from "../validators/providerValidator";
 import {
   createSupportResourceRouteDefinition,
+  deleteSupportResourceRouteDefinition,
   getSupportResources,
 } from "../controllers/supportResourceController";
-import { createSupportResourceValidator } from "../validators/supportResourceValidator";
+import {
+  createSupportResourceValidator,
+  deleteSupportResourceValidator,
+} from "../validators/supportResourceValidator";
 
 const router = express.Router();
 
@@ -49,6 +53,17 @@ router.post(
     ),
   ],
   createSupportResourceRouteDefinition.handler,
+);
+
+router.delete(
+  "/support-resources",
+  [
+    validateRequest(
+      deleteSupportResourceValidator,
+      deleteSupportResourceRouteDefinition.consumes,
+    ),
+  ],
+  deleteSupportResourceRouteDefinition.handler,
 );
 
 export default router;
