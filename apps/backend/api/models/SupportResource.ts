@@ -15,7 +15,7 @@ import {
 const TimeSchema: Schema<ITime> = new Schema({
   hour: { type: Number, required: true },
   minute: { type: Number, required: true },
-});
+}, { _id: false});
 
 const AvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
   {
