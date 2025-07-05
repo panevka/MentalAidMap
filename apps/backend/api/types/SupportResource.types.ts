@@ -42,8 +42,8 @@ export enum RRuleByDay {
 }
 
 export interface IAvailabilityPattern {
-  start_time: { hour: number; minute: number };
-  end_time: { hour: number; minute: number };
+  start_time: ITime;
+  end_time: ITime;
   rrule: {
     freq: RRuleFrequency;
     count: number;
@@ -51,6 +51,11 @@ export interface IAvailabilityPattern {
     by_day: RRuleByDay[];
   };
   excluded_dates?: Date[];
+}
+
+export interface ITime {
+  hour: number;
+  minute: number;
 }
 
 export interface IAvailability {
