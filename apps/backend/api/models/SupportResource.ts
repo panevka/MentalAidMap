@@ -3,6 +3,7 @@ import {
   IAgeRange,
   IAvailability,
   IAvailabilityPattern,
+  IRRule,
   ISupportResource,
   ITime,
   RRuleByDay,
@@ -20,6 +21,16 @@ const TimeSchema: Schema<ITime> = new Schema(
   { _id: false },
 );
 
+const RRuleSchema: Schema<IRRule> = new Schema(
+  {
+    freq: { type: String, enum: RRuleFrequency, required: true },
+    count: { type: Number, required: true },
+    interval: { type: Number, required: true },
+    by_day: { type: [String], enum: RRuleByDay, required: true },
+  },
+  { _id: false },
+);
+
 const AvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
   {
     start_time: {
@@ -31,12 +42,7 @@ const AvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
       required: true,
     },
     rrule: {
-      type: {
-        freq: { type: String, enum: RRuleFrequency, required: true },
-        count: { type: Number, required: true },
-        interval: { type: Number, required: true },
-        by_day: { type: [String], enum: RRuleByDay, required: true },
-      },
+      type: RRuleSchema,
       required: true,
     },
     excluded_dates: { type: [Date] },
