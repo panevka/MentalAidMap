@@ -8,7 +8,11 @@ import {
   providersDataQueryValidator,
   providersQueryValidator,
 } from "../validators/providerValidator";
-import { getSupportResources } from "../controllers/supportResourceController";
+import {
+  createSupportResourceRouteDefinition,
+  getSupportResources,
+} from "../controllers/supportResourceController";
+import { createSupportResourceValidator } from "../validators/supportResourceValidator";
 
 const router = express.Router();
 
@@ -35,5 +39,16 @@ router.get(
 );
 
 router.get("/support-resources", getSupportResources);
+
+router.post(
+  "/support-resources",
+  [
+    validateRequest(
+      createSupportResourceValidator,
+      createSupportResourceRouteDefinition.consumes,
+    ),
+  ],
+  createSupportResourceRouteDefinition.handler,
+);
 
 export default router;
