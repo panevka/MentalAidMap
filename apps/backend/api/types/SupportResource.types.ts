@@ -44,13 +44,15 @@ export enum RRuleByDay {
 export interface IAvailabilityPattern {
   start_time: ITime;
   end_time: ITime;
-  rrule: {
-    freq: RRuleFrequency;
-    count: number;
-    interval: number;
-    by_day: RRuleByDay[];
-  };
+  rrule: IRRule;
   excluded_dates?: Date[];
+}
+
+export interface IRRule {
+  freq: RRuleFrequency;
+  count: number;
+  interval: number;
+  by_day: RRuleByDay[];
 }
 
 export interface ITime {
