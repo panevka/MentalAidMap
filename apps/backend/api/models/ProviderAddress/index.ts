@@ -13,13 +13,13 @@ const LocationSchema = new Schema({
 });
 
 export interface IProviderAddress {
-  code: { type: string; required: true };
-  city: { type: string; required: true };
-  street: { type: string; required: true };
-  building_number: { type: String; required: true };
-  district: { type: string; required: true };
-  post_code: { type: string; required: true };
-  voivodeship: { type: string; required: true };
+  code: string;
+  city: string;
+  street: string;
+  building_number: string;
+  district: string;
+  post_code: string;
+  voivodeship: string;
   location: Location;
 }
 
