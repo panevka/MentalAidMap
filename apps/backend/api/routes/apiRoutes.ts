@@ -12,10 +12,12 @@ import {
   createSupportResourceRouteDefinition,
   deleteSupportResourceRouteDefinition,
   getSupportResources,
+  updateSupportResourceRouteDefinition,
 } from "../controllers/supportResourceController";
 import {
   createSupportResourceValidator,
   deleteSupportResourceValidator,
+  updateSupportResourceValidator,
 } from "../validators/supportResourceValidator";
 
 const router = express.Router();
@@ -64,6 +66,17 @@ router.delete(
     ),
   ],
   deleteSupportResourceRouteDefinition.handler,
+);
+
+router.put(
+  "/support-resources",
+  [
+    validateRequest(
+      updateSupportResourceValidator,
+      updateSupportResourceRouteDefinition.consumes,
+    ),
+  ],
+  updateSupportResourceRouteDefinition.handler,
 );
 
 export default router;
