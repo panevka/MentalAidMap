@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { Provider, ProviderAddress } from "../models/Provider";
+import { Provider } from "../models/Provider";
+import { ProviderAddress } from "../models/ProviderAddress";
 import axios from "axios";
 import { IRouteDefinition, RequestPayloadType } from "../types/typeUtils";
 
