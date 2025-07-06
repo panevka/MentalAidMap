@@ -46,3 +46,28 @@ export const deleteSupportResourceRouteDefinition: IRouteDefinition = {
   handler: deleteSupportResource,
   consumes: RequestPayloadType.Query,
 };
+
+export const updateSupportResource = async (req: Request, res: Response) => {
+  try {
+    const { id: id, ...data } = req.body;
+    console.log(id);
+    console.log(data);
+
+    const updatedDocument = await SupportResource.findByIdAndUpdate(
+      id,
+      req.body,
+    );
+    if (updatedDocument !== null) {
+      res.status(200).send({ msg: "Item updated successfully." });
+    } else {
+      res.status(404).send({ msg: "Item not found. Cannot update." });
+    }
+  } catch (error) {
+    res.status(500).send({ msg: error.message });
+  }
+};
+
+export const updateSupportResourceRouteDefinition: IRouteDefinition = {
+  handler: updateSupportResource,
+  consumes: RequestPayloadType.Body,
+};
