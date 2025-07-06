@@ -12,7 +12,7 @@ const LocationSchema = new Schema({
   coordinates: { type: [Number], required: true },
 });
 
-export interface IProviderAddress extends Document {
+export interface IProviderAddress {
   code: { type: string; required: true };
   city: { type: string; required: true };
   street: { type: string; required: true };
