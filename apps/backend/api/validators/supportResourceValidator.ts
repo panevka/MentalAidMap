@@ -50,3 +50,8 @@ export const createSupportResourceValidator = z.object({
 export const deleteSupportResourceValidator = z.object({
   id: z.custom<mongoose.Types.ObjectId>(),
 });
+
+export const updateSupportResourceValidator =
+  createSupportResourceValidator.extend({
+    id: z.custom<mongoose.Types.ObjectId>(),
+  });
