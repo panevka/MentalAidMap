@@ -1,4 +1,4 @@
-interface Location {
+interface ILocation {
   type: "Point";
   coordinates: [number, number];
 }
@@ -11,5 +11,5 @@ export interface IProviderAddress {
   district: string;
   post_code: string;
   voivodeship: string;
-  location: Location;
+  location: ILocation;
 }
