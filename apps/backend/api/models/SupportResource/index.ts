@@ -2,34 +2,13 @@ import mongoose, { Schema } from "mongoose";
 import {
   IAgeRange,
   IAvailability,
-  IAvailabilityPattern,
   ISupportResource,
   SupportType as SupportType,
 } from "../../types/SupportResource.types";
-import { TimeSchema } from "./Time";
-import { RRuleSchema } from "./RRule";
+import { AvailabilityPatternSchema } from "./AvailabilityPattern";
 
 // Related schema declarations
 //
-
-const AvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
-  {
-    start_time: {
-      type: TimeSchema,
-      required: true,
-    },
-    end_time: {
-      type: TimeSchema,
-      required: true,
-    },
-    rrule: {
-      type: RRuleSchema,
-      required: true,
-    },
-    excluded_dates: { type: [Date] },
-  },
-  { _id: false },
-);
 
 const AgeRangeSchema: Schema<IAgeRange> = new Schema(
   {
