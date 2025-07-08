@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
-import { Provider, ProviderAddress } from "../models/Provider";
+import { Provider } from "../models/Provider";
+import { ProviderAddress } from "../models/ProviderAddress";
 import axios from "axios";
+import { IRouteDefinition, RequestPayloadType } from "../types/typeUtils";
 
 interface Query {
   city?: string;
@@ -8,7 +10,7 @@ interface Query {
   radius?: string;
 }
 
-export const getProviders = async (req: Request, res: Response) => {
+const getProviders = async (req: Request, res: Response) => {
   try {
     const { city, postCode, radius } = req.query as Query;
     console.log(city, postCode, radius);
@@ -54,10 +56,16 @@ export const getProviders = async (req: Request, res: Response) => {
   }
 };
 
+export const getProvidersRouteDefinition: IRouteDefinition = {
+  handler: getProviders,
+  consumes: RequestPayloadType.Query,
+};
+
 interface ProviderDataQuery {
   providerCode?: string;
 }
-export const getProviderData = async (req: Request, res: Response) => {
+
+const getProviderData = async (req: Request, res: Response) => {
   try {
     const { providerCode } = req.query as ProviderDataQuery;
     const provider = await Provider.find({ code: providerCode });
@@ -73,4 +81,9 @@ export const getProviderData = async (req: Request, res: Response) => {
     console.log(err);
     return;
   }
+};
+
+export const getProviderDataRouteDefinition: IRouteDefinition = {
+  handler: getProviderData,
+  consumes: RequestPayloadType.Query,
 };

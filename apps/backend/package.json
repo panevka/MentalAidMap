@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "start:debug": "npx node_modules/nodemon/ dist/index.js",
-    "dev": "npm run build & npm run start:debug"
+    "dev": "npx tsc --watch & npm run start:debug"
   },
   "keywords": [],
   "author": "",
@@ -23,17 +23,18 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.29.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "nodemon": "^3.1.9",
+    "@types/node": "^22.10.5",
+    "cypress": "^14.5.0",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
     "globals": "^16.2.0",
+    "jest": "^30.0.4",
+    "nodemon": "^3.1.9",
     "prettier": "3.5.3",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.34.1",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint": "^9.29.0",
-    "cypress": "^14.5.0",
-    "@types/node": "^22.10.5",
-    "@eslint/js": "^9.29.0"
+    "typescript-eslint": "^8.34.1"
   }
 }

@@ -1,13 +1,35 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "rootDir": "api",
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "include": ["api/**/*"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "rootDir": "api",
+        "outDir": "dist",
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "incremental": true,
+        "esModuleInterop": true,
+        "moduleDetection": "force",
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedIndexedAccess": true
+    },
+    "include": [
+        "api/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
 }
