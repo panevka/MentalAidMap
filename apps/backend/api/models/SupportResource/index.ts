@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import {
   ISupportResource,
-  SupportType as SupportType,
+  SupportType,
 } from "../../types/SupportResource.types";
 import { AvailabilitySchema } from "./Availability";
 import { AgeRangeSchema } from "./AgeRange";
