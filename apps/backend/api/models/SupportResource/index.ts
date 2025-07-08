@@ -1,11 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 import {
   IAgeRange,
-  IAvailability,
   ISupportResource,
   SupportType as SupportType,
 } from "../../types/SupportResource.types";
-import { AvailabilityPatternSchema } from "./AvailabilityPattern";
+import { AvailabilitySchema } from "./Availability";
 
 // Related schema declarations
 //
@@ -14,18 +13,6 @@ const AgeRangeSchema: Schema<IAgeRange> = new Schema(
   {
     minInclusive: { type: Number, required: true, min: 0 },
     maxExclusive: { type: Number, required: true, min: 0 },
-  },
-  { _id: false },
-);
-
-const AvailabilitySchema: Schema<IAvailability> = new Schema(
-  {
-    patterns: {
-      type: [AvailabilityPatternSchema],
-      required: true,
-      default: [],
-    },
-    additional_dates: { type: [Date] },
   },
   { _id: false },
 );
