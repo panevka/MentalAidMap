@@ -1,16 +1,7 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema } from "mongoose";
+import { IProvider } from "../../types/Provider.types";
 
 // Providers collection entry
-export interface IProvider extends Document {
-  code: { type: string; required: true };
-  nip: { type: string; required: true };
-  regon: { type: string; required: true };
-  registry_number: { type: String; required: true };
-  name: { type: string; required: true };
-  phone: { type: string; required: true };
-  agreements: { type: string[]; required: true };
-}
-
 const ProviderSchema: Schema<IProvider> = new Schema(
   {
     code: { type: String, required: true },
