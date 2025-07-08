@@ -1,21 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 import {
-  IAgeRange,
   ISupportResource,
   SupportType as SupportType,
 } from "../../types/SupportResource.types";
 import { AvailabilitySchema } from "./Availability";
-
-// Related schema declarations
-//
-
-const AgeRangeSchema: Schema<IAgeRange> = new Schema(
-  {
-    minInclusive: { type: Number, required: true, min: 0 },
-    maxExclusive: { type: Number, required: true, min: 0 },
-  },
-  { _id: false },
-);
+import { AgeRangeSchema } from "./AgeRange";
 
 // Collection entry schema
 const SupportResourceSchema: Schema<ISupportResource> = new Schema(
