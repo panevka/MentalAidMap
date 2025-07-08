@@ -9,7 +9,7 @@ import {
   RRuleByDay,
   RRuleFrequency,
   SupportType as SupportType,
-} from "../types/SupportResource.types";
+} from "../../types/SupportResource.types";
 
 // Related schema declarations
 //
