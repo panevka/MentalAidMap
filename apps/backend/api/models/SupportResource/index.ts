@@ -5,22 +5,14 @@ import {
   IAvailabilityPattern,
   IRRule,
   ISupportResource,
-  ITime,
   RRuleByDay,
   RRuleFrequency,
   SupportType as SupportType,
 } from "../../types/SupportResource.types";
+import { TimeSchema } from "./Time";
 
 // Related schema declarations
 //
-const TimeSchema: Schema<ITime> = new Schema(
-  {
-    hour: { type: Number, required: true },
-    minute: { type: Number, required: true },
-  },
-  { _id: false },
-);
-
 const RRuleSchema: Schema<IRRule> = new Schema(
   {
     freq: { type: String, enum: RRuleFrequency, required: true },
