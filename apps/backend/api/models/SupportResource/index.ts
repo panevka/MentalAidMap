@@ -3,25 +3,14 @@ import {
   IAgeRange,
   IAvailability,
   IAvailabilityPattern,
-  IRRule,
   ISupportResource,
-  RRuleByDay,
-  RRuleFrequency,
   SupportType as SupportType,
 } from "../../types/SupportResource.types";
 import { TimeSchema } from "./Time";
+import { RRuleSchema } from "./RRule";
 
 // Related schema declarations
 //
-const RRuleSchema: Schema<IRRule> = new Schema(
-  {
-    freq: { type: String, enum: RRuleFrequency, required: true },
-    count: { type: Number, required: true },
-    interval: { type: Number, required: true },
-    by_day: { type: [String], enum: RRuleByDay, required: true },
-  },
-  { _id: false },
-);
 
 const AvailabilityPatternSchema: Schema<IAvailabilityPattern> = new Schema(
   {
