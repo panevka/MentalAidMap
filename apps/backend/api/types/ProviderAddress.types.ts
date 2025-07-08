@@ -1,4 +1,4 @@
-interface ILocation {
+export interface ILocation {
   type: "Point";
   coordinates: [number, number];
 }

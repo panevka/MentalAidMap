@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { IProviderAddress } from "../../types/ProviderAddress.types";
+import { ILocation, IProviderAddress } from "../../types/ProviderAddress.types";
 
-const LocationSchema = new Schema({
+const LocationSchema: Schema<ILocation> = new Schema({
   type: { type: String, enum: ["Point"], required: true },
   coordinates: { type: [Number], required: true },
 });
