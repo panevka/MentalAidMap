@@ -1,27 +1,10 @@
-// ProviderAddresses collection entry
-
 import mongoose, { Schema } from "mongoose";
-
-interface Location {
-  type: "Point";
-  coordinates: [number, number];
-}
+import { IProviderAddress } from "../../types/ProviderAddress.types";
 
 const LocationSchema = new Schema({
   type: { type: String, enum: ["Point"], required: true },
   coordinates: { type: [Number], required: true },
 });
-
-export interface IProviderAddress {
-  code: string;
-  city: string;
-  street: string;
-  building_number: string;
-  district: string;
-  post_code: string;
-  voivodeship: string;
-  location: Location;
-}
 
 const ProviderAddressSchema: Schema<IProviderAddress> = new Schema(
   {
