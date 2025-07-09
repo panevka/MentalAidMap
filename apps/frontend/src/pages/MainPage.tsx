@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Input } from "../components/ui/input.tsx";
 import { Button } from "../components/ui/button";
-import PolandMap from "../../public/poland.svg";
+import PolandMap from "@assets/poland.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
