@@ -14,7 +14,7 @@ interface Props {
 
 const defaultItems: NavItem[] = [
   { label: "Strona główna", href: "./" },
-  { label: "Mapa placówek", href: "./mapa" },
+  { label: "Mapa placówek", href: "./facility-map" },
   {
     label: "Baza wsparcia",
     href: "./support-resources",

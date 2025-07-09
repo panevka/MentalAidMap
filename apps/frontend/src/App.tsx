@@ -16,7 +16,7 @@ export default function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<MainPage />} />
-              <Route path="/mapa" element={<MapPage />} />
+              <Route path="/facility-map" element={<MapPage />} />
               <Route
                 path="/support-resources"
                 element={<SupportResourcesPage />}
