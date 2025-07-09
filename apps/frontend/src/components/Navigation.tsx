@@ -1,3 +1,9 @@
+import {
+  MAIN_PAGE_ROUTE,
+  MAP_PAGE_ROUTE,
+  SUPPORT_RESOURCES_PAGE_ROUTE,
+} from "@/config/routeConfig";
+
 interface NavItem {
   label: string;
   href: string;
@@ -13,11 +19,11 @@ interface Props {
 }
 
 const defaultItems: NavItem[] = [
-  { label: "Strona główna", href: "./" },
-  { label: "Mapa placówek", href: "./facility-map" },
+  { label: "Strona główna", href: MAIN_PAGE_ROUTE },
+  { label: "Mapa placówek", href: MAP_PAGE_ROUTE },
   {
     label: "Baza wsparcia",
-    href: "./support-resources",
+    href: SUPPORT_RESOURCES_PAGE_ROUTE,
   },
   {
     label: "Kontakt",

@@ -4,6 +4,11 @@ import { MapPage } from "./pages/MapPage.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TopBar } from "./components/TopBar.tsx";
 import SupportResourcesPage from "./pages/SupportResourcesPage.tsx";
+import {
+  MAIN_PAGE_ROUTE,
+  MAP_PAGE_ROUTE,
+  SUPPORT_RESOURCES_PAGE_ROUTE,
+} from "@/config/routeConfig.ts";
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -15,10 +20,10 @@ export default function App() {
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/facility-map" element={<MapPage />} />
+              <Route path={MAIN_PAGE_ROUTE} element={<MainPage />} />
+              <Route path={MAP_PAGE_ROUTE} element={<MapPage />} />
               <Route
-                path="/support-resources"
+                path={SUPPORT_RESOURCES_PAGE_ROUTE}
                 element={<SupportResourcesPage />}
               />
             </Routes>
