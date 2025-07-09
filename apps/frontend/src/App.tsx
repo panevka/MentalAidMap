@@ -3,6 +3,7 @@ import { MainPage } from "./pages/MainPage.tsx";
 import { MapPage } from "./pages/MapPage.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TopBar } from "./components/TopBar.tsx";
+import SupportResourcesPage from "./pages/SupportResourcesPage.tsx";
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -16,6 +17,10 @@ export default function App() {
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/mapa" element={<MapPage />} />
+              <Route
+                path="/support-resources"
+                element={<SupportResourcesPage />}
+              />
             </Routes>
           </BrowserRouter>
         </QueryClientProvider>
