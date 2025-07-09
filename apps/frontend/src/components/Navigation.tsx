@@ -17,10 +17,7 @@ const defaultItems: NavItem[] = [
   { label: "Mapa placówek", href: "./mapa" },
   {
     label: "Baza wsparcia",
-    href: "",
-    onClick: () => {
-      alert("Prace nad tą podstroną nadal trwają");
-    },
+    href: "./support-resources",
   },
   {
     label: "Kontakt",
