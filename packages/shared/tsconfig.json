@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es2020"
+  },
+  "include": [
+    "src"
+  ]
+}
