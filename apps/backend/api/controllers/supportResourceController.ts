@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { SupportResource } from "../models/SupportResource";
 import { IRouteDefinition, RequestPayloadType } from "../types/typeUtils";
 
-export const getSupportResources = async (req: Request, res: Response) => {
+export const getSupportResources = async (_req: Request, res: Response) => {
   const resources = await SupportResource.find({});
 
   if (resources.length === 0) {
