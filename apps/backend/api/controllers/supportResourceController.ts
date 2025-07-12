@@ -38,7 +38,9 @@ export const deleteSupportResource = async (req: Request, res: Response) => {
       res.status(404).send({ msg: "Item not found. Cannot delete." });
     }
   } catch (error) {
-    res.status(500).send({ msg: error.message });
+    if (error instanceof Error) {
+      res.status(500).send({ msg: error.message });
+    }
   }
 };
 
