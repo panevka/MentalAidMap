@@ -3,7 +3,7 @@
     "compilerOptions": {
         "target": "ES2020",
         "module": "commonjs",
-        "rootDir": "api",
+        "rootDir": "../..",
         "outDir": "dist",
         "paths": {
             "@shared/*": [
@@ -32,7 +32,7 @@
         "noUncheckedIndexedAccess": true
     },
     "include": [
-        "api/**/*"
+        "apps/backend/api/**/*"
     ],
     "exclude": [
         "node_modules",
