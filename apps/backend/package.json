@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "start:debug": "npx nodemon dist",
-    "dev": "npx tsc --watch & npm run start:debug"
+    "dev": "npx tsup --watch --onSuccess \"npx nodemon dist/index.mjs\""
   },
   "keywords": [],
   "author": "",
