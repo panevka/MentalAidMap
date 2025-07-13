@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { ITime } from "../../types/SupportResource.types";
+import { ITime } from "@shared/database/SupportResource.types";
 
 export const TimeSchema: Schema<ITime> = new Schema(
   {

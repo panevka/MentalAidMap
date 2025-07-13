@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { IAvailabilityPattern } from "../../types/SupportResource.types";
+import { IAvailabilityPattern } from "@shared/database/SupportResource.types";
 import { TimeSchema } from "./Time";
 import { RRuleSchema } from "./RRule";
 

@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { IAgeRange } from "../../types/SupportResource.types";
+import { IAgeRange } from "@shared/database/SupportResource.types";
 
 export const AgeRangeSchema: Schema<IAgeRange> = new Schema(
   {

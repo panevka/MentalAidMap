@@ -3,7 +3,7 @@ import {
   IRRule,
   RRuleByDay,
   RRuleFrequency,
-} from "../../types/SupportResource.types";
+} from "@shared/database/SupportResource.types";
 
 export const RRuleSchema: Schema<IRRule> = new Schema(
   {

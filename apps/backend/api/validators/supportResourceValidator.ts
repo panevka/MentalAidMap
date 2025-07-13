@@ -4,7 +4,7 @@ import {
   RRuleByDay,
   RRuleFrequency,
   SupportType,
-} from "../types/SupportResource.types";
+} from "@shared/database/SupportResource.types";
 import mongoose from "mongoose";
 
 export const createSupportResourceValidator = z.object({

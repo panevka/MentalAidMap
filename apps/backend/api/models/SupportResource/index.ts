@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 import {
   ISupportResource,
   SupportType,
-} from "../../types/SupportResource.types";
+} from "@shared/database/SupportResource.types";
 import { AvailabilitySchema } from "./Availability";
 import { AgeRangeSchema } from "./AgeRange";
 

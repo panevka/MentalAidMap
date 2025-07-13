@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { IAvailability } from "../../types/SupportResource.types";
+import { IAvailability } from "@shared/database/SupportResource.types";
 import { AvailabilityPatternSchema } from "./AvailabilityPattern";
 
 export const AvailabilitySchema: Schema<IAvailability> = new Schema(
