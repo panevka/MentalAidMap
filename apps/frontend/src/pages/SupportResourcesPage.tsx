@@ -6,7 +6,7 @@ const SupportResourcesPage: React.FC = () => {
   const { data: supportResources } = useGetSupportResources();
 
   return (
-    <div className="bg-[#F7F4FB]">
+    <div className="bg-[#F7F4FB] flex flex-col items-center">
       <div className="w-full flex justify-around py-4 items-center h-16 border-b border-b-slate-400">
         <input
           type="text"
@@ -16,7 +16,7 @@ const SupportResourcesPage: React.FC = () => {
         <MagnifyingGlassIcon className="h-full text-slate-500 border border-gray-400 bg-white p-1 rounded-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
-        <div className="p-3 bg-blue-100 flex">
+        <div className="p-3 bg-blue-100 flex w-8/12 mt-2">
           <div>
             <p className="text-xl">Name: {r.name}</p>
             <p className="text-sm">Provider name: {r.provider_name}</p>
