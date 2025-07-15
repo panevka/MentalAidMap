@@ -39,10 +39,10 @@ export const createSupportResourceValidator = z.object({
             }
           }),
         }),
-        excluded_dates: z.array(z.date()),
+        excluded_dates: z.array(z.coerce.date()),
       }),
     ),
-    additional_dates: z.array(z.date()),
+    additional_dates: z.array(z.coerce.date()),
   }),
   support_type: z.nativeEnum(SupportType),
 }) satisfies ZodType<ISupportResource>;
