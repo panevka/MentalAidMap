@@ -16,14 +16,16 @@ const SupportResourcesPage: React.FC = () => {
         <MagnifyingGlassIcon className="h-full text-slate-500 border border-gray-400 bg-white p-1 rounded-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
-        <div className="p-3">
-          <p className="text-xl">Name: {r.name}</p>
-          <p className="text-sm font-light">Provider name: {r.provider_name}</p>
+        <div className="p-3 bg-blue-100 flex">
+          <div>
+            <p className="text-xl">Name: {r.name}</p>
+            <p className="text-sm">Provider name: {r.provider_name}</p>
+            <p>Tags: {r.tags.map((tag) => tag)}</p>
+          </div>
           <p>
             Age range:{" "}
             {`${r.age_range.minInclusive} - ${r.age_range.maxExclusive}`}
           </p>
-          <p>Tags: {r.tags.map((tag) => tag)}</p>
         </div>
       ))}
     </div>
