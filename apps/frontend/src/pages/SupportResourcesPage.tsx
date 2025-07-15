@@ -6,6 +6,9 @@ const SupportResourcesPage: React.FC = () => {
 
   return (
     <div>
+      <div className="bg-white w-full flex justify-center p-1">
+        <input type="text" placeholder="Szukaj"></input>
+      </div>
       {supportResources?.map((r: ISupportResource) => (
         <>
           <p>Provider name: {r.provider_name}</p>
