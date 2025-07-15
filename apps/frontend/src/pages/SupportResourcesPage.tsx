@@ -1,13 +1,19 @@
 import { useGetSupportResources } from "@/hooks/useSupportResources";
 import { ISupportResource } from "@shared/database/SupportResource.types";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 const SupportResourcesPage: React.FC = () => {
   const { data: supportResources } = useGetSupportResources();
 
   return (
     <div className="bg-[#F7F4FB]">
-      <div className="w-full flex justify-center p-1">
-        <input type="text" placeholder="Szukaj"></input>
+      <div className="w-full flex justify-center p-4 items-center h-16">
+        <input
+          type="text"
+          placeholder="Szukaj"
+          className="h-full w-10/12"
+        ></input>
+        <MagnifyingGlassIcon className="h-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
         <>
