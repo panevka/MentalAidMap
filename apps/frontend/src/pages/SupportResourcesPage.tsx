@@ -11,8 +11,8 @@ const SupportResourcesPage: React.FC = () => {
         <input
           type="text"
           placeholder="Szukaj"
-          className="h-full w-10/12"
-        ></input>
+          className="h-full w-10/12 rounded-xl border border-solid border-gray-400 p-2"
+        />
         <MagnifyingGlassIcon className="h-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
