@@ -6,7 +6,7 @@ const SupportResourcesPage: React.FC = () => {
 
   return (
     <div className="bg-[#F7F4FB]">
-      <div className="bg-white w-full flex justify-center p-1">
+      <div className="w-full flex justify-center p-1">
         <input type="text" placeholder="Szukaj"></input>
       </div>
       {supportResources?.map((r: ISupportResource) => (
