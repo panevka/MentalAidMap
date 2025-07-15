@@ -16,9 +16,9 @@ const SupportResourcesPage: React.FC = () => {
         <MagnifyingGlassIcon className="h-full text-slate-500 border border-gray-400 bg-white p-1 rounded-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
-        <>
-          <p>Provider name: {r.provider_name}</p>
-          <p>Name: {r.name}</p>
+        <div className="p-3">
+          <p className="text-xl">Name: {r.name}</p>
+          <p className="text-sm font-light">Provider name: {r.provider_name}</p>
           <p>
             Age range:{" "}
             {`${r.age_range.minInclusive} - ${r.age_range.maxExclusive}`}
@@ -51,7 +51,7 @@ const SupportResourcesPage: React.FC = () => {
           </p>
           <p>{r.support_type}</p>
           <hr />
-        </>
+        </div>
       ))}
     </div>
   );
