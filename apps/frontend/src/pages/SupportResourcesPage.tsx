@@ -22,10 +22,13 @@ const SupportResourcesPage: React.FC = () => {
             <p className="text-sm">Provider name: {r.provider_name}</p>
             <p>Tags: {r.tags.map((tag) => tag)}</p>
           </div>
-          <p>
-            Age range:{" "}
-            {`${r.age_range.minInclusive} - ${r.age_range.maxExclusive}`}
-          </p>
+          <div className="flex rounded-full bg-blue-500 aspect-square text-center items-center justify-center text-sm">
+            <p>
+              {r.age_range.minInclusive} <br />
+              do <br />
+              {r.age_range.maxExclusive} lat
+            </p>
+          </div>
         </div>
       ))}
     </div>
