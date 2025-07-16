@@ -6,7 +6,7 @@ const SupportResourcesPage: React.FC = () => {
   const { data: supportResources } = useGetSupportResources();
 
   return (
-    <div className="bg-[#F7F4FB] flex flex-col items-center">
+    <div className="bg-[#F7F4FB] flex flex-col items-center h-full">
       <div className="w-full flex justify-around py-4 items-center h-16 border-b border-b-slate-400">
         <input
           type="text"
@@ -16,18 +16,20 @@ const SupportResourcesPage: React.FC = () => {
         <MagnifyingGlassIcon className="h-full text-slate-500 border border-gray-400 bg-white p-1 rounded-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
-        <div className="p-3 flex w-11/12 mt-2 border border-gray-400 rounded-md">
+        <div className="p-3 flex grow w-11/12 mt-2 border border-gray-400 rounded-md justify-between">
           <div>
             <p className="text-xl">Name: {r.name}</p>
             <p className="text-sm">Provider name: {r.provider_name}</p>
             <p>Tags: {r.tags.map((tag) => tag)}</p>
           </div>
-          <div className="flex rounded-full bg-blue-500 aspect-square text-center items-center justify-center text-sm">
-            <p>
-              {r.age_range.minInclusive} <br />
-              do <br />
-              {r.age_range.maxExclusive} lat
-            </p>
+          <div className="h-full flex justify-center items-center">
+            <div className="flex rounded-full bg-blue-500 aspect-square text-center items-center justify-center text-sm h-20">
+              <p>
+                {r.age_range.minInclusive} <br />
+                do <br />
+                {r.age_range.maxExclusive} lat
+              </p>
+            </div>
           </div>
         </div>
       ))}
