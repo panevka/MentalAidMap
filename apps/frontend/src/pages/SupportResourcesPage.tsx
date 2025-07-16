@@ -16,7 +16,7 @@ const SupportResourcesPage: React.FC = () => {
         <MagnifyingGlassIcon className="h-full text-slate-500 border border-gray-400 bg-white p-1 rounded-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
-        <div className="p-3 bg-blue-100 flex w-8/12 mt-2">
+        <div className="p-3 flex w-11/12 mt-2 border border-gray-400 rounded-md">
           <div>
             <p className="text-xl">Name: {r.name}</p>
             <p className="text-sm">Provider name: {r.provider_name}</p>
