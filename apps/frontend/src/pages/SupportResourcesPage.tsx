@@ -22,8 +22,8 @@ const SupportResourcesPage: React.FC = () => {
             <p>Provider name: {r.provider_name}</p>
             <p>Tags: {r.tags.map((tag) => tag)}</p>
           </div>
-          <div className="h-full flex justify-center items-center">
-            <p className="flex rounded-full bg-blue-500 text-center items-center justify-center text-sm h-max aspect-square">
+          <div className="h-full aspect-square flex justify-center items-center">
+            <p className="flex rounded-full bg-blue-500 text-center items-center justify-center text-sm h-20 aspect-square">
               {r.age_range.minInclusive} <br />
               do <br />
               {r.age_range.maxExclusive} lat
