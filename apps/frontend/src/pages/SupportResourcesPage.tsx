@@ -18,8 +18,8 @@ const SupportResourcesPage: React.FC = () => {
       {supportResources?.map((r: ISupportResource) => (
         <div className="p-3 flex grow w-11/12 mt-2 border border-gray-400 rounded-md justify-between">
           <div>
-            <p className="text-xl">Name: {r.name}</p>
-            <p className="text-sm">Provider name: {r.provider_name}</p>
+            <p>Name: {r.name}</p>
+            <p>Provider name: {r.provider_name}</p>
             <p>Tags: {r.tags.map((tag) => tag)}</p>
           </div>
           <div className="h-full flex justify-center items-center">
