@@ -16,20 +16,18 @@ const SupportResourcesPage: React.FC = () => {
         <MagnifyingGlassIcon className="h-full text-slate-500 border border-gray-400 bg-white p-1 rounded-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
-        <div className="p-3 flex grow w-11/12 mt-2 border border-gray-400 rounded-md justify-between">
+        <div className="p-3 flex w-11/12 mt-2 border border-gray-400 rounded-md justify-between">
           <div>
             <p>Name: {r.name}</p>
             <p>Provider name: {r.provider_name}</p>
             <p>Tags: {r.tags.map((tag) => tag)}</p>
           </div>
           <div className="h-full flex justify-center items-center">
-            <div className="flex rounded-full bg-blue-500 aspect-square text-center items-center justify-center text-sm h-20">
-              <p>
-                {r.age_range.minInclusive} <br />
-                do <br />
-                {r.age_range.maxExclusive} lat
-              </p>
-            </div>
+            <p className="flex rounded-full bg-blue-500 text-center items-center justify-center text-sm h-max aspect-square">
+              {r.age_range.minInclusive} <br />
+              do <br />
+              {r.age_range.maxExclusive} lat
+            </p>
           </div>
         </div>
       ))}
