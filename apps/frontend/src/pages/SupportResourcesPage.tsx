@@ -17,14 +17,17 @@ const SupportResourcesPage: React.FC = () => {
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.value || !supportResources) return;
 
-    const searchedTerm = event.target.value;
+    const searchedTerm = event.target.value.toLocaleLowerCase();
 
     setFilteredSupportResources(
-      supportResources.filter(
-        (resource) =>
-          resource.provider_name.includes(searchedTerm) ||
-          resource.name.includes(searchedTerm),
-      ),
+      supportResources.filter((resource) => {
+        const providerName = resource.provider_name.toLocaleLowerCase();
+        const name = resource.name.toLocaleLowerCase();
+
+        return (
+          providerName.includes(searchedTerm) || name.includes(searchedTerm)
+        );
+      }),
     );
   };
 
