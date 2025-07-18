@@ -15,7 +15,7 @@ const SupportResourcesPage: React.FC = () => {
   }, [supportResources]);
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.value || !supportResources) return;
+    if (!supportResources) return;
 
     const searchedTerm = event.target.value.toLocaleLowerCase();
 
