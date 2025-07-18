@@ -1,6 +1,7 @@
 import { useGetSupportResources } from "@/hooks/useSupportResources";
 import { ISupportResource } from "@shared/database/SupportResource.types";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import SupportResource from "@/components/SupportResource";
 
 const SupportResourcesPage: React.FC = () => {
   const { data: supportResources } = useGetSupportResources();
@@ -16,22 +17,11 @@ const SupportResourcesPage: React.FC = () => {
         <MagnifyingGlassIcon className="h-full text-slate-500 border border-gray-400 bg-white p-1 rounded-full" />
       </div>
       {supportResources?.map((r: ISupportResource) => (
-        <div className="p-3 flex w-11/12 mt-2 border border-gray-400 rounded-md justify-between">
-          <div>
-            <p className="text-xl">Name: {r.name}</p>
-            <p className="text-gray-500 font-light">
-              Provider name: {r.provider_name}
-            </p>
-            <p>
-              Tags:{" "}
-              {r.tags.map((tag) => (
-                <span className="bg-purple-500 m-1 rounded-2xl px-2">
-                  {tag}
-                </span>
-              ))}
-            </p>
-          </div>
-        </div>
+        <SupportResource
+          name={r.name}
+          providerName={r.provider_name}
+          tags={r.tags}
+        />
       ))}
     </div>
   );
