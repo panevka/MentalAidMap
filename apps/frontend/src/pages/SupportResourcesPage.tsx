@@ -3,12 +3,16 @@ import { ISupportResource } from "@shared/database/SupportResource.types";
 import SupportResource from "@/components/SupportResource";
 import Search from "@/components/Search";
 import { ChangeEvent, useEffect, useState } from "react";
+import clsx from "clsx";
 
 const SupportResourcesPage: React.FC = () => {
   const { data: supportResources } = useGetSupportResources();
   const [filteredSupportResources, setFilteredSupportResources] = useState<
     ISupportResource[]
   >([]);
+
+  const [showSupportResourceDetails, setShowSupportResourceDetails] =
+    useState<boolean>(false);
 
   useEffect(() => {
     setFilteredSupportResources(supportResources || []);
@@ -34,14 +38,26 @@ const SupportResourcesPage: React.FC = () => {
   return (
     <>
       <Search onSearch={handleSearch} />
-      <div className="bg-[#F7F4FB] flex flex-col items-center h-full">
-        {filteredSupportResources?.map((r: ISupportResource) => (
-          <SupportResource
-            name={r.name}
-            providerName={r.provider_name}
-            tags={r.tags}
-          />
-        ))}
+      {!showSupportResourceDetails && (
+        <div className="bg-[#F7F4FB] flex flex-col items-center h-full">
+          {filteredSupportResources?.map((r: ISupportResource) => (
+            <SupportResource
+              name={r.name}
+              providerName={r.provider_name}
+              tags={r.tags}
+              onClick={() => setShowSupportResourceDetails(true)}
+            />
+          ))}
+        </div>
+      )}
+      <div className="h-full w-full relative grow flex flex-col">
+        <div
+          onClick={() => setShowSupportResourceDetails(false)}
+          className={clsx(
+            "w-full bg-blue-50 grow",
+            showSupportResourceDetails ? "relative" : "fixed",
+          )}
+        ></div>
       </div>
     </>
   );
