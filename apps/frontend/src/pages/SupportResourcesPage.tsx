@@ -15,11 +15,12 @@ const SupportResourcesPage: React.FC = () => {
   }, [supportResources]);
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.value || !supportResources) return;
+
     const searchedTerm = event.target.value;
-    if (!supportResources) return;
 
     setFilteredSupportResources(
-      supportResources?.filter(
+      supportResources.filter(
         (resource) =>
           resource.provider_name.includes(searchedTerm) ||
           resource.name.includes(searchedTerm),
