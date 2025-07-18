@@ -18,15 +18,17 @@ const SupportResourcesPage: React.FC = () => {
       {supportResources?.map((r: ISupportResource) => (
         <div className="p-3 flex w-11/12 mt-2 border border-gray-400 rounded-md justify-between">
           <div>
-            <p>Name: {r.name}</p>
-            <p>Provider name: {r.provider_name}</p>
-            <p>Tags: {r.tags.map((tag) => tag)}</p>
-          </div>
-          <div className="h-full aspect-square flex justify-center items-center">
-            <p className="flex rounded-full bg-blue-500 text-center items-center justify-center text-sm h-20 aspect-square">
-              {r.age_range.minInclusive} <br />
-              do <br />
-              {r.age_range.maxExclusive} lat
+            <p className="text-xl">Name: {r.name}</p>
+            <p className="text-gray-500 font-light">
+              Provider name: {r.provider_name}
+            </p>
+            <p>
+              Tags:{" "}
+              {r.tags.map((tag) => (
+                <span className="bg-purple-500 m-1 rounded-2xl px-2">
+                  {tag}
+                </span>
+              ))}
             </p>
           </div>
         </div>
