@@ -4,6 +4,7 @@ import SupportResource from "@/components/SupportResource";
 import Search from "@/components/Search";
 import { ChangeEvent, useEffect, useState } from "react";
 import clsx from "clsx";
+import SupportResourceCard from "@/components/SupportResourceCard";
 
 const SupportResourcesPage: React.FC = () => {
   const { data: supportResources } = useGetSupportResources();
@@ -57,17 +58,14 @@ const SupportResourcesPage: React.FC = () => {
           ))}
         </div>
       )}
-      <div className="h-full w-full relative grow flex flex-col">
-        <div
+
+      {clickedSupportResource && (
+        <SupportResourceCard
+          supportResource={clickedSupportResource}
           onClick={() => setShowSupportResourceDetails(false)}
-          className={clsx(
-            "w-full bg-blue-50 grow",
-            showSupportResourceDetails ? "relative" : "fixed",
-          )}
-        >
-          {clickedSupportResource?.name}
-        </div>
-      </div>
+          show={true}
+        />
+      )}
     </>
   );
 };
