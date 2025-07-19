@@ -30,7 +30,7 @@ const SupportResourceCard = ({
           {`${supportResource.age_range.minInclusive} - ${supportResource.age_range.maxExclusive}`}
         </p>
         <p>Tags: {supportResource.tags.map((tag) => tag)}</p>
-        <p>
+        <div>
           Availability patterns:
           {supportResource.availability.patterns.map((p) => (
             <>
@@ -47,7 +47,7 @@ const SupportResourceCard = ({
               <p>{p.excluded_dates?.map((date) => <p>{date.toString()}</p>)}</p>
             </>
           ))}
-        </p>
+        </div>
         <p>
           {supportResource.availability?.additional_dates?.map((date) => (
             <p> {date.toString()}</p>
