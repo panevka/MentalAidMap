@@ -10,6 +10,8 @@ const SupportResourcesPage: React.FC = () => {
   const [filteredSupportResources, setFilteredSupportResources] = useState<
     ISupportResource[]
   >([]);
+  const [clickedSupportResource, setClickedSupportResource] =
+    useState<ISupportResource>();
 
   const [showSupportResourceDetails, setShowSupportResourceDetails] =
     useState<boolean>(false);
@@ -35,17 +37,22 @@ const SupportResourcesPage: React.FC = () => {
     );
   };
 
+  const handleSupportResourceClick = (resourceIndex: number) => {
+    setClickedSupportResource(filteredSupportResources[resourceIndex]);
+    setShowSupportResourceDetails(true);
+  };
+
   return (
     <>
       <Search onSearch={handleSearch} />
       {!showSupportResourceDetails && (
         <div className="bg-[#F7F4FB] flex flex-col items-center h-full">
-          {filteredSupportResources?.map((r: ISupportResource) => (
+          {filteredSupportResources?.map((r: ISupportResource, index) => (
             <SupportResource
               name={r.name}
               providerName={r.provider_name}
               tags={r.tags}
-              onClick={() => setShowSupportResourceDetails(true)}
+              onClick={() => handleSupportResourceClick(index)}
             />
           ))}
         </div>
@@ -57,7 +64,9 @@ const SupportResourcesPage: React.FC = () => {
             "w-full bg-blue-50 grow",
             showSupportResourceDetails ? "relative" : "fixed",
           )}
-        ></div>
+        >
+          {clickedSupportResource?.name}
+        </div>
       </div>
     </>
   );
