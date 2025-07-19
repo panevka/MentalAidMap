@@ -116,8 +116,8 @@ const MapPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full h-full relative">
-        <div className="w-full h-full absolute">
+      <div className="w-full h-svh relative">
+        <div className="w-full h-svh absolute">
           <Map facilities={facilities} />
         </div>
         <div
