@@ -20,7 +20,7 @@ const SupportResourceCard = ({
       <div
         className={clsx("w-full bg-blue-50 grow", show ? "relative" : "fixed")}
       >
-        {supportResource?.name}
+        {supportResource.name}
       </div>
     </div>
   );
