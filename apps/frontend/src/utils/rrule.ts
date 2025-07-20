@@ -53,4 +53,18 @@ const getFirstRruleOccurence = (dtstart: Date, weekdays: string[]) => {
     if (val1 > val2) return 1;
     return 0;
   });
+
+  const closestUpcomingWeekday = sortedWeekdays[0];
+
+  const daysToClosestUpcomingWeekday = (dtstartWeekday, upcomingWeekday) => {
+    const dtstartNum = obj.get(dtstartWeekday);
+    const upcomingWeekdayNum = obj.get(upcomingWeekday);
+
+    if (upcomingWeekdayNum > dtstartNum) {
+      return upcomingWeekdayNum - dtstartNum;
+    } else {
+      return 7 - dtstartNum + upcomingWeekdayNum;
+    }
+  };
+
 };
