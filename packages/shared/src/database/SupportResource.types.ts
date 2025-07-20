@@ -16,29 +16,29 @@ export interface IAgeRange {
 }
 
 export enum SupportType {
-  email = "email",
-  phone = "phone",
-  webchat = "webchat",
+  EMAIL = "email",
+  PHONE = "phone",
+  WEBCHAT = "webchat",
 }
 
 export enum RRuleFrequency {
-  Yearly = "yearly",
-  Weekly = "weekly",
-  Monthly = "monthly",
-  Daily = "daily",
-  Hourly = "hourly",
-  Minutely = "minutely",
-  Secondly = "secondly",
+  YEARLY = "yearly",
+  WEEKLY = "weekly",
+  MONTHLY = "monthly",
+  DAILY = "daily",
+  HOURLY = "hourly",
+  MINUTELY = "minutely",
+  SECONDLY = "secondly",
 }
 
 export enum RRuleByDay {
-  Monday = "mo",
-  Tuesday = "tu",
-  Wednesday = "we",
-  Thursday = "th",
-  Friday = "fr",
-  Saturday = "sa",
-  Sunday = "su",
+  MONDAY = "mo",
+  TUESDAY = "tu",
+  WEDNESDAY = "we",
+  THURSDAY = "th",
+  FRIDAY = "fr",
+  SATURDAY = "sa",
+  SUNDAY = "su",
 }
 
 export interface IAvailabilityPattern {
