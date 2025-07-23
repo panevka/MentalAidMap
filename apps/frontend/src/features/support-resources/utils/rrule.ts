@@ -96,10 +96,12 @@ const getFirstRruleOccurence = (dtstart: Date, weekdays: RRuleByDay[]) => {
     return newDate;
   }
 
-  const r = getDaysUntilNextWeekday(
+  const daysToNextWeekday = getDaysUntilNextWeekday(
     dtstartRruleWeekdayName,
     closestUpcomingWeekday,
   );
 
-  const e = getDateIncrementedByDays(dtstart, r);
+  const firstOccurence = getDateIncrementedByDays(dtstart, daysToNextWeekday);
+
+  return firstOccurence;
 };
