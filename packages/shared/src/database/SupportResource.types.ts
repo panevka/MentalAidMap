@@ -21,25 +21,27 @@ export enum SupportType {
   WEBCHAT = "webchat",
 }
 
-export enum RRuleFrequency {
-  YEARLY = "yearly",
-  WEEKLY = "weekly",
-  MONTHLY = "monthly",
-  DAILY = "daily",
-  HOURLY = "hourly",
-  MINUTELY = "minutely",
-  SECONDLY = "secondly",
-}
+export const RRuleFrequencyArray = [
+  "yearly",
+  "monthly",
+  "weekly",
+  "daily",
+  "hourly",
+  "minutely",
+  "secondly",
+] as const;
+export type RRuleFrequency = (typeof RRuleFrequencyArray)[number];
 
-export enum RRuleByDay {
-  MONDAY = "mo",
-  TUESDAY = "tu",
-  WEDNESDAY = "we",
-  THURSDAY = "th",
-  FRIDAY = "fr",
-  SATURDAY = "sa",
-  SUNDAY = "su",
-}
+export const RRuleByDayArray = [
+  "mo",
+  "tu",
+  "we",
+  "th",
+  "fr",
+  "sa",
+  "su",
+] as const;
+export type RRuleByDay = (typeof RRuleByDayArray)[number];
 
 export interface IAvailabilityPattern {
   start_time: ITime;

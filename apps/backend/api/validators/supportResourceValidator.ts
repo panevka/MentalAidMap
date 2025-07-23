@@ -1,8 +1,8 @@
 import { z, ZodType } from "zod";
 import {
   ISupportResource,
-  RRuleByDay,
-  RRuleFrequency,
+  RRuleByDayArray,
+  RRuleFrequencyArray,
   SupportType,
 } from "@shared/database/SupportResource.types";
 import mongoose from "mongoose";
@@ -27,10 +27,10 @@ export const createSupportResourceValidator = z.object({
           minute: z.number().int().min(0).max(59),
         }),
         rrule: z.object({
-          freq: z.nativeEnum(RRuleFrequency),
+          freq: z.enum(RRuleFrequencyArray),
           count: z.number().int().min(1),
           interval: z.number().int().min(1),
-          by_day: z.array(z.nativeEnum(RRuleByDay)).superRefine((arr, ctx) => {
+          by_day: z.array(z.enum(RRuleByDayArray)).superRefine((arr, ctx) => {
             if (arr.length !== new Set(arr).size) {
               ctx.addIssue({
                 code: z.ZodIssueCode.custom,
