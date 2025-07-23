@@ -3,7 +3,6 @@ import { ISupportResource } from "@shared/database/SupportResource.types";
 import SupportResource from "@/components/SupportResource";
 import Search from "@/components/Search";
 import { ChangeEvent, useEffect, useState } from "react";
-import clsx from "clsx";
 import SupportResourceCard from "@/components/SupportResourceCard";
 
 const SupportResourcesPage: React.FC = () => {
