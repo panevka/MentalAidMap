@@ -70,16 +70,25 @@ const getFirstRruleOccurence = (dtstart: Date, weekdays: RRuleByDay[]) => {
     }
   };
 
-  function addDaysToDate(currentDate, daysToAdd) {
-    daysToAdd = daysToAdd || 0;
-
-    const futureDate = new Date(currentDate);
-    futureDate.setDate(futureDate.getDate() + daysToAdd);
-    return futureDate;
+  function addDaysToDate(currentDate: Date, daysToAdd: number) {
+    /**
+     * JavaScript handles date overflow automatically.
+     * For example:
+     *  - Adding 15 days to May 21st moves the date into June.
+     *  - Adding 5 days to December 29th moves the date into January of the next year.
+     *
+     * In both cases, the month and year values are adjusted accordingly.
+     */
+    const newDate = new Date(currentDate).setDate(
+      currentDate.getDate() + daysToAdd,
+    );
+    return newDate;
   }
 
   const r = daysToClosestUpcomingWeekday(
     dtstartRruleWeekdayName,
     closestUpcomingWeekday,
   );
+
+  const e = addDaysToDate(dtstart, r);
 };
