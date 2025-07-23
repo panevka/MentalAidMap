@@ -3,8 +3,8 @@ import {
   GlobeAsiaAustraliaIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
-import { Input } from "../components/ui/input.tsx";
-import { Button } from "../components/ui/button";
+import { Input } from "../../components/ui/input.tsx";
+import { Button } from "../../components/ui/button.tsx";
 import PolandMap from "@assets/poland.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
