@@ -1,9 +1,9 @@
 import { useGetSupportResources } from "@/hooks/useSupportResources";
 import { ISupportResource } from "@shared/database/SupportResource.types";
-import SupportResource from "@/components/SupportResource";
-import Search from "@/components/Search";
+import SupportResource from "@/features/support-resources/components/SupportResource";
+import Search from "@/features/support-resources/Search";
 import { ChangeEvent, useEffect, useState } from "react";
-import SupportResourceCard from "@/components/SupportResourceCard";
+import SupportResourceCard from "@/features/support-resources/components/SupportResourceCard";
 
 const SupportResourcesPage: React.FC = () => {
   const { data: supportResources } = useGetSupportResources();
