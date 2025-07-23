@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MainPage } from "../pages/MainPage.tsx";
-import { MapPage } from "../pages/MapPage.tsx";
+import { MainPage } from "./routes/MainPage.tsx";
+import { MapPage } from "./routes/MapPage.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TopBar } from "../components/TopBar.tsx";
-import SupportResourcesPage from "../pages/SupportResourcesPage.tsx";
+import SupportResourcesPage from "./routes/SupportResourcesPage.tsx";
 import {
   MAIN_PAGE_ROUTE,
   MAP_PAGE_ROUTE,
