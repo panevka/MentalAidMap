@@ -56,12 +56,23 @@ const getFirstRruleOccurence = (dtstart: Date, weekdays: RRuleByDay[]) => {
 
   const closestUpcomingWeekday = sortedWeekdays[0];
 
-  const daysToClosestUpcomingWeekday = (
-    dtstartWeekday: RRuleByDay,
-    upcomingWeekday: RRuleByDay,
+  /**
+   * Calculates the number of days from a given start weekday
+   * until the next occurrence of a target weekday.
+   *
+   * This function only counts forward in time and **does not include the start day itself**.
+   * For example:
+   * - From Friday to Thursday returns 6 (counts days until upcoming Thursday).
+   * - From Friday to the next Friday returns 7 (not 0),
+   *   because the current day is excluded and it counts the full week until the next Friday.
+   *
+   */
+  const getDaysUntilNextWeekday = (
+    startWeekday: RRuleByDay,
+    targetWeekday: RRuleByDay,
   ) => {
-    const dtstartNum = obj[dtstartWeekday];
-    const upcomingWeekdayNum = obj[upcomingWeekday];
+    const dtstartNum = obj[startWeekday];
+    const upcomingWeekdayNum = obj[targetWeekday];
 
     if (upcomingWeekdayNum > dtstartNum) {
       return upcomingWeekdayNum - dtstartNum;
@@ -70,7 +81,7 @@ const getFirstRruleOccurence = (dtstart: Date, weekdays: RRuleByDay[]) => {
     }
   };
 
-  function addDaysToDate(currentDate: Date, daysToAdd: number) {
+  function getDateIncrementedByDays(currentDate: Date, daysToAdd: number) {
     /**
      * JavaScript handles date overflow automatically.
      * For example:
@@ -85,10 +96,10 @@ const getFirstRruleOccurence = (dtstart: Date, weekdays: RRuleByDay[]) => {
     return newDate;
   }
 
-  const r = daysToClosestUpcomingWeekday(
+  const r = getDaysUntilNextWeekday(
     dtstartRruleWeekdayName,
     closestUpcomingWeekday,
   );
 
-  const e = addDaysToDate(dtstart, r);
+  const e = getDateIncrementedByDays(dtstart, r);
 };
