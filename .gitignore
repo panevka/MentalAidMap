@@ -29,3 +29,4 @@ MongoDB
 .env.local
 .env.production
 .vercel
+coverage
