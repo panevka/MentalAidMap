@@ -1,5 +1,13 @@
 {
   "files": [],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": [
+        "./packages/shared/src/*"
+      ]
+    }
+  },
   "references": [
     {
       "path": "apps/backend"
