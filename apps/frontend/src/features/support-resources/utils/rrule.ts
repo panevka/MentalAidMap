@@ -1,6 +1,9 @@
 import { RRuleByDay } from "@shared/database/SupportResource.types";
 
-const getFirstRruleOccurence = (dtstart: Date, weekdays: RRuleByDay[]) => {
+export const getFirstRruleOccurence = (
+  dtstart: Date,
+  weekdays: RRuleByDay[],
+) => {
   if (!weekdays || !(weekdays.length >= 0)) throw new Error("Wrong param");
 
   const dtstartRruleWeekdayName: RRuleByDay = new Intl.DateTimeFormat("en-US", {
