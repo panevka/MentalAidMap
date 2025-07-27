@@ -1,5 +1,9 @@
 import { RRuleByDay } from "@shared/database/SupportResource.types";
 
+/**
+ * Returns the first occurrence date matching the rule.
+ * The returned Date is normalized to midnight UTC (00:00:00Z) and returned as a number (ms since epoch).
+ */
 export const getFirstRruleOccurence = (
   dtstart: Date,
   weekdays: RRuleByDay[],
