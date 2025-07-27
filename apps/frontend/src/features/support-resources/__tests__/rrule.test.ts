@@ -9,4 +9,11 @@ describe("calculates first rrule occurence of a given date", () => {
 
     expect(getFirstRruleOccurence(date, weekdays)).toBe(expected);
   });
+
+  it("should not return Wednesday (2025-07-23) as the first occurrence after Wednesday 2025-07-23", () => {
+    const weekdays: RRuleByDay[] = ["we", "mo"];
+    const date = new Date("2025-07-23T00:00:00Z"); // wednesday
+
+    expect(getFirstRruleOccurence(date, weekdays)).not.toBe(date);
+  });
 });
