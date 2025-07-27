@@ -7,7 +7,7 @@ import { RRuleByDay } from "@shared/database/SupportResource.types";
 export const getFirstRruleOccurence = (
   dtstart: Date,
   weekdays: RRuleByDay[],
-) => {
+): number => {
   if (!weekdays || !(weekdays.length >= 0)) throw new Error("Wrong param");
 
   const dtstartRruleWeekdayName: RRuleByDay = new Intl.DateTimeFormat("en-US", {
