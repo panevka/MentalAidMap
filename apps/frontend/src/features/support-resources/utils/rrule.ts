@@ -1,4 +1,7 @@
-import { RRuleByDay } from "@shared/database/SupportResource.types";
+import {
+  RRuleByDay,
+  RRuleFrequency,
+} from "@shared/database/SupportResource.types";
 
 /**
  * Returns the first occurrence date matching the rule.
@@ -111,4 +114,13 @@ export const getFirstRruleOccurence = (
   const firstOccurence = getDateIncrementedByDays(dtstart, daysToNextWeekday);
 
   return firstOccurence;
+};
+
+const getUpcomingOccurence = (
+  currentDate: Date,
+  weekdays: RRuleByDay[],
+  frequency: RRuleFrequency = "weekly",
+  interval = 2,
+): number => {
+  return 1;
 };
