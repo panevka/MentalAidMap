@@ -9,3 +9,16 @@ export const getTimeDifference = (startDate: Date, endDate: Date): number => {
 
   return endDateMs - startDateMs;
 };
+
+function convertDateToUTC(date) {
+  return new Date(
+    Date.UTC(
+      date.getUTCFullYear(),
+      date.getUTCMonth(),
+      date.getUTCDate(),
+      date.getUTCHours(),
+      date.getUTCMinutes(),
+      date.getUTCSeconds(),
+    ),
+  );
+}
