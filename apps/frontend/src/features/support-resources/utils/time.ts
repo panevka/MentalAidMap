@@ -32,7 +32,8 @@ export function getDateIncrementedByDays(currentDate: Date, daysToAdd: number) {
    *
    * In both cases, the month and year values are adjusted accordingly.
    */
-  const newDate = new Date(currentDate).setDate(
+  const currentDateUTC = convertDateToUTC(currentDate);
+  const newDate = new Date(currentDateUTC).setDate(
     currentDate.getDate() + daysToAdd,
   );
   return newDate;
