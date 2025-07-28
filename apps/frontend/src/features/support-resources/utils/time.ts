@@ -10,7 +10,7 @@ export const getTimeDifference = (startDate: Date, endDate: Date): number => {
   return endDateMs - startDateMs;
 };
 
-function convertDateToUTC(date: Date): Date {
+export function convertDateToUTC(date: Date): Date {
   return new Date(
     Date.UTC(
       date.getUTCFullYear(),
@@ -21,4 +21,19 @@ function convertDateToUTC(date: Date): Date {
       date.getUTCSeconds(),
     ),
   );
+}
+
+export function getDateIncrementedByDays(currentDate: Date, daysToAdd: number) {
+  /**
+   * JavaScript handles date overflow automatically.
+   * For example:
+   *  - Adding 15 days to May 21st moves the date into June.
+   *  - Adding 5 days to December 29th moves the date into January of the next year.
+   *
+   * In both cases, the month and year values are adjusted accordingly.
+   */
+  const newDate = new Date(currentDate).setDate(
+    currentDate.getDate() + daysToAdd,
+  );
+  return newDate;
 }
