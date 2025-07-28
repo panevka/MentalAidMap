@@ -102,11 +102,41 @@ export const getFirstRruleOccurence = (
   return firstOccurence;
 };
 
-const getUpcomingOccurence = (
+export const getUpcomingOccurence = (
+  firstOccurence: Date,
   currentDate: Date,
   weekdays: RRuleByDay[],
   frequency: RRuleFrequency = "weekly",
-  interval = 2,
+  interval: number = 2,
 ): number => {
-  return 1;
+  const timeDifferenceInMs = getTimeDifference(firstOccurence, currentDate);
+  const timeDifferenceInDays = Math.floor(
+    timeDifferenceInMs / 1000 / 60 / 60 / 24,
+  );
+
+  const frequencyInDays = (function IIFE() {
+    switch (frequency) {
+      case "weekly":
+        return 7;
+    }
+  })();
+
+  const frequenciesInTimeDifference = Math.floor(
+    timeDifferenceInDays / frequencyInDays,
+  );
+  const occurencesInTimeDifference = Math.floor(
+    frequenciesInTimeDifference / interval,
+  );
+
+  const latestOccurence = getDateIncrementedByDays(
+    firstOccurence,
+    interval * frequencyInDays * occurencesInTimeDifference,
+  );
+
+  const upcomingOccurence = getDateIncrementedByDays(
+    new Date(latestOccurence),
+    interval * frequencyInDays,
+  );
+
+  return upcomingOccurence;
 };
