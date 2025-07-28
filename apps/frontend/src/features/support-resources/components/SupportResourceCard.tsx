@@ -1,5 +1,6 @@
 import { ISupportResource } from "@shared/database/SupportResource.types";
 import clsx from "clsx";
+import { Calendar } from "react-calendar";
 
 interface SupportResourceCardProps {
   supportResource: ISupportResource;
@@ -54,6 +55,13 @@ const SupportResourceCard = ({
           ))}
         </p>
         <p>{supportResource.support_type}</p>
+        <Calendar
+          className="w-80 h-40"
+          defaultView="month"
+          tileClassName={({ date, view }) =>
+            view === "month" && date.getDay() === 3 ? "bg-slate-500" : null
+          }
+        />
       </div>
     </div>
   );
