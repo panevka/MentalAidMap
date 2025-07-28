@@ -10,7 +10,7 @@ export const getTimeDifference = (startDate: Date, endDate: Date): number => {
   return endDateMs - startDateMs;
 };
 
-function convertDateToUTC(date) {
+function convertDateToUTC(date: Date): Date {
   return new Date(
     Date.UTC(
       date.getUTCFullYear(),
