@@ -20,7 +20,8 @@ export const getFirstRruleOccurence = (
     .format(dtstart)
     .toLowerCase()
     .slice(0, 2) as RRuleByDay;
-  const obj = {
+
+  const rruleWeekdayMap = {
     mo: 0,
     tu: 1,
     we: 2,
@@ -29,6 +30,7 @@ export const getFirstRruleOccurence = (
     sa: 5,
     su: 6,
   } satisfies Record<RRuleByDay, number>;
+
   /**
    * Sorts an array of weekday names based on their proximity to a reference weekday (`dtstart`).
    *
@@ -47,9 +49,9 @@ export const getFirstRruleOccurence = (
    *   - "fr" is 0 days after "fr"
    */
   const sortedWeekdays = weekdays.sort((a: RRuleByDay, b: RRuleByDay) => {
-    const weekdayNum = obj[dtstartRruleWeekdayName];
-    const val1: number = obj[a];
-    const val2: number = obj[b];
+    const weekdayNum = rruleWeekdayMap[dtstartRruleWeekdayName];
+    const val1: number = rruleWeekdayMap[a];
+    const val2: number = rruleWeekdayMap[b];
 
     if (val1 > weekdayNum && val2 > weekdayNum) {
       if (val1 > val2) return 1;
@@ -82,8 +84,8 @@ export const getFirstRruleOccurence = (
     startWeekday: RRuleByDay,
     targetWeekday: RRuleByDay,
   ) => {
-    const dtstartNum = obj[startWeekday];
-    const upcomingWeekdayNum = obj[targetWeekday];
+    const dtstartNum = rruleWeekdayMap[startWeekday];
+    const upcomingWeekdayNum = rruleWeekdayMap[targetWeekday];
 
     if (upcomingWeekdayNum > dtstartNum) {
       return upcomingWeekdayNum - dtstartNum;
