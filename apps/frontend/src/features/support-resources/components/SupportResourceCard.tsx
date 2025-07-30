@@ -1,21 +1,41 @@
 import { ISupportResource } from "@shared/database/SupportResource.types";
 import clsx from "clsx";
 import { Calendar } from "react-calendar";
+import { getUpcomingOccurence } from "../utils/rrule";
+import { convertDateToUTC, isSameCalendarDate } from "../utils/time";
+import { View } from "react-calendar/dist/shared/types.js";
 
 interface SupportResourceCardProps {
   supportResource: ISupportResource;
-  onClick?: () => void;
+  onDoubleClick?: () => void;
   show?: boolean;
 }
 
 const SupportResourceCard = ({
   supportResource,
-  onClick,
+  onDoubleClick,
   show = false,
 }: SupportResourceCardProps) => {
+  // Partially mocked data for preview purposes
+  const dtstart = new Date(Date.now());
+  dtstart.setUTCFullYear(2020);
+  const currentDate = convertDateToUTC(new Date(Date.now()));
+  const uO = getUpcomingOccurence(dtstart, currentDate, [], "weekly", 2);
+
+  const modifyDateTilesOfFutureOccurences = ({
+    date,
+    view,
+  }: {
+    date: Date;
+    view: View;
+  }) =>
+    view === "month" && isSameCalendarDate(date, new Date(uO))
+      ? "bg-slate-500"
+      : null;
+
   return (
     <div
-      onClick={onClick}
+      onDoubleClick={onDoubleClick}
       className="h-full w-full relative grow flex flex-col"
     >
       <div
@@ -58,9 +78,7 @@ const SupportResourceCard = ({
         <Calendar
           className="w-80 h-40"
           defaultView="month"
-          tileClassName={({ date, view }) =>
-            view === "month" && date.getDay() === 3 ? "bg-slate-500" : null
-          }
+          tileClassName={modifyDateTilesOfFutureOccurences}
         />
       </div>
     </div>

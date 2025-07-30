@@ -61,7 +61,7 @@ const SupportResourcesPage: React.FC = () => {
       {clickedSupportResource && (
         <SupportResourceCard
           supportResource={clickedSupportResource}
-          onClick={() => setShowSupportResourceDetails(false)}
+          onDoubleClick={() => setShowSupportResourceDetails(false)}
           show={true}
         />
       )}
