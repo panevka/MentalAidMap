@@ -38,3 +38,11 @@ export function getDateIncrementedByDays(currentDate: Date, daysToAdd: number) {
   );
   return newDate;
 }
+
+export function isSameCalendarDate(date1: Date, date2: Date): boolean {
+  if (date1.getUTCFullYear() != date2.getUTCFullYear()) return false;
+  if (date1.getUTCMonth() != date2.getUTCMonth()) return false;
+  if (date1.getUTCDate() != date2.getUTCDate()) return false;
+
+  return true;
+}
