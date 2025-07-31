@@ -26,9 +26,6 @@ export const RRuleFrequencyArray = [
   "monthly",
   "weekly",
   "daily",
-  "hourly",
-  "minutely",
-  "secondly",
 ] as const;
 export type RRuleFrequency = (typeof RRuleFrequencyArray)[number];
 
