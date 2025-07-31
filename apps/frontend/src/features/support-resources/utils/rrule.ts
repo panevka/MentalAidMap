@@ -168,8 +168,8 @@ export const getUpcomingOccurence = (
   } satisfies Record<RRuleByDay, number>;
 
   if (
-    sortedUpcomingWeekdays[0] === undefined ||
-    rruleWeekdayMap[sortedUpcomingWeekdays[0]] <
+    sortedUpcomingWeekdays.length > 0 &&
+    rruleWeekdayMap[sortedUpcomingWeekdays[0]] <=
       rruleWeekdayMap[latestOccurenceRruleWeekdayName]
   ) {
     const upcomingOccurence = addToDate(
