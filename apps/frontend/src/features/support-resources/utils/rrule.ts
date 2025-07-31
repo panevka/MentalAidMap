@@ -142,11 +142,54 @@ export const getUpcomingOccurence = (
     "day",
   );
 
-  const upcomingOccurence = addToDate(
-    new Date(latestOccurence),
-    interval * frequencyInDays,
-    "day",
+  const latestOccurenceRruleWeekdayName: RRuleByDay = new Intl.DateTimeFormat(
+    "en-US",
+    {
+      weekday: "long",
+    },
+  )
+    .format(latestOccurence)
+    .toLowerCase()
+    .slice(0, 2) as RRuleByDay;
+
+  const sortedUpcomingWeekdays = sortByUpcomingRruleWeekdays(
+    latestOccurenceRruleWeekdayName,
+    weekdays,
   );
 
-  return upcomingOccurence.getTime();
+  const rruleWeekdayMap = {
+    mo: 0,
+    tu: 1,
+    we: 2,
+    th: 3,
+    fr: 4,
+    sa: 5,
+    su: 6,
+  } satisfies Record<RRuleByDay, number>;
+
+  if (
+    sortedUpcomingWeekdays[0] === undefined ||
+    rruleWeekdayMap[sortedUpcomingWeekdays[0]] <
+      rruleWeekdayMap[latestOccurenceRruleWeekdayName]
+  ) {
+    const upcomingOccurence = addToDate(
+      new Date(latestOccurence),
+      interval * frequencyInDays,
+      "day",
+    );
+    return upcomingOccurence.getTime();
+  } else {
+    const daysToNextOccurence = getDaysUntilNextRruleWeekday(
+      latestOccurenceRruleWeekdayName,
+      sortedUpcomingWeekdays[0],
+    );
+
+    const upcomingOccurence = addToDate(
+      latestOccurence,
+      daysToNextOccurence,
+      "day",
+    );
+
+    return upcomingOccurence.getTime();
+  }
 };
