@@ -1,5 +1,6 @@
 import {
   RRuleByDay,
+  RRuleByDayArray,
   RRuleFrequency,
 } from "@shared/database/SupportResource.types";
 import { getDateIncrementedByDays, getTimeDifference } from "./time";
@@ -21,6 +22,38 @@ export const getFirstRruleOccurence = (
     .toLowerCase()
     .slice(0, 2) as RRuleByDay;
 
+  const sortedWeekdays = sortByUpcomingRruleWeekdays(
+    dtstartRruleWeekdayName,
+    weekdays,
+  );
+
+  const closestUpcomingWeekday = sortedWeekdays[0];
+
+  const daysToNextWeekday = getDaysUntilNextRruleWeekday(
+    dtstartRruleWeekdayName,
+    closestUpcomingWeekday,
+  );
+
+  const firstOccurence = getDateIncrementedByDays(dtstart, daysToNextWeekday);
+
+  return firstOccurence;
+};
+
+/**
+ * Calculates the number of days from a given start weekday
+ * until the next occurrence of a target weekday.
+ *
+ * This function only counts forward in time and **does not include the start day itself**.
+ * For example:
+ * - From Friday to Thursday returns 6 (counts days until upcoming Thursday).
+ * - From Friday to the next Friday returns 7 (not 0),
+ *   because the current day is excluded and it counts the full week until the next Friday.
+ *
+ */
+const getDaysUntilNextRruleWeekday = (
+  startWeekday: RRuleByDay,
+  targetWeekday: RRuleByDay,
+) => {
   const rruleWeekdayMap = {
     mo: 0,
     tu: 1,
@@ -31,25 +64,32 @@ export const getFirstRruleOccurence = (
     su: 6,
   } satisfies Record<RRuleByDay, number>;
 
-  /**
-   * Sorts an array of weekday names based on their proximity to a reference weekday (`dtstart`).
-   *
-   * Weekdays are ordered from the closest upcoming weekday (without including the same day)
-   * to the furthest, relative to the day of `dtstart`.
-   *
-   * Example:
-   * Given:
-   *   - dtstart occurs on Friday
-   *   - weekdays = ["th", "mo", "fr"]
-   *
-   * the sorted result will be: ["mo", "th", "fr"]
-   * because:
-   *   - "mo" is 3 days after "fr"
-   *   - "th" is 6 days after "fr"
-   *   - "fr" is 0 days after "fr"
-   */
+  const dtstartNum = rruleWeekdayMap[startWeekday];
+  const upcomingWeekdayNum = rruleWeekdayMap[targetWeekday];
+
+  if (upcomingWeekdayNum > dtstartNum) {
+    return upcomingWeekdayNum - dtstartNum;
+  } else {
+    return 7 - dtstartNum + upcomingWeekdayNum;
+  }
+};
+
+export const sortByUpcomingRruleWeekdays = (
+  currentWeekday: RRuleByDay,
+  weekdays: RRuleByDay[],
+): RRuleByDay[] => {
+  const rruleWeekdayMap = {
+    mo: 0,
+    tu: 1,
+    we: 2,
+    th: 3,
+    fr: 4,
+    sa: 5,
+    su: 6,
+  } satisfies Record<RRuleByDay, number>;
+
   const sortedWeekdays = weekdays.sort((a: RRuleByDay, b: RRuleByDay) => {
-    const weekdayNum = rruleWeekdayMap[dtstartRruleWeekdayName];
+    const weekdayNum = rruleWeekdayMap[currentWeekday];
     const val1: number = rruleWeekdayMap[a];
     const val2: number = rruleWeekdayMap[b];
 
@@ -67,41 +107,7 @@ export const getFirstRruleOccurence = (
     return 0;
   });
 
-  const closestUpcomingWeekday = sortedWeekdays[0];
-
-  /**
-   * Calculates the number of days from a given start weekday
-   * until the next occurrence of a target weekday.
-   *
-   * This function only counts forward in time and **does not include the start day itself**.
-   * For example:
-   * - From Friday to Thursday returns 6 (counts days until upcoming Thursday).
-   * - From Friday to the next Friday returns 7 (not 0),
-   *   because the current day is excluded and it counts the full week until the next Friday.
-   *
-   */
-  const getDaysUntilNextWeekday = (
-    startWeekday: RRuleByDay,
-    targetWeekday: RRuleByDay,
-  ) => {
-    const dtstartNum = rruleWeekdayMap[startWeekday];
-    const upcomingWeekdayNum = rruleWeekdayMap[targetWeekday];
-
-    if (upcomingWeekdayNum > dtstartNum) {
-      return upcomingWeekdayNum - dtstartNum;
-    } else {
-      return 7 - dtstartNum + upcomingWeekdayNum;
-    }
-  };
-
-  const daysToNextWeekday = getDaysUntilNextWeekday(
-    dtstartRruleWeekdayName,
-    closestUpcomingWeekday,
-  );
-
-  const firstOccurence = getDateIncrementedByDays(dtstart, daysToNextWeekday);
-
-  return firstOccurence;
+  return sortedWeekdays;
 };
 
 export const getUpcomingOccurence = (
