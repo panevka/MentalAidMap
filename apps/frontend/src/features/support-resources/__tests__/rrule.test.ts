@@ -40,4 +40,23 @@ describe("return first upcoming occurence from a current date", () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it("should return August 3rd as the next occurrence after July 27th for a weekly event that started on July 7th and recurs every Thursday & Sunday", () => {
+    const firstOccurence = new Date(Date.UTC(2025, 6, 31));
+    const currentDate = new Date(Date.UTC(2025, 7, 1));
+    const weekdays: RRuleByDay[] = ["th", "su"];
+    const frequency: RRuleFrequency = "weekly";
+    const interval: number = 1;
+    const expected = new Date(Date.UTC(2025, 7, 3)).getTime();
+
+    const actual = getUpcomingOccurence(
+      firstOccurence,
+      currentDate,
+      weekdays,
+      frequency,
+      interval,
+    );
+
+    expect(actual).toEqual(expected);
+  });
 });
