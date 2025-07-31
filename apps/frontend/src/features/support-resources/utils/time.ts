@@ -23,20 +23,23 @@ export function convertDateToUTC(date: Date): Date {
   );
 }
 
-export function getDateIncrementedByDays(currentDate: Date, daysToAdd: number) {
-  /**
-   * JavaScript handles date overflow automatically.
-   * For example:
-   *  - Adding 15 days to May 21st moves the date into June.
-   *  - Adding 5 days to December 29th moves the date into January of the next year.
-   *
-   * In both cases, the month and year values are adjusted accordingly.
-   */
-  const currentDateUTC = convertDateToUTC(currentDate);
-  const newDate = new Date(currentDateUTC).setDate(
-    currentDate.getDate() + daysToAdd,
-  );
-  return newDate;
+type TimeUnit = "day" | "week" | "month" | "year";
+export function addToDate(date: Date, increment: number, unit: TimeUnit) {
+  switch (unit) {
+    case "day":
+      date.setUTCDate(date.getUTCDate() + increment);
+      break;
+    case "week":
+      date.setUTCDate(date.getUTCDate() + increment * 7);
+      break;
+    case "month":
+      date.setUTCMonth(date.getUTCMonth() + increment);
+      break;
+    case "year":
+      date.setUTCFullYear(date.getUTCFullYear() + increment);
+  }
+
+  return date;
 }
 
 export function isSameCalendarDate(date1: Date, date2: Date): boolean {

@@ -3,7 +3,7 @@ import {
   RRuleByDayArray,
   RRuleFrequency,
 } from "@shared/database/SupportResource.types";
-import { getDateIncrementedByDays, getTimeDifference } from "./time";
+import { getTimeDifference, addToDate } from "./time";
 
 /**
  * Returns the first occurrence date matching the rule.
@@ -34,7 +34,7 @@ export const getFirstRruleOccurence = (
     closestUpcomingWeekday,
   );
 
-  const firstOccurence = getDateIncrementedByDays(dtstart, daysToNextWeekday);
+  const firstOccurence = addToDate(dtstart, daysToNextWeekday, "day").getTime();
 
   return firstOccurence;
 };
@@ -136,15 +136,17 @@ export const getUpcomingOccurence = (
     frequenciesInTimeDifference / interval,
   );
 
-  const latestOccurence = getDateIncrementedByDays(
+  const latestOccurence = addToDate(
     firstOccurence,
     interval * frequencyInDays * occurencesInTimeDifference,
+    "day",
   );
 
-  const upcomingOccurence = getDateIncrementedByDays(
+  const upcomingOccurence = addToDate(
     new Date(latestOccurence),
     interval * frequencyInDays,
+    "day",
   );
 
-  return upcomingOccurence;
+  return upcomingOccurence.getTime();
 };
