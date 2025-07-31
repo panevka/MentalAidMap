@@ -22,7 +22,7 @@ describe("calculates first rrule occurence of a given date", () => {
 });
 
 describe("return first upcoming occurence from a current date", () => {
-  it("should", () => {
+  it("should return August 3rd as the next occurrence after July 27th for a weekly event that started on July 7th and recurs every Sunday", () => {
     const firstOccurence = new Date(Date.UTC(2025, 6, 13));
     const currentDate = new Date(Date.UTC(2025, 6, 27));
     const weekdays: RRuleByDay[] = ["su"];
