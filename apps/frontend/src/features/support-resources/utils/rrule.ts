@@ -4,7 +4,7 @@ export const getDailyOccurences = (
   dtstart: DateTime,
   interval: number,
   count: number,
-) => {
+): DateTime[] => {
   if (count === 0) {
     return [];
   } else {
