@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
-import { getDailyOccurences } from "../utils/rrule";
+import { getDailyOccurences, getWeeklyOccurences } from "../utils/rrule";
+import { RRuleByDay } from "@shared/database/SupportResource.types";
 
 describe("getDailyOccurences", () => {
   it("should return an empty array when count is 0", () => {
@@ -49,5 +50,39 @@ describe("getDailyOccurences", () => {
     getDailyOccurences(dtstart, interval, count);
 
     expect(+dtstart === +dtstartCopy).toEqual(true);
+  });
+});
+
+describe("getWeeklyOccurences", () => {
+  it("returns occurrences on specified weekdays with given interval and count", () => {
+    const dtstart = DateTime.local(2025, 8, 4); // Monday
+    const weekdays: RRuleByDay[] = ["mo", "tu", "we"];
+    const interval = 1;
+    const count = 4;
+
+    const result = getWeeklyOccurences(dtstart, weekdays, interval, count);
+
+    const expectedDates = [
+      DateTime.local(2025, 8, 4),
+      DateTime.local(2025, 8, 5),
+      DateTime.local(2025, 8, 6),
+      DateTime.local(2025, 8, 11),
+    ];
+
+    expect(result).toHaveLength(expectedDates.length);
+
+    for (let i = 0; i < expectedDates.length; i++) {
+      expect(+result[1] === +expectedDates[i]);
+    }
+  });
+
+  it("returns empty array if count is 0", () => {
+    const dtstart = DateTime.now();
+    const weekdays: RRuleByDay[] = ["mo", "we"];
+    const interval = 1;
+    const count = 0;
+
+    const result = getWeeklyOccurences(dtstart, weekdays, interval, count);
+    expect(result).toEqual([]);
   });
 });
