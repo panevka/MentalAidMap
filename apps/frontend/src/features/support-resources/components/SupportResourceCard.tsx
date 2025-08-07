@@ -26,7 +26,7 @@ const SupportResourceCard = ({
     { occurence: "future", currentDate: dtstart },
   );
 
-  const modifyDateTilesOfFutureOccurences = ({
+  const highlightDateIfResourceAvailable = ({
     date,
     view,
   }: {
@@ -87,7 +87,7 @@ const SupportResourceCard = ({
         <Calendar
           className="w-80 h-40"
           defaultView="month"
-          tileClassName={modifyDateTilesOfFutureOccurences}
+          tileClassName={highlightDateIfResourceAvailable}
         />
       </div>
     </div>
