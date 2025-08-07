@@ -17,11 +17,18 @@ export const getDailyOccurences = (
   }
 };
 
+export type OccurencesType = "future" | "all";
+export type Search = {
+  occurence: OccurencesType;
+  currentDate: DateTime;
+};
+
 export const getWeeklyOccurences = (
   dtstart: DateTime,
   weekdays: RRuleByDay[],
   interval: number,
   count: number,
+  search?: Search,
 ): DateTime[] => {
   if (count == 0 || weekdays.length == 0) {
     return [];
@@ -52,8 +59,27 @@ export const getWeeklyOccurences = (
       .sort(sortByAscending);
 
     const upcomingWeekOccurences = sameWeekOccurences
-      .filter((occurence) => occurence >= dtstart)
+      .filter((occurence) =>
+        search?.currentDate
+          ? occurence >= dtstart && occurence >= search.currentDate
+          : occurence,
+      )
       .slice(0, count);
+
+    if (
+      search?.occurence == "future" &&
+      !upcomingWeekOccurences.some((occ) => occ >= search.currentDate)
+    ) {
+      return [
+        ...getWeeklyOccurences(
+          dtstart.plus({ weeks: 1 }),
+          weekdays,
+          interval,
+          count,
+          search,
+        ),
+      ];
+    }
 
     const nextReoccurence =
       upcomingWeekOccurences?.[0]?.plus({
@@ -71,3 +97,5 @@ export const getWeeklyOccurences = (
     ];
   }
 };
+
+const getLatestWeeklyOccurence = (dtstart, current) => {};
