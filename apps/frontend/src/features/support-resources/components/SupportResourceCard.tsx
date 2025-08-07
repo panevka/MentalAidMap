@@ -2,6 +2,8 @@ import { ISupportResource } from "@shared/database/SupportResource.types";
 import clsx from "clsx";
 import { Calendar } from "react-calendar";
 import { View } from "react-calendar/dist/shared/types.js";
+import { getWeeklyOccurences } from "../utils/rrule";
+import { DateTime } from "luxon";
 
 interface SupportResourceCardProps {
   supportResource: ISupportResource;
@@ -14,13 +16,31 @@ const SupportResourceCard = ({
   onDoubleClick,
   show = false,
 }: SupportResourceCardProps) => {
+  const rrule = supportResource.availability.patterns[0].rrule;
+  const dtstart = DateTime.local(2025, 8, 7);
+  const futureOccurences = getWeeklyOccurences(
+    dtstart,
+    rrule.by_day,
+    rrule.interval,
+    rrule.count,
+    { occurence: "future", currentDate: dtstart },
+  );
+
   const modifyDateTilesOfFutureOccurences = ({
     date,
     view,
   }: {
     date: Date;
     view: View;
-  }) => (view === "month" && date.getDay() === 3 ? "bg-slate-500" : null);
+  }) => {
+    return view === "month" &&
+      futureOccurences.some(
+        (occurence) =>
+          occurence.toISODate() === DateTime.fromJSDate(date).toISODate(),
+      )
+      ? "bg-slate-500"
+      : null;
+  };
 
   return (
     <div
