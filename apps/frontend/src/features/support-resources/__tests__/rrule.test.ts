@@ -1,5 +1,9 @@
 import { DateTime } from "luxon";
-import { getDailyOccurences, getWeeklyOccurences } from "../utils/rrule";
+import {
+  getDailyOccurences,
+  getWeeklyOccurences,
+  Search,
+} from "../utils/rrule";
 import { RRuleByDay } from "@shared/database/SupportResource.types";
 
 describe("getDailyOccurences", () => {
@@ -84,5 +88,31 @@ describe("getWeeklyOccurences", () => {
 
     const result = getWeeklyOccurences(dtstart, weekdays, interval, count);
     expect(result).toEqual([]);
+  });
+
+  it("returns only 3 nearest upcoming occurences, based on currentDate field", () => {
+    const dtstart = DateTime.local(2017, 8, 1);
+    const weekdays: RRuleByDay[] = ["su", "we"];
+    const interval = 2;
+    const count = 3;
+    const search: Search = {
+      occurence: "future",
+      currentDate: DateTime.local(2025, 8, 7),
+    };
+
+    const expected = [
+      DateTime.local(2025, 8, 10),
+      DateTime.local(2025, 8, 20),
+      DateTime.local(2025, 8, 24),
+    ];
+
+    const result = getWeeklyOccurences(
+      dtstart,
+      weekdays,
+      interval,
+      count,
+      search,
+    );
+    expect(result).toEqual(expected);
   });
 });
