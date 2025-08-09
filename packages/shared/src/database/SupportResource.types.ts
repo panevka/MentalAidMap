@@ -1,7 +1,7 @@
 // Colllection Entry
 export interface ISupportResource {
   name: string;
-  provider_name: string;
+  providers: string[];
   age_range: IAgeRange;
   tags: string[];
   availability: IAvailability;

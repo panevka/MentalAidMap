@@ -10,7 +10,7 @@ import { AgeRangeSchema } from "./AgeRange";
 const SupportResourceSchema: Schema<ISupportResource> = new Schema(
   {
     name: { type: String, required: true },
-    provider_name: { type: String, required: true },
+    providers: { type: [String], required: true },
     age_range: {
       type: AgeRangeSchema,
       required: true,

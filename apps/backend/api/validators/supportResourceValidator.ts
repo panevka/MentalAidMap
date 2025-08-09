@@ -9,7 +9,7 @@ import mongoose from "mongoose";
 
 export const createSupportResourceValidator = z.object({
   name: z.string().min(3).max(100),
-  provider_name: z.string().min(3).max(100),
+  providers: z.array(z.string().min(3).max(100)).nonempty(),
   age_range: z.object({
     minInclusive: z.number().int().min(0).max(150),
     maxExclusive: z.number().int().min(0).max(150),
