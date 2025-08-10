@@ -7,8 +7,10 @@ import SupportResourcesPage from "./routes/SupportResourcesPage.tsx";
 import {
   MAIN_PAGE_ROUTE,
   MAP_PAGE_ROUTE,
+  SUPPORT_RESOURCES_DASHBOARD_PAGE_ROUTE,
   SUPPORT_RESOURCES_PAGE_ROUTE,
 } from "@/config/routeConfig.ts";
+import SupportResourcesDashboard from "./routes/SupportResourcesDashboard.tsx";
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -24,6 +26,10 @@ export default function App() {
             <Route
               path={SUPPORT_RESOURCES_PAGE_ROUTE}
               element={<SupportResourcesPage />}
+            />
+            <Route
+              path={SUPPORT_RESOURCES_DASHBOARD_PAGE_ROUTE}
+              element={<SupportResourcesDashboard />}
             />
           </Routes>
         </BrowserRouter>
