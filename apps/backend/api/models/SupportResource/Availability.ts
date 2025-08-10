@@ -4,6 +4,7 @@ import { AvailabilityPatternSchema } from "./AvailabilityPattern";
 
 export const AvailabilitySchema: Schema<IAvailability> = new Schema(
   {
+    timezone: { type: String, required: true },
     patterns: {
       type: [AvailabilityPatternSchema],
       required: true,

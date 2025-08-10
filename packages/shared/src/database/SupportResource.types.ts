@@ -1,15 +1,30 @@
 // Colllection Entry
 export interface ISupportResource {
   name: string;
+  description: string;
   providers: string[];
   age_range: IAgeRange;
   tags: string[];
-  availability: IAvailability;
-  support_type: SupportType;
+  services: IService[];
 }
 
 // Related type declarations
-//
+export const ChargeArray = ["free", "paid", "operator"] as const;
+export type Charge = (typeof ChargeArray)[number];
+
+export interface IService {
+  support_type: SupportType;
+  contact: string;
+  shifts: IShift[];
+  charge: Charge;
+}
+
+export interface IShift {
+  responder_profession: string;
+  event?: string;
+  availability: IAvailability;
+}
+
 export interface IAgeRange {
   minInclusive: number;
   maxExclusive: number;
@@ -60,6 +75,7 @@ export interface ITime {
 }
 
 export interface IAvailability {
+  timezone: string;
   patterns: IAvailabilityPattern[];
   additional_dates?: Date[];
 }
