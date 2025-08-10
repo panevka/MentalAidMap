@@ -20,7 +20,7 @@ export interface IService {
 }
 
 export interface IShift {
-  responder_profession: string;
+  responder_profession: string[];
   event?: string;
   availability: IAvailability;
 }
