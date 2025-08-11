@@ -2,6 +2,7 @@ const SupportResourcesDashboard = () => {
   return (
     <div className="flex items-center justify-center">
       <form className="flex flex-col bg-slate-500 h-80 w-60 p-5 justify-around">
+        <legend className="text-red-600"> Formularz zasobu</legend>
         <label htmlFor="name">Nazwa</label>
         <input type="text" name="name" />
 
@@ -19,7 +20,8 @@ const SupportResourcesDashboard = () => {
       </form>
 
       {/* Services form */}
-      <form>
+      <form className="flex flex-col">
+        <legend className="text-red-600"> Formularz serwisów zasobu</legend>
         <label htmlFor="type">Typ</label>
         <select name="type">
           <option value="email">E-mail</option>
@@ -41,6 +43,9 @@ const SupportResourcesDashboard = () => {
         </label>
         <input type="text" name="event" />
 
+        <legend className="text-red-600">
+          Formularz schematu rrule występowania zasobu
+        </legend>
         <label htmlFor="timezone">Strefa czasowa</label>
         <input type="text" name="timezone" />
 
