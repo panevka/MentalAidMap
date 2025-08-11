@@ -18,6 +18,8 @@ mongoose
 
 // Routes
 import apiRoutes from "./routes/apiRoutes";
+
+app.set("trust proxy", true);
 app.use("/api", apiRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

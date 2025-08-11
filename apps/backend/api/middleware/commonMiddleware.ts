@@ -1,5 +1,6 @@
 import cors from "cors";
 import bodyParser from "body-parser";
+import { rateLimitMiddleware } from "./rateLimitMiddleware";
 
 export const setupCommonMiddleware = (app: any) => {
   // CORS Middleware
@@ -7,4 +8,6 @@ export const setupCommonMiddleware = (app: any) => {
 
   // Body Parser Middleware
   app.use(bodyParser.json());
+
+  app.use(rateLimitMiddleware);
 };
