@@ -1,29 +1,35 @@
+import { ISupportResource } from "@shared/database/SupportResource.types";
+import { Globe, Users } from "lucide-react";
+
 interface SupportResourceProps {
-  name: string;
-  providerName: string;
-  tags: string[];
+  supportResource: ISupportResource;
   onClick?: () => void;
 }
 
-const SupportResource = ({
-  name,
-  providerName,
-  tags,
-  onClick,
-}: SupportResourceProps) => (
-  <div
-    onClick={onClick}
-    className="p-3 flex w-11/12 mt-2 border border-gray-400 rounded-md justify-between"
-  >
-    <div>
-      <p className="text-xl">Name: {name}</p>
-      <p className="text-gray-500 font-light">Provider name: {providerName}</p>
-      <p>
-        Tags:{" "}
-        {tags.map((tag) => (
-          <span className="bg-purple-500 m-1 rounded-2xl px-2">{tag}</span>
-        ))}
-      </p>
+const SupportResource = ({ supportResource }: SupportResourceProps) => (
+  <div className="w-full m-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
+    <div className="p-6">
+      <div className="flex justify-between items-start mb-4">
+        <div className="flex-1">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
+            {supportResource.name}
+          </h3>
+          <p className="text-gray-600 mb-3 leading-relaxed">
+            Przykładowy opis support resource
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
+            <div className="flex items-center gap-1">
+              <Users className="w-4 h-4" />
+              Ages {supportResource.age_range.minInclusive}+
+            </div>
+            <div className="flex items-center gap-1">
+              <Globe className="w-4 h-4" />
+              {supportResource.providers.join(", ")}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 );

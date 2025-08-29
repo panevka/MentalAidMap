@@ -45,15 +45,13 @@ const SupportResourcesPage: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="bg-[#F7F4FB] flex flex-col items-center">
       <Search onSearch={handleSearch} />
       {!showSupportResourceDetails && (
-        <div className="bg-[#F7F4FB] flex flex-col items-center h-full">
+        <div className="flex flex-col items-center h-full w-11/12">
           {filteredSupportResources?.map((r: ISupportResource, index) => (
             <SupportResource
-              name={r.name}
-              providerName={r.providers.join(" | ")}
-              tags={r.tags}
+              supportResource={r}
               onClick={() => handleSupportResourceClick(index)}
             />
           ))}
@@ -67,7 +65,7 @@ const SupportResourcesPage: React.FC = () => {
           show={true}
         />
       )}
-    </>
+    </div>
   );
 };
 
