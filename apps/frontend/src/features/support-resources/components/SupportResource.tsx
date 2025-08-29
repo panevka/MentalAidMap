@@ -21,7 +21,8 @@ const SupportResource = ({ supportResource }: SupportResourceProps) => (
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
             <div className="flex items-center gap-1">
               <Users className="w-4 h-4" />
-              Ages {supportResource.age_range.minInclusive}+
+              Grupa wiekowa {supportResource.age_range.minInclusive} -{" "}
+              {supportResource.age_range.maxExclusive}
             </div>
             <div className="flex items-center gap-1">
               <Globe className="w-4 h-4" />
