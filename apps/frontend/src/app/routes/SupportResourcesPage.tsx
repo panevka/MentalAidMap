@@ -27,11 +27,13 @@ const SupportResourcesPage: React.FC = () => {
 
     setFilteredSupportResources(
       supportResources.filter((resource) => {
-        const providerName = resource.provider_name.toLocaleLowerCase();
+        const providersNames = resource.providers.map((providerName) =>
+          providerName.toLocaleLowerCase(),
+        );
         const name = resource.name.toLocaleLowerCase();
 
         return (
-          providerName.includes(searchedTerm) || name.includes(searchedTerm)
+          providersNames.includes(searchedTerm) || name.includes(searchedTerm)
         );
       }),
     );
@@ -50,7 +52,7 @@ const SupportResourcesPage: React.FC = () => {
           {filteredSupportResources?.map((r: ISupportResource, index) => (
             <SupportResource
               name={r.name}
-              providerName={r.provider_name}
+              providerName={r.providers.join(" | ")}
               tags={r.tags}
               onClick={() => handleSupportResourceClick(index)}
             />
