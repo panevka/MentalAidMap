@@ -44,7 +44,7 @@ const SupportResourceCard = ({
       onDoubleClick={onDoubleClick}
       className="h-full w-full relative grow flex flex-col"
     >
-      <div
+      <span
         className={clsx(
           "w-full bg-blue-50 grow p-2",
           show ? "relative" : "fixed",
@@ -71,7 +71,7 @@ const SupportResourceCard = ({
                       <p>SHIFT</p>
                       <p>Responder profession: {shifts.responder_profession}</p>
                       <p>Timezone: {shifts.availability.timezone}</p>
-                      <p>
+                      <span>
                         PATTERNS:{" "}
                         {shifts.availability.patterns.map((pattern) => {
                           return (
@@ -99,7 +99,7 @@ const SupportResourceCard = ({
                             </>
                           );
                         })}
-                      </p>
+                      </span>
                     </>
                   );
                 })}
@@ -108,7 +108,7 @@ const SupportResourceCard = ({
           })}
         </div>
         <Calendar className="w-80 h-40" defaultView="month" />
-      </div>
+      </span>
     </div>
   );
 };
