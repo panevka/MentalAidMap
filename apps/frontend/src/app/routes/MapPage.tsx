@@ -4,8 +4,8 @@ import { SearchFacilitiesParams } from "@/models/facility";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import List from "@/features/facility-map/FacilityList";
-import SearchFacilitiesForm from "@/features/facility-map/SearchFacilitiesForm";
+import List from "@/features/facility-map/components/FacilityList";
+import SearchFacilitiesForm from "@/features/facility-map/components/SearchFacilitiesForm";
 
 const MapPage: React.FC = () => {
   const location = useLocation();
