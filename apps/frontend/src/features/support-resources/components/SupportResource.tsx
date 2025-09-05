@@ -8,7 +8,12 @@ interface SupportResourceProps {
 }
 
 const SupportResource = ({ supportResource }: SupportResourceProps) => {
-  const { name, age_range, providers } = supportResource;
+  const { name, age_range, providers, services } = supportResource;
+
+  const getContact = () => {
+    return services.map((service) => service.contact).join(", ");
+  };
+
   return (
     <div className="w-full m-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
       <div className="p-6">
@@ -16,7 +21,7 @@ const SupportResource = ({ supportResource }: SupportResourceProps) => {
           <div className="flex-1">
             <h3 className="text-xl font-bold text-gray-900 mb-2">{name}</h3>
             <p className="text-gray-600 mb-3 leading-relaxed">
-              {/* Przykładowy opis support resource */}
+              Kontakt: {getContact()}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
