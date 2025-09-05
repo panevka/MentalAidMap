@@ -8,6 +8,7 @@ import { Button } from "../../components/ui/button.tsx";
 import PolandMap from "@assets/poland.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { MAP_PAGE_ROUTE } from "@/config/routeConfig.ts";
 
 const MainPage: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
@@ -19,7 +20,7 @@ const MainPage: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    navigate("/mapa", { state: { inputValue } });
+    navigate(MAP_PAGE_ROUTE, { state: { inputValue } });
   };
 
   return (
