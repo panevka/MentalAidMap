@@ -12,7 +12,7 @@ const SupportResource = ({ supportResource }: SupportResourceProps) => {
   return (
     <div className="w-full m-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 overflow-hidden">
       <div className="p-6">
-        <div className="flex justify-between items-start mb-4">
+        <div className="flex justify-between items-start">
           <div className="flex-1">
             <h3 className="text-xl font-bold text-gray-900 mb-2">{name}</h3>
             <p className="text-gray-600 mb-3 leading-relaxed">
