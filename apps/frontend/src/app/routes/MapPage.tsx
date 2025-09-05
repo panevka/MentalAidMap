@@ -1,19 +1,16 @@
 import { Map } from "../../components/Map";
 import { useSearchFacilities } from "@/hooks/useFacilities";
 import { SearchFacilitiesParams } from "@/models/facility";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import List from "@/features/facility-map/FacilityList";
+import SearchFacilitiesForm from "@/features/facility-map/SearchFacilitiesForm";
 
 const MapPage: React.FC = () => {
   const location = useLocation();
   const inputValue = location.state?.inputValue || "";
 
-  const [city, setCity] = useState(inputValue);
-  const [postCode, setPostCode] = useState("");
-  const [radius, setRadius] = useState(15);
   const [showFacilityList, setShowFacilityList] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<SearchFacilitiesParams>({
     city: "",
@@ -28,8 +25,10 @@ const MapPage: React.FC = () => {
     isSuccess,
   } = useSearchFacilities(searchQuery || { city: "", postCode: "" });
 
-  const handleSearch = () => {
-    setSearchQuery({ city: city, postCode: postCode, radius: radius });
+  const handleSearch = (city: string, postCode: string, radius: string) => {
+    const parsedRadius = parseInt(radius);
+    if (isNaN(parsedRadius)) return;
+    setSearchQuery({ city: city, postCode: postCode, radius: parsedRadius });
   };
 
   return (
@@ -39,47 +38,20 @@ const MapPage: React.FC = () => {
       sticky top-0 justify-center md:h-full md:relative md:left-0 md:w-1/2
       md:items-start md:justify-start md:flex-col md:overflow-scroll"
       >
-        <div className="text-sm md:w-full ">
-          <Input
-            type="search"
-            placeholder="Miejscowość"
-            defaultValue={inputValue}
-            onChange={(e) => setCity(e.target.value)}
-            className="text-sm"
-          />
-          <div className="flex flex-row">
-            <Input
-              type="text"
-              placeholder="Kod pocztowy"
-              onChange={(e) => setPostCode(e.target.value)}
-              className="text-sm"
-            />
-            <Input
-              type="number"
-              placeholder="Odległość (km)"
-              onChange={(e) => setRadius(parseInt(e.target.value))}
-              className="text-sm"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col h-full justify-end md:items-center md:justify-center md:h-16 w-full">
-          <Button
-            type="submit"
-            onClick={handleSearch}
-            className="bg-[#2B3A67] mx-2 w-full"
-          >
-            <p>Szukaj</p>
-          </Button>
-          <p className="hidden md:flex">
-            {isLoading
-              ? "Ładowanie..."
-              : isError
-                ? "Nastąpił błąd!"
-                : isSuccess
-                  ? "Wyszukiwanie przebiegło pomyślnie!"
-                  : ""}
-          </p>
-        </div>
+        <SearchFacilitiesForm
+          onSubmit={handleSearch}
+          defaultCity={inputValue}
+        />
+
+        <p className="hidden md:flex">
+          {isLoading
+            ? "Ładowanie..."
+            : isError
+              ? "Nastąpił błąd!"
+              : isSuccess
+                ? "Wyszukiwanie przebiegło pomyślnie!"
+                : ""}
+        </p>
         <div className="hidden w-full h-full relative md:flex">
           <div
             className={`w-full h-full absolute bg-white overflow-scroll flex duration-700 md:text-sm`}
