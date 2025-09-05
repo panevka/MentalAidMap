@@ -16,7 +16,7 @@ const SupportResource = ({ supportResource }: SupportResourceProps) => {
           <div className="flex-1">
             <h3 className="text-xl font-bold text-gray-900 mb-2">{name}</h3>
             <p className="text-gray-600 mb-3 leading-relaxed">
-              Przykładowy opis support resource
+              {/* Przykładowy opis support resource */}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
