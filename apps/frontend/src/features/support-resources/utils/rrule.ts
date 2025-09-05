@@ -97,5 +97,3 @@ export const getWeeklyOccurences = (
     ];
   }
 };
-
-const getLatestWeeklyOccurence = (dtstart, current) => {};
