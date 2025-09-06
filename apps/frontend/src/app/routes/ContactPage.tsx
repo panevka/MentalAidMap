@@ -1,5 +1,5 @@
 const ContactPage = () => {
-  return <div></div>;
+  return <div className="bg-[#F7F4FB] flex flex-1">halo</div>;
 };
 
 export default ContactPage;
