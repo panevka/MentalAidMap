@@ -1,4 +1,5 @@
 import {
+  CONTACT_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
   MAP_PAGE_ROUTE,
   SUPPORT_RESOURCES_PAGE_ROUTE,
@@ -27,10 +28,7 @@ const defaultItems: NavItem[] = [
   },
   {
     label: "Kontakt",
-    href: "",
-    onClick: () => {
-      alert("Prace nad tą podstroną nadal trwają");
-    },
+    href: CONTACT_PAGE_ROUTE,
   },
 ];
 
