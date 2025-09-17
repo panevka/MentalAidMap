@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mentalaidmap.dto.ContactFormDTO;
 import com.mentalaidmap.service.MailService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class MailController {
 
@@ -17,7 +19,7 @@ public class MailController {
 	private MailService senderService;
 
 	@PostMapping("/send")
-	public ResponseEntity<HttpStatus> send(@RequestBody ContactFormDTO request) {
+	public ResponseEntity<HttpStatus> send(@Valid @RequestBody ContactFormDTO request) {
 		senderService.sendEmail(request.getEmail(), request.getSubject(), request.getBody());
 		return ResponseEntity.ok(HttpStatus.OK);
 	}
