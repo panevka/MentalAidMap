@@ -1,10 +1,12 @@
 package com.mentalaidmap.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mentalaidmap.dto.ContactFormDTO;
 import com.mentalaidmap.config.MailConfig;
 
+@Service
 public class ContactFormService {
 
 	@Autowired
