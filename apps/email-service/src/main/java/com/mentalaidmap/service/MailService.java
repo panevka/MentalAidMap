@@ -24,14 +24,11 @@ public class MailService {
 
 		message.setFrom(appEmailAddress);
 		message.setTo(toEmail);
+		message.setReplyTo(toEmail);
 		message.setSubject(subject);
-		message.setText(body);
-		message.setReplyTo(appEmailAddress);
 		message.setText(body);
 
 		mailSender.send(message);
-
-		System.out.printf("Mail sent! Username: %s ", appEmailAddress);
 	}
 
 }
