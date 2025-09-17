@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mentalaidmap.dto.ContactFormDTO;
+import com.mentalaidmap.validator.ContactFormValidator;
 import com.mentalaidmap.config.MailConfig;
 
 @Service
@@ -18,11 +19,10 @@ public class ContactFormService {
 	}
 
 	public void saveFormData(ContactFormDTO contactForm) {
+		ContactFormValidator.validate(contactForm);
+		
 		String appEmailAddress = mailConfig.username();
-		senderService.sendEmail(appEmailAddress, appEmailAddress, contactForm.getSubject(), contactForm.getBody());
-	}
-
-	public void transformMessageBody(){
+		senderService.sendEmail(appEmailAddress, appEmailAddress, contactForm.subject(), contactForm.body());
 	}
 
 }
