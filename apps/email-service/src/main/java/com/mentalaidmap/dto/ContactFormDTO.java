@@ -11,7 +11,6 @@ public record ContactFormDTO (
 	String fullName,
 
 	@NotBlank(message = "Email cannot be blank")
-	@Email(message = "Invalid email format")
 	@Size(min = 6, max = 254, message = "Email address length should be between 6 and 254 characters")
 	String email,
 
