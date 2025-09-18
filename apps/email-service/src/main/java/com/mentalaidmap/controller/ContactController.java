@@ -29,10 +29,10 @@ public class ContactController {
 		return ResponseEntity.ok(HttpStatus.OK);
 	}
 
-    @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<Map<String, String>> handleContactFormException(ValidationException ex) {
-        Map<String, String> error = new HashMap<>();
-        error.put("error", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
-    }
+	@ExceptionHandler(ValidationException.class)
+	public ResponseEntity<Map<String, String>> handleContactFormException(ValidationException ex) {
+		Map<String, String> error = new HashMap<>();
+		error.put("error", ex.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+	}
 }
