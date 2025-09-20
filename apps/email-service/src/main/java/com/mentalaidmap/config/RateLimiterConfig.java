@@ -2,6 +2,7 @@ package com.mentalaidmap.config;
 
 import java.time.Duration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,15 +23,18 @@ import java.util.function.Supplier;
 @Configuration
 public class RateLimiterConfig {
 
+	@Autowired
+	private RedisConfig redisConfig;
 	private static final int CAPACITY = 3;
 	private static final Duration REFILL_DURATION = Duration.ofMinutes(1);
 
 	@Bean
 	public RedisClient redisClient() {
 		return RedisClient.create(RedisURI.builder()
-				.withHost("localhost")
-				.withPort(6379)
-				.withSsl(false)
+				.withHost(redisConfig.host())
+				.withPort(redisConfig.port())
+				.withSsl(redisConfig.ssl())
+				.withPassword(redisConfig.password())
 				.build());
 	}
 
@@ -61,14 +65,14 @@ public class RateLimiterConfig {
 
 	// @Bean("globalBucketConfig")
 	// public Supplier<BucketConfiguration> globalDailyBucketConfiguration() {
-	// 	Bandwidth dailyLimit = Bandwidth.builder()
-	// 			.capacity(500)
-	// 			.refillIntervally(500, Duration.ofDays(1))
-	// 			.build();
+	// Bandwidth dailyLimit = Bandwidth.builder()
+	// .capacity(500)
+	// .refillIntervally(500, Duration.ofDays(1))
+	// .build();
 	//
-	// 	return () -> BucketConfiguration.builder()
-	// 			.addLimit(dailyLimit)
-	// 			.build();
+	// return () -> BucketConfiguration.builder()
+	// .addLimit(dailyLimit)
+	// .build();
 	// }
 
 }
