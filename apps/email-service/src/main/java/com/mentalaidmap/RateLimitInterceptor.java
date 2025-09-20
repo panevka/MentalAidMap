@@ -24,6 +24,12 @@ public class RateLimitInterceptor implements HandlerInterceptor {
 
 		String clientIp = request.getRemoteAddr();
 		boolean shouldPass = rateLimitService.tryConsumeRequest(clientIp);
+
+		if (!shouldPass) {
+			HttpServletResponse httpResponse = (HttpServletResponse) response;
+			httpResponse.setContentType("text/plain");
+			httpResponse.setStatus(429);
+		}
 		return shouldPass;
 	}
 }
