@@ -32,13 +32,15 @@ public class RateLimitService {
 	ProxyManager<String> proxyManager;
 
 	public boolean tryConsumeRequest(String ip) {
-		Bucket globalBucket = proxyManager.builder().build(globalKey, globalBucketConfiguration);
-		ConsumptionProbe globalProbe = globalBucket.tryConsumeAndReturnRemaining(1);
+		// Bucket globalBucket = proxyManager.builder().build(globalKey,
+		// globalBucketConfiguration);
+		// ConsumptionProbe globalProbe = globalBucket.tryConsumeAndReturnRemaining(1);
 
 		Bucket ipBucket = proxyManager.builder().build(ip, ipBucketConfiguration);
 		ConsumptionProbe ipProbe = ipBucket.tryConsumeAndReturnRemaining(1);
 
-		if (ipProbe.isConsumed() && globalProbe.isConsumed()) {
+		// if (ipProbe.isConsumed() && globalProbe.isConsumed()) {
+		if (ipProbe.isConsumed()) {
 			return true;
 		} else {
 			return false;
