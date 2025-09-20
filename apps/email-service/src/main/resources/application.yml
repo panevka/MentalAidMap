@@ -13,36 +13,3 @@ spring:
             enable: ${MAIL_SMTP_STARTTLS_ENABLE}
             required: ${MAIL_SMTP_STARTTLS_REQUIRED}
           auth: ${MAIL_SMTP_AUTH}
-  cache:
-    cache-names:
-      - rate-limit-buckets
-    caffeine:
-      spec: maximumSize=1000000,expireAfterAccess=3600s
-
-bucket4j:
-  enabled: true
-  filter-config-caching-enabled: true
-  filter-config-cache-name: filterConfigCache
-  filters:
-    - cache-name: rate-limit-buckets
-      url: .*
-      strategy: first
-      http-response-body: "{ error: \"Too many requests\" }"
-      rate-limits:
-      - cache-key: getRemoteAddr()
-        bandwidths:
-        - capacity: 3
-          time: 1
-          unit: hours
-          refill-speed: interval
-    - cache-name: rate-limit-buckets
-      url: .*
-      strategy: first
-      http-response-body: "{ error: \"Too many requests\" }"
-      rate-limits:
-      - cache-key: "'global'"
-        bandwidths:
-        - capacity: 500
-          time: 1
-          unit: days
-          refill-speed: greedy
