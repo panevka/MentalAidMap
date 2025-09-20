@@ -1,7 +1,7 @@
 package com.mentalaidmap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.mentalaidmap.service.RateLimitService;
@@ -9,7 +9,7 @@ import com.mentalaidmap.service.RateLimitService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@Service
+@Component
 public class RateLimitInterceptor implements HandlerInterceptor {
 
 	@Autowired
