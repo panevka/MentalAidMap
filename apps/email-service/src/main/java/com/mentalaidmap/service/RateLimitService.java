@@ -24,9 +24,9 @@ public class RateLimitService {
 	@Qualifier("ipBucketConfig")
 	Supplier<BucketConfiguration> ipBucketConfiguration;
 
-	@Autowired
-	@Qualifier("globalBucketConfig")
-	Supplier<BucketConfiguration> globalBucketConfiguration;
+	// @Autowired
+	// @Qualifier("globalBucketConfig")
+	// Supplier<BucketConfiguration> globalBucketConfiguration;
 
 	@Autowired
 	ProxyManager<String> proxyManager;
