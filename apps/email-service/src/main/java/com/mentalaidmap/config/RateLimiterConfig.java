@@ -26,7 +26,7 @@ public class RateLimiterConfig {
 	@Autowired
 	private RedisConfig redisConfig;
 	private static final int CAPACITY = 3;
-	private static final Duration REFILL_DURATION = Duration.ofMinutes(1);
+	private static final Duration REFILL_DURATION = Duration.ofHours(5);
 
 	@Bean
 	public RedisClient redisClient() {
