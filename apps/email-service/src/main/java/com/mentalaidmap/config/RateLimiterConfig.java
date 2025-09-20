@@ -59,16 +59,16 @@ public class RateLimiterConfig {
 				.build();
 	}
 
-	@Bean("globalBucketConfig")
-	public Supplier<BucketConfiguration> globalDailyBucketConfiguration() {
-		Bandwidth dailyLimit = Bandwidth.builder()
-				.capacity(500)
-				.refillIntervally(500, Duration.ofDays(1))
-				.build();
-
-		return () -> BucketConfiguration.builder()
-				.addLimit(dailyLimit)
-				.build();
-	}
+	// @Bean("globalBucketConfig")
+	// public Supplier<BucketConfiguration> globalDailyBucketConfiguration() {
+	// 	Bandwidth dailyLimit = Bandwidth.builder()
+	// 			.capacity(500)
+	// 			.refillIntervally(500, Duration.ofDays(1))
+	// 			.build();
+	//
+	// 	return () -> BucketConfiguration.builder()
+	// 			.addLimit(dailyLimit)
+	// 			.build();
+	// }
 
 }
