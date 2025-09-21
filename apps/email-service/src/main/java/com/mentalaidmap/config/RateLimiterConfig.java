@@ -18,6 +18,7 @@ import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.codec.ByteArrayCodec;
 import io.lettuce.core.codec.RedisCodec;
 import io.lettuce.core.codec.StringCodec;
+
 import java.util.function.Supplier;
 
 @Configuration
@@ -28,13 +29,13 @@ public class RateLimiterConfig {
 	private static final int CAPACITY = 3;
 	private static final Duration REFILL_DURATION = Duration.ofHours(5);
 
+
 	@Bean
 	public RedisClient redisClient() {
-		return RedisClient.create(RedisURI.builder()
-				.withHost(redisConfig.host())
-				.withPort(redisConfig.port())
+		return RedisClient.create(RedisURI.Builder
+				.redis(redisConfig.host(), redisConfig.port())
+				.withAuthentication("default", redisConfig.password())
 				.withSsl(redisConfig.ssl())
-				.withPassword(redisConfig.password())
 				.build());
 	}
 
