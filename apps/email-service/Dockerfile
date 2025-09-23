@@ -8,4 +8,6 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/build/libs/email-service-0.0.1-SNAPSHOT.jar app.jar
 COPY .env . 
-ENTRYPOINT ["sh", "-c", "while IFS='=' read -r k v; do export "$k=$v"; done < .env && java -jar app.jar"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
