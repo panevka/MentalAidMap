@@ -1,42 +1,11 @@
-
-# Dockerfile
-
-# Build-time arguments
-ARG MAIL_HOST
-ARG MAIL_PORT
-ARG MAIL_USERNAME
-ARG MAIL_PASSWORD
-ARG MAIL_SMTP_STARTTLS_ENABLE
-ARG MAIL_SMTP_STARTTLS_REQUIRED
-ARG MAIL_SMTP_AUTH
-
-ARG REDIS_HOST
-ARG REDIS_PORT
-ARG REDIS_PASSWORD
-ARG REDIS_SSL
-
 FROM gradle:8.14-jdk17-alpine AS build
-
-# Runtime environment variables
-ENV MAIL_HOST=${MAIL_HOST}
-ENV MAIL_PORT=${MAIL_PORT}
-ENV MAIL_USERNAME=${MAIL_USERNAME}
-ENV MAIL_PASSWORD=${MAIL_PASSWORD}
-ENV MAIL_SMTP_STARTTLS_ENABLE=${MAIL_SMTP_STARTTLS_ENABLE}
-ENV MAIL_SMTP_STARTTLS_REQUIRED=${MAIL_SMTP_STARTTLS_REQUIRED}
-ENV MAIL_SMTP_AUTH=${MAIL_SMTP_AUTH}
-
-ENV REDIS_HOST=${REDIS_HOST}
-ENV REDIS_PORT=${REDIS_PORT}
-ENV REDIS_PASSWORD=${REDIS_PASSWORD}
-ENV REDIS_SSL=${REDIS_SSL}
-
 WORKDIR /app
 COPY . .
-RUN gradle build --no-daemon
+COPY .env .
+RUN while IFS='=' read -r k v; do export "$k=$v"; done < .env && gradle build --no-daemon
 
-# Use lightweight JDK image for running
 FROM openjdk:17-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/build/libs/email-service-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY .env . 
+ENTRYPOINT ["sh", "-c", "while IFS='=' read -r k v; do export "$k=$v"; done < .env && java -jar app.jar"]
