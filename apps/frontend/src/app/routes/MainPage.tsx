@@ -3,26 +3,9 @@ import {
   GlobeAsiaAustraliaIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
-import { Input } from "../../components/ui/input.tsx";
-import { Button } from "../../components/ui/button.tsx";
-import PolandMap from "@assets/poland.svg";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { MAP_PAGE_ROUTE } from "@/config/routeConfig.ts";
+import CallToAction from "@/features/main-page/components/CallToAction.tsx";
 
 const MainPage: React.FC = () => {
-  const [inputValue, setInputValue] = useState("");
-  const navigate = useNavigate();
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    navigate(MAP_PAGE_ROUTE, { state: { inputValue } });
-  };
-
   return (
     <div className="flex flex-col h-full w-screen">
       <main className="flex flex-col flex-1 justify-center bg-[#F7F4FB] xl:flex-row">
@@ -69,35 +52,7 @@ const MainPage: React.FC = () => {
             </span>
           </article>
         </div>
-        <div className="flex flex-1 flex-col p-5 items-center lg:justify-center">
-          <div className="h-auto w-full max-w-full lg:w-3/4 xl:w-full 2xl:w-10/12">
-            <img
-              src={PolandMap}
-              alt="Map of Poland"
-              className="w-full h-full"
-            />
-          </div>
-
-          <form
-            className="flex flex-row w-full max-w-full items-center space-x-2 sm:h-12 md:w-4/5 lg:text-3xl lg:w-3/4 xl:h-16"
-            onSubmit={handleSubmit}
-          >
-            <Input
-              type="search"
-              className="w-4/5 h-full md:text-lg lg:text-xl"
-              value={inputValue}
-              onChange={handleInputChange}
-              placeholder="Miejscowość"
-            />
-
-            <Button
-              type="submit"
-              className="bg-[#2B3A67] h-full w-1/5 md:text-lg lg:text-xl"
-            >
-              Szukaj
-            </Button>
-          </form>
-        </div>
+        <CallToAction />
       </main>
     </div>
   );
