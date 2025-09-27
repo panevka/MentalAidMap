@@ -13,6 +13,7 @@ import {
 import SupportResourcesDashboard from "./routes/SupportResourcesDashboard.tsx";
 import ContactPage from "./routes/ContactPage.tsx";
 import Navigation from "@/components/Navigation.tsx";
+import HomePage from "./routes/HomePage.tsx";
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -23,7 +24,7 @@ export default function App() {
         <BrowserRouter>
           <Navigation />
           <Routes>
-            <Route path={MAIN_PAGE_ROUTE} element={<MainPage />} />
+            <Route path={MAIN_PAGE_ROUTE} element={<HomePage />} />
             <Route path={MAP_PAGE_ROUTE} element={<MapPage />} />
             <Route
               path={SUPPORT_RESOURCES_PAGE_ROUTE}
