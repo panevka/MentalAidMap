@@ -14,6 +14,7 @@ import SupportResourcesDashboard from "./routes/SupportResourcesDashboard.tsx";
 import ContactPage from "./routes/ContactPage.tsx";
 import Navigation from "@/components/Navigation.tsx";
 import HomePage from "./routes/HomePage.tsx";
+import ContactUsPage from "./routes/ContactUsPage.tsx";
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -34,7 +35,7 @@ export default function App() {
               path={SUPPORT_RESOURCES_DASHBOARD_PAGE_ROUTE}
               element={<SupportResourcesDashboard />}
             />
-            <Route path={CONTACT_PAGE_ROUTE} element={<ContactPage />} />
+            <Route path={CONTACT_PAGE_ROUTE} element={<ContactUsPage />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
