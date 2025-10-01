@@ -2,6 +2,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { rateLimitMiddleware } from "./rate-limit.middleware";
 import { Express } from "express";
+import router from "./router.middleware";
 
 export const setupCommonMiddleware = (app: Express) => {
   // CORS Middleware
@@ -11,4 +12,6 @@ export const setupCommonMiddleware = (app: Express) => {
   app.use(bodyParser.json());
 
   app.use(rateLimitMiddleware);
+
+  app.use("/api", router);
 };
