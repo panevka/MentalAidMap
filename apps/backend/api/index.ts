@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import router from "./middleware/router.middleware";
 import dotenv from "dotenv";
 import { setupCommonMiddleware } from "./middleware/common.middleware";
 
@@ -16,10 +17,8 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-// Routes
-import apiRoutes from "./routes/apiRoutes";
-
 app.set("trust proxy", true);
-app.use("/api", apiRoutes);
+
+app.use("/api", router);
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
