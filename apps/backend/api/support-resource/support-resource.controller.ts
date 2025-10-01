@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { SupportResource } from "../models/SupportResource";
+import { SupportResource } from "./support-resource.schema";
 import { IRouteDefinition, RequestPayloadType } from "../types/typeUtils";
 
 export const getSupportResources = async (_req: Request, res: Response) => {

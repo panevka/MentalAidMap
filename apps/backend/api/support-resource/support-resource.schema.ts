@@ -1,7 +1,7 @@
 import { ISupportResource } from "@shared/database/SupportResource.types";
-import { AgeRangeSchema } from "./AgeRange";
+import { AgeRangeSchema } from "./subschemas/age-range.schema";
 import mongoose, { Schema } from "mongoose";
-import { ServiceSchema } from "./Service";
+import { ServiceSchema } from "./subschemas/service.schema";
 
 // Collection entry schema
 const SupportResourceSchema: Schema<ISupportResource> = new Schema(

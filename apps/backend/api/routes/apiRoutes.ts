@@ -2,23 +2,23 @@ import express from "express";
 import {
   getProviderDataRouteDefinition,
   getProvidersRouteDefinition,
-} from "../controllers/providerController";
-import { validateRequest } from "../middleware/validator";
+} from "../provider/provider.controller";
+import { validateRequest } from "../middleware/validation.middleware";
 import {
   providersDataQueryValidator,
   providersQueryValidator,
-} from "../validators/providerValidator";
+} from "../provider/provider.validator";
 import {
   createSupportResourceRouteDefinition,
   deleteSupportResourceRouteDefinition,
   getSupportResources,
   updateSupportResourceRouteDefinition,
-} from "../controllers/supportResourceController";
+} from "../support-resource/support-resource.controller";
 import {
   createSupportResourceValidator,
   deleteSupportResourceValidator,
   updateSupportResourceValidator,
-} from "../validators/supportResourceValidator";
+} from "../support-resource/support-resource.validator";
 
 const router = express.Router();
 

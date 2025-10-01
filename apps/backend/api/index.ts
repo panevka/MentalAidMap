@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { setupCommonMiddleware } from "./middleware/commonMiddleware";
+import { setupCommonMiddleware } from "./middleware/common.middleware";
 
 dotenv.config();
 

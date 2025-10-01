@@ -4,7 +4,7 @@ import {
   SupportType,
 } from "@shared/database/SupportResource.types";
 import { Schema } from "mongoose";
-import { ShiftSchema } from "./Shift";
+import { ShiftSchema } from "./shift.schema";
 
 export const ServiceSchema: Schema<IService> = new Schema(
   {
