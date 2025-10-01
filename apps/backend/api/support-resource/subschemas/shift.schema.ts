@@ -1,6 +1,6 @@
 import { IShift } from "@shared/database/SupportResource.types";
 import { Schema } from "mongoose";
-import { AvailabilitySchema } from "./Availability";
+import { AvailabilitySchema } from "./availability.schema";
 
 export const ShiftSchema: Schema<IShift> = new Schema(
   {

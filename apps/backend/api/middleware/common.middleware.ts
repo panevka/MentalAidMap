@@ -1,6 +1,6 @@
 import cors from "cors";
 import bodyParser from "body-parser";
-import { rateLimitMiddleware } from "./rateLimitMiddleware";
+import { rateLimitMiddleware } from "./rate-limit.middleware";
 import { Express } from "express";
 
 export const setupCommonMiddleware = (app: Express) => {

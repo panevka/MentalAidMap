@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Provider } from "../models/Provider";
-import { ProviderAddress } from "../models/ProviderAddress";
+import { Provider } from "./provider.schema";
+import { ProviderAddress } from "./provider-address.schema";
 import axios from "axios";
 import { IRouteDefinition, RequestPayloadType } from "../types/typeUtils";
 

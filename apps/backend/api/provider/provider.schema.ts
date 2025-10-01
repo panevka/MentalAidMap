@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { IProvider } from "../../types/Provider.types";
+import { IProvider } from "./provider.model";
 
 // Providers collection entry
 const ProviderSchema: Schema<IProvider> = new Schema(
