@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Provider } from "./provider.schema";
 import { ProviderAddress } from "./provider-address.schema";
 import axios from "axios";
-import { IRouteDefinition, RequestPayloadType } from "../types/typeUtils";
+import { IRouteDefinition, RequestPayloadType } from "../lib/types/typeUtils";
 
 interface Query {
   city?: string;

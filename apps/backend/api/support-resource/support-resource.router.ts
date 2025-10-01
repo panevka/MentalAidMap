@@ -1,5 +1,5 @@
 import express from "express";
-import { validateRequest } from "../middleware/validation.middleware";
+import { validateRequest } from "../lib/middleware/validation.middleware";
 import {
   createSupportResourceRouteDefinition,
   deleteSupportResourceRouteDefinition,

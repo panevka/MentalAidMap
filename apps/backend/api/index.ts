@@ -1,8 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
-import router from "./middleware/router.middleware";
+import router from "./lib/middleware/router.middleware";
 import dotenv from "dotenv";
-import { setupCommonMiddleware } from "./middleware/common.middleware";
+import { setupCommonMiddleware } from "./lib/middleware/common.middleware";
 
 dotenv.config();
 

@@ -3,7 +3,7 @@ import {
   getProviderDataRouteDefinition,
   getProvidersRouteDefinition,
 } from "../provider/provider.controller";
-import { validateRequest } from "../middleware/validation.middleware";
+import { validateRequest } from "../lib/middleware/validation.middleware";
 import {
   providersDataQueryValidator,
   providersQueryValidator,
