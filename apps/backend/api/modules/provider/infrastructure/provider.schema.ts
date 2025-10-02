@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
-import { IProvider } from "./provider.model";
+import { IProvider } from "../domain/provider.entity";
 
-// Providers collection entry
 const ProviderSchema: Schema<IProvider> = new Schema(
   {
     code: { type: String, required: true },
@@ -14,4 +13,7 @@ const ProviderSchema: Schema<IProvider> = new Schema(
   },
   { collection: "Providers" },
 );
-export const Provider = mongoose.model<IProvider>("Provider", ProviderSchema);
+export const ProviderModel = mongoose.model<IProvider>(
+  "Provider",
+  ProviderSchema,
+);
