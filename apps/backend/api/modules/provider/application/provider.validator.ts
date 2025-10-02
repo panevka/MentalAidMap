@@ -1,31 +1,24 @@
-import { z } from "zod";
+import { z, ZodType } from "zod";
+import { GetProviderDataQuery, GetProvidersQuery } from "./provider.dto";
 
-const postCodeREG = /^\d{2}-\d{3}$/;
-const radiusError = { message: "Radius must be a number between 5 and 150" };
+export const getProvidersValidator = z.object({
+  search: z
+    .string()
+    .min(1, "Search phrase cannot be empty")
+    .max(255, "Search phrase too long")
+    .regex(
+      /^[\p{L}\p{N} _-]+$/u,
+      "Invalid characters detected. Allowed: letters, numbers, spaces, _, -",
+    ),
+}) satisfies ZodType<GetProvidersQuery>;
 
-export const providersQueryValidator = z.object({
-  city: z.string({
-    required_error: "City is required",
-  }),
-  postCode: z
-    .string({
-      required_error: "Post-code is required",
-    })
-    .regex(postCodeREG, {
-      message: "Post-code does not match XX-XXX format",
-    }),
-  radius: z.coerce
-    .number({
-      required_error: "Radius is required",
-    })
-    .min(5, radiusError)
-    .max(150, radiusError),
-});
-
-export const providersDataQueryValidator = z.object({
-  query: z.object({
-    providerCode: z.string({
-      required_error: "City is required",
-    }),
-  }),
-});
+export const getProviderDataValidator = z.object({
+  provider_id: z
+    .string()
+    .min(1, "Cannot be empty")
+    .max(255, "Input too long")
+    .regex(
+      /^[\p{L}\p{N} _-]+$/u,
+      "Invalid characters detected. Allowed: letters, numbers, spaces, _, -",
+    ),
+}) satisfies ZodType<GetProviderDataQuery>;

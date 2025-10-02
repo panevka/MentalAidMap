@@ -1,9 +1,7 @@
 export interface GetProviderDataQuery {
-  providerCode?: string;
+  provider_id: string;
 }
 
 export interface GetProvidersQuery {
-  city?: string;
-  postCode?: string;
-  radius?: string;
+  search: string;
 }

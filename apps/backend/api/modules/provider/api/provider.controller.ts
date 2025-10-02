@@ -11,10 +11,18 @@ const service = new ProviderService(
 export class ProviderController {
   async getProviders(req: Request, res: Response) {
     try {
-      const providers = await service.getProviders(req.query as any);
+      const searchedPhrase = req.query?.search;
+
+      if (typeof searchedPhrase !== "string") {
+        return res.status(400).json({ message: "No search phrase provided" });
+      }
+
+      const providers = await service.getProviders(searchedPhrase);
+
       if (!providers || providers.length === 0) {
         return res.status(404).json({ message: "No providers found" });
       }
+
       return res.json(providers);
     } catch (e) {
       console.error(e);
@@ -24,7 +32,7 @@ export class ProviderController {
 
   async getProviderData(req: Request, res: Response) {
     try {
-      const provider = await service.getProviderData(req.query as any);
+      const provider = await service.getProviderData(req.query);
       if (!provider) {
         return res.status(404).json({ message: "Provider not found" });
       }
