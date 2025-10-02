@@ -1,24 +1,22 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./lib/middleware/router.middleware";
-import dotenv from "dotenv";
 import { setupCommonMiddleware } from "./lib/middleware/common.middleware";
-
-dotenv.config();
+import { EnvManager } from "./lib/env/env-manager";
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-const MONGODB_URI = process.env.MONGODB_URI || "";
-setupCommonMiddleware(app);
 
-// Database connection
 mongoose
-  .connect(MONGODB_URI)
+  .connect(EnvManager.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
+
+setupCommonMiddleware(app);
 
 app.set("trust proxy", true);
 
 app.use("/api", router);
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+app.listen(EnvManager.PORT, () =>
+  console.log(`Server running on port: ${EnvManager.PORT}`),
+);
