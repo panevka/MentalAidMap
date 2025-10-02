@@ -1,7 +1,7 @@
 import express from "express";
 
-import providerRouter from "@/provider/provider.router";
-import supportResourceRouter from "@/support-resource/support-resource.router";
+import providerRouter from "@/modules/provider/api/provider.router";
+import supportResourceRouter from "@/modules/support-resource/support-resource.router";
 
 const router = express.Router();
 

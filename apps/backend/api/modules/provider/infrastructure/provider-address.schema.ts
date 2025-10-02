@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { ILocation, IProviderAddress } from "./provider-address.model";
+import { ILocation, IProviderAddress } from "../domain/provider-address.value";
 
 const LocationSchema: Schema<ILocation> = new Schema({
   type: { type: String, enum: ["Point"], required: true },
@@ -20,7 +20,7 @@ const ProviderAddressSchema: Schema<IProviderAddress> = new Schema(
   { collection: "ProviderAddresses" },
 );
 
-export const ProviderAddress = mongoose.model<IProviderAddress>(
+export const ProviderAddressModel = mongoose.model<IProviderAddress>(
   "ProviderAddress",
   ProviderAddressSchema,
 );
