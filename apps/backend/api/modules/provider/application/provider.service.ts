@@ -1,6 +1,5 @@
 import { ProviderRepository } from "../infrastructure/provider.repository";
 import { GeoapifyClient } from "../infrastructure/geoapify.client";
-import { GetProvidersQuery, GetProviderDataQuery } from "./provider.dto";
 
 export class ProviderService {
   constructor(
@@ -8,16 +7,14 @@ export class ProviderService {
     private geoapify: GeoapifyClient,
   ) {}
 
-  async getProviders(query: GetProvidersQuery) {
-    const { lon, lat } = await this.geoapify.getCoordinates(
-      query?.city,
-      query.postCode,
-    );
+  async getProviders(searchPhrase: string) {
+    const { lon, lat } =
+      await this.geoapify.getCoordinatesBySearchText(searchPhrase);
 
-    return this.repo.findNearLocation([lon, lat], query.radius);
+    return this.repo.findNearLocation([lon, lat], 30);
   }
 
-  async getProviderData(query: GetProviderDataQuery) {
-    return this.repo.findByCode(query.providerCode);
+  async getProviderData(providerCode: string) {
+    return this.repo.findByCode(providerCode);
   }
 }
