@@ -7,7 +7,7 @@ export const getProvidersValidator = z.object({
     .min(1, "Search phrase cannot be empty")
     .max(255, "Search phrase too long")
     .regex(
-      /^[\p{L}\p{N}. _-]+$/u,
+      /^[\p{L}\p{N}. ,_-]+$/u,
       "Invalid characters detected. Allowed: letters, numbers, spaces, _, -",
     ),
 }) satisfies ZodType<GetProvidersQuery>;
