@@ -17,7 +17,7 @@ export const searchFacilities = async (params: SearchFacilitiesParams) => {
 };
 
 export const getFacilityData = async (params: GetFacilityDataParams) => {
-  const endpoint = "provider-data";
+  const endpoint = "provider/data";
   try {
     const response = await axios.get(`${API_URI}/${endpoint}`, { params });
     return response.data;
