@@ -9,7 +9,7 @@ export class GeoapifyClient {
       text: searchText,
       limit: 1,
       lang: "pl",
-      type: "city",
+      type: "amenity",
       filter: "countrycode:pl",
       bias: "countrycode:pl",
       format: "json",
