@@ -1,5 +1,5 @@
 export interface GetProviderDataQuery {
-  provider_id: string;
+  providerCode: string;
 }
 
 export interface GetProvidersQuery {
