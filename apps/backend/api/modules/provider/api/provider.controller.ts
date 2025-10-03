@@ -31,8 +31,14 @@ export class ProviderController {
   }
 
   async getProviderData(req: Request, res: Response) {
+    const providerCode = req.query.providerCode;
+
+    if (typeof providerCode !== "string") {
+      return res.status(400).json({ message: "No provider code provided" });
+    }
+
     try {
-      const provider = await service.getProviderData(req.query);
+      const provider = await service.getProviderData(providerCode);
       if (!provider) {
         return res.status(404).json({ message: "Provider not found" });
       }
