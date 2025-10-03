@@ -10,5 +10,5 @@ export const setupCommonMiddleware = (app: Express) => {
   // Body Parser Middleware
   app.use(bodyParser.json());
 
-  app.use(rateLimitMiddleware);
+  // app.use(rateLimitMiddleware);
 };
