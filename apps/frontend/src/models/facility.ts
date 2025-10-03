@@ -25,9 +25,7 @@ export interface FacilityAddress {
 }
 
 export interface SearchFacilitiesParams {
-  city: string;
-  postCode: string;
-  radius: number;
+  search: string;
 }
 
 export interface GetFacilityDataParams {

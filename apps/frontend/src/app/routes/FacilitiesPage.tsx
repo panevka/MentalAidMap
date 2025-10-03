@@ -1,8 +1,14 @@
 import { Map } from "@/components/Map";
 import { Search } from "lucide-react";
-import { Facility, FacilityAddress } from "@/models/facility";
+import {
+  Facility,
+  FacilityAddress,
+  SearchFacilitiesParams,
+} from "@/models/facility";
+import { useState } from "react";
+import { useGetFacility, useSearchFacilities } from "@/hooks/useFacilities";
 
-const facilities: Facility[] = [
+const facilitiesMock: Facility[] = [
   {
     code: "FAC001",
     nip: "1234567890",
@@ -194,8 +200,28 @@ export const mockFacilityAddresses: FacilityAddress[] = [
 ];
 
 const FacilitiesPage = () => {
-  const handleSearch = () => {
-    console.log("search");
+  const [inputValue, setInputValue] = useState("");
+  const [facilityAdresses, setFacilityAdresses] = useState<FacilityAddress[]>();
+  const [facilities, setFacilities] = useState<Facility[]>();
+
+  const { getFacility } = useGetFacility();
+
+  const { search } = useSearchFacilities();
+
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await search(inputValue).then(async (response) => {
+      setFacilityAdresses(response);
+
+      const facilitiesData = await Promise.all(
+        response.map(async (facility) => {
+          const facilityData = await getFacility(facility.code);
+          return facilityData;
+        }),
+      );
+
+      setFacilities(facilitiesData);
+    });
   };
 
   return (
@@ -209,6 +235,9 @@ const FacilitiesPage = () => {
             >
               <input
                 type="text"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setInputValue(e.target.value)
+                }
                 placeholder="Kraków, ul. Floriańska 15..."
                 className="w-full h-full px-6 py-4 rounded-2xl border-0 bg-white/80 backdrop-blur-sm shadow-lg focus:ring-2 focus:ring-purple-500 focus:outline-none text-gray-900 placeholder-gray-500"
               />
@@ -223,7 +252,7 @@ const FacilitiesPage = () => {
           </div>
 
           <div className="h-full w-full overflow-scroll flex flex-col items-center">
-            {facilities.map((facility) => (
+            {facilities?.map((facility) => (
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-10/12 m-2">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   {facility.name}
@@ -236,7 +265,7 @@ const FacilitiesPage = () => {
           </div>
         </div>
         <div className="bg-red-500 flex-[2] mt-16">
-          <Map facilities={mockFacilityAddresses} />
+          <Map facilities={facilityAdresses} />
         </div>
       </div>
     </div>
