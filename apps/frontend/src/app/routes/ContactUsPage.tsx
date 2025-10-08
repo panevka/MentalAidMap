@@ -31,7 +31,7 @@ const ContactUsPage = () => {
   };
 
   return (
-    <div className="pt-24 pb-16 bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 min-h-screen">
+    <div className="pt-24 pb-16 bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
