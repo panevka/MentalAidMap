@@ -203,6 +203,7 @@ const FacilitiesPage = () => {
   const [inputValue, setInputValue] = useState("");
   const [facilityAdresses, setFacilityAdresses] = useState<FacilityAddress[]>();
   const [facilities, setFacilities] = useState<Facility[]>();
+  const [showFacilityList, setShowFacilityList] = useState<boolean>(false);
 
   const { getFacility } = useGetFacility();
 
@@ -251,7 +252,16 @@ const FacilitiesPage = () => {
             </form>
           </div>
 
-          <div className="h-full w-full overflow-scroll flex flex-col items-center">
+          <button
+            onClick={() => setShowFacilityList((prev) => !prev)}
+            className="lg:hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300"
+          >
+            Widok listy
+          </button>
+
+          <div
+            className={`h-full w-full overflow-scroll ${showFacilityList ? "" : "hidden"} lg:flex flex-col items-center`}
+          >
             {facilities?.map((facility) => (
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-10/12 m-2">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
