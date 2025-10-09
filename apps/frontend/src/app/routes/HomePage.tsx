@@ -38,7 +38,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="pt-16">
+    <div>
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
