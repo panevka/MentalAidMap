@@ -226,10 +226,10 @@ const FacilitiesPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 min-h-screen">
+    <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 h-full min-h-0">
       <div className="flex h-full flex-col lg:flex-row overflow-hidden">
-        <div className="flex-1 py-8 mt-16">
-          <div className="max-w-2xl mx-auto mb-12 w-full p-8">
+        <div className="flex flex-col flex-1">
+          <div className="max-w-2xl mx-auto p-8">
             <form
               className="relative flex flex-col md:flex-row h-16"
               onSubmit={handleSearch}
@@ -260,7 +260,7 @@ const FacilitiesPage = () => {
           </button>
 
           <div
-            className={`h-full w-full overflow-scroll ${showFacilityList ? "" : "hidden"} lg:flex flex-col items-center`}
+            className={`flex-1 overflow-auto ${showFacilityList ? "" : "hidden lg:flex"} flex flex-col items-center`}
           >
             {facilities?.map((facility) => (
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-10/12 m-2">
@@ -271,10 +271,12 @@ const FacilitiesPage = () => {
                 <p className="text-gray-600">NIP: {facility.nip}</p>
                 <p className="text-gray-600">REGON: {facility.regon}</p>
               </div>
-            ))}
+            )) || <p className="text-gray-600">Brak placówek</p>}
           </div>
         </div>
-        <div className="bg-red-500 flex-[2] mt-16">
+        <div
+          className={`bg-red-500 flex-[2] ${showFacilityList ? "hidden" : ""} lg:visible`}
+        >
           <Map facilities={facilityAdresses} />
         </div>
       </div>
