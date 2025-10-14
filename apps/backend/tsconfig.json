@@ -12,7 +12,7 @@
                 "../../packages/shared/src/*"
             ],
             "@/*": [
-                "api/*"
+                "src/*"
             ]
         },
         "strict": true,
@@ -37,7 +37,7 @@
         "noUncheckedIndexedAccess": true
     },
     "include": [
-        "api/**/*",
+        "src/**/*",
         "../../packages/shared/**/*"
     ],
     "exclude": [

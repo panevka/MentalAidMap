@@ -3,11 +3,11 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   clean: true,
   dts: false,
-  entry: ["api/index.ts"],
+  entry: ["src/index.ts"],
   format: ["cjs"],
   sourcemap: true,
   target: "es2022",
   minify: false,
-  outDir: "dist",
+  outDir: "api",
   tsconfig: "tsconfig.json",
 });
