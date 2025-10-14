@@ -1,4 +1,4 @@
-import { EnvManager } from "@/lib/env/env-manager";
+import { EnvManager } from "src/lib/env/env-manager";
 import axios from "axios";
 
 export class GeoapifyClient {
