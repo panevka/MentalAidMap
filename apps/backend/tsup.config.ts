@@ -4,7 +4,7 @@ export default defineConfig({
   // splitting: true,
   clean: true,
   // dts: false,
-  entry: ["api/index.ts"],
+  entry: ["src/index.ts"],
   format: ["esm", "cjs"],
   sourcemap: true,
   target: "es2022",
