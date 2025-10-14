@@ -10,7 +10,7 @@ export default defineConfig({
   target: "es2022",
   minify: false,
   bundle: false,
-  outDir: ".vercel/output/functions",
+  outDir: ".vercel/output/functions/index.func",
   tsconfig: "tsconfig.json",
   // esbuildOptions(options, context) {
   //   // the directory structure will be the same as the source
