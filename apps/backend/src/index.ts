@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import router from "./lib/middleware/router.middleware";
 import { setupCommonMiddleware } from "./lib/middleware/common.middleware";
 import { EnvManager } from "./lib/env/env-manager";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
 const app = express();
 
@@ -20,3 +21,7 @@ app.use("/api", router);
 app.listen(EnvManager.PORT, () =>
   console.log(`Server running on port: ${EnvManager.PORT}`),
 );
+
+export default (req: VercelRequest, res: VercelResponse) => {
+  return app(req, res);
+};
