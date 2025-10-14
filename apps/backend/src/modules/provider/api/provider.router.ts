@@ -5,7 +5,7 @@ import {
   getProvidersValidator,
 } from "../application/provider.validator";
 import { ProviderController } from "./provider.controller";
-import { RequestPayloadType } from "api/lib/types/typeUtils";
+import { RequestPayloadType } from "src/lib/types/typeUtils";
 
 const router = express.Router();
 const controller = new ProviderController();
