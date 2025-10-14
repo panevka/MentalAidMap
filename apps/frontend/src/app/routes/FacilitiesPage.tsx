@@ -33,10 +33,10 @@ const FacilitiesPage = () => {
   return (
     <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 h-full min-h-0">
       <div className="flex h-full flex-col lg:flex-row overflow-hidden">
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 max-h-full">
           <div className="max-w-2xl mx-auto p-8">
             <form
-              className="relative flex flex-col md:flex-row h-16"
+              className="relative flex flex-col md:flex-row md:h-16 items-center justify-between"
               onSubmit={handleSearch}
             >
               <input
@@ -45,27 +45,27 @@ const FacilitiesPage = () => {
                   setInputValue(e.target.value)
                 }
                 placeholder="Kraków, ul. Floriańska 15..."
-                className="w-full h-full px-6 py-4 rounded-2xl border-0 bg-white/80 backdrop-blur-sm shadow-lg focus:ring-2 focus:ring-purple-500 focus:outline-none text-gray-900 placeholder-gray-500"
+                className="w-full h-full px-6 py-4 rounded-2xl border-0 bg-white/80 backdrop-blur-sm shadow-lg focus:ring-2 focus:ring-purple-500 focus:outline-none text-gray-900 placeholder-gray-500 mb-4"
               />
 
               <button
                 type="submit"
-                className="h-full flex justify-center items-center aspect-square bg-gradient-to-r from-purple-600 to-pink-600 mx-5 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300"
+                className="w-full md:w-auto h-12 md:h-full flex justify-center items-center md:aspect-square bg-gradient-to-r from-purple-600 to-pink-600 mx-5 mb-2 rounded-full font-semibold text-lg hover:scale-105 transform transition-all duration-300"
               >
                 <Search className="text-white h-5 w-5" />
               </button>
             </form>
+
+            <button
+              onClick={() => setShowFacilityList((prev) => !prev)}
+              className="lg:hidden w-full h-12 text-center bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300"
+            >
+              Widok listy
+            </button>
           </div>
 
-          <button
-            onClick={() => setShowFacilityList((prev) => !prev)}
-            className="lg:hidden bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300"
-          >
-            Widok listy
-          </button>
-
           <div
-            className={`flex-1 overflow-auto ${showFacilityList ? "" : "hidden lg:flex"} flex flex-col items-center`}
+            className={`h-full flex-1 overflow-scroll ${showFacilityList ? "" : "hidden lg:flex"} flex flex-col items-center`}
           >
             {facilities?.map((facility) => (
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-10/12 m-2">
