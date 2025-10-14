@@ -1,18 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import SupportResourcesPage from "./routes/SupportResourcesPage.tsx";
 import {
   CONTACT_PAGE_ROUTE,
   MAIN_PAGE_ROUTE,
   MAP_PAGE_ROUTE,
-  SUPPORT_RESOURCES_DASHBOARD_PAGE_ROUTE,
   SUPPORT_RESOURCES_PAGE_ROUTE,
 } from "@/config/routeConfig.ts";
-import SupportResourcesDashboard from "./routes/SupportResourcesDashboard.tsx";
 import Navigation from "@/components/Navigation.tsx";
 import HomePage from "./routes/HomePage.tsx";
 import ContactUsPage from "./routes/ContactUsPage.tsx";
 import FacilitiesPage from "./routes/FacilitiesPage.tsx";
+import ResourcesPage from "./routes/ResourcesPage.tsx";
 
 export default function App() {
   const queryClient = new QueryClient();
@@ -27,11 +25,7 @@ export default function App() {
             <Route path={MAP_PAGE_ROUTE} element={<FacilitiesPage />} />
             <Route
               path={SUPPORT_RESOURCES_PAGE_ROUTE}
-              element={<SupportResourcesPage />}
-            />
-            <Route
-              path={SUPPORT_RESOURCES_DASHBOARD_PAGE_ROUTE}
-              element={<SupportResourcesDashboard />}
+              element={<ResourcesPage />}
             />
             <Route path={CONTACT_PAGE_ROUTE} element={<ContactUsPage />} />
           </Routes>
