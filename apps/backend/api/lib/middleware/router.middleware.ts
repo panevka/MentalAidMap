@@ -1,6 +1,6 @@
 import express from "express";
 
-import providerRouter from "@/modules/provider/api/provider.router";
+import providerRouter from "../../modules/provider/api/provider.router";
 import simplifiedSupportResourceRouter from "@/modules/simplified-support-resource/api/simplified-support-resource.router";
 
 const router = express.Router();
