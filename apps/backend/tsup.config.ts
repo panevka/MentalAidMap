@@ -8,6 +8,6 @@ export default defineConfig({
   sourcemap: true,
   target: "es2022",
   minify: false,
-  outDir: "dist",
+  outDir: "dist/api",
   tsconfig: "tsconfig.json",
 });
