@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup api/index.ts --format cjs --out-dir dist --bundle --clean",
+    "build": "tsup api/index.ts --format cjs --out-dir dist",
     "start": "node dist/index.js",
     "start:debug": "npx nodemon dist",
     "dev": "npx tsup --watch --onSuccess \"npx nodemon dist/index.mjs\"",
