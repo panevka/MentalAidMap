@@ -17,6 +17,8 @@ app.set("trust proxy", true);
 
 app.use("/api", router);
 
-app.listen(EnvManager.PORT, () =>
-  console.log(`Server running on port: ${EnvManager.PORT}`),
-);
+// app.listen(EnvManager.PORT, () =>
+//   console.log(`Server running on port: ${EnvManager.PORT}`),
+// );
+
+export default app;
