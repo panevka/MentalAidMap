@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import router from "./lib/middleware/router.middleware";
 import { setupCommonMiddleware } from "./lib/middleware/common.middleware";
 import { EnvManager } from "./lib/env/env-manager";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
 const app = express();
 
@@ -17,8 +18,10 @@ app.set("trust proxy", true);
 
 app.use("/api", router);
 
-// app.listen(EnvManager.PORT, () =>
-//   console.log(`Server running on port: ${EnvManager.PORT}`),
-// );
+app.listen(EnvManager.PORT, () =>
+  console.log(`Server running on port: ${EnvManager.PORT}`),
+);
 
-export default app;
+export default function handler(req: VercelRequest, res: VercelResponse) {
+  app(req, res);
+}
